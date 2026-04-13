@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Get in touch with StormCloud AI. Tell us about your project and we'll get back to you within 1 business day." />
+  <title>Contact — StormCloud AI</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ── Navigation ── -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">⚡</div>
+      Storm<span>Cloud</span> AI
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="http://localhost:3000/login" class="nav-signin">Sign In</a></li>
+      <li><a href="contact.html" class="btn btn-primary nav-cta">Get in Touch</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<span class="close-nav" aria-label="Close menu">✕</span>
+
+<!-- ── Page Hero ── -->
+<div class="page-hero">
+  <div class="container">
+    <span class="section-label">Get in Touch</span>
+    <h1>Let's start a <span class="highlight">conversation</span></h1>
+    <p>Tell us about your business and what you're trying to achieve. We'll come back to you within 1 business day.</p>
+  </div>
+</div>
+
+<!-- ── Contact ── -->
+<section>
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- Info -->
+      <div class="contact-info">
+        <h2>How can we <span class="highlight">help?</span></h2>
+        <p>Whether you need a new website, want to explore AI automation, or just want to talk strategy — we're ready to listen.</p>
+
+        <div class="contact-detail">
+          <div class="cd-icon">✉️</div>
+          <div>
+            <h4>Email Us</h4>
+            <p><a href="mailto:hello@stormcloud.ai" style="color:var(--blue);">hello@stormcloud.ai</a></p>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="cd-icon">📞</div>
+          <div>
+            <h4>Call Us</h4>
+            <p><a href="tel:+441234567890" style="color:var(--blue);">+44 (0) 1234 567 890</a></p>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="cd-icon">📍</div>
+          <div>
+            <h4>Location</h4>
+            <p>London, UK<br/>Serving clients across the UK &amp; beyond</p>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="cd-icon">⏱️</div>
+          <div>
+            <h4>Response Time</h4>
+            <p>We reply within 1 business day.<br/>Mon–Fri, 9am–6pm GMT</p>
+          </div>
+        </div>
+
+        <div style="margin-top:40px; padding:28px; background:var(--navy-card); border:1px solid var(--navy-border); border-radius:14px;">
+          <div style="font-size:0.8rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--blue); margin-bottom:12px;">Free Consultation</div>
+          <p style="font-size:0.9rem; line-height:1.65;">Not sure what you need? We offer a free 30-minute strategy call to any new UK business. No obligation, just honest advice.</p>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="form-card">
+        <h3 style="color:var(--white); margin-bottom:8px;">Send us a message</h3>
+        <p style="font-size:0.875rem; margin-bottom:32px;">Fill in the form and we'll get back to you shortly.</p>
+
+        <form class="contact-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="first-name">First Name *</label>
+              <input type="text" id="first-name" name="first-name" placeholder="Jane" required />
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last Name *</label>
+              <input type="text" id="last-name" name="last-name" placeholder="Smith" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" placeholder="jane@yourbusiness.co.uk" required />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="+44 7700 900000" />
+          </div>
+
+          <div class="form-group">
+            <label for="company">Company Name</label>
+            <input type="text" id="company" name="company" placeholder="Your Business Ltd" />
+          </div>
+
+          <div class="form-group">
+            <label for="service">Service Interested In</label>
+            <select id="service" name="service">
+              <option value="" disabled selected>Select a service…</option>
+              <option>Web Design &amp; Development</option>
+              <option>AWS Cloud Infrastructure</option>
+              <option>AI Chatbot</option>
+              <option>Workflow Automation</option>
+              <option>SEO</option>
+              <option>Paid Ads (Google / Meta)</option>
+              <option>Social Media Management</option>
+              <option>Brand Identity</option>
+              <option>Content &amp; Copywriting</option>
+              <option>Multiple Services</option>
+              <option>Not Sure — Need Advice</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Tell Us About Your Project *</label>
+            <textarea id="message" name="message" placeholder="Give us a brief overview of your business, what you're looking to achieve and any relevant details…" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary form-submit">Send Message &rarr;</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <div class="logo-icon">⚡</div>
+          Storm<span>Cloud</span> AI
+        </a>
+        <p>UK tech &amp; marketing agency helping SMEs grow with web, cloud, AI and digital marketing.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="services.html#tech">Web &amp; Cloud</a>
+        <a href="services.html#ai">AI &amp; Automation</a>
+        <a href="services.html#marketing">Digital Marketing</a>
+        <a href="services.html#brand">Brand &amp; Content</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:hello@stormcloud.ai">hello@stormcloud.ai</a>
+        <a href="tel:+441234567890">+44 (0) 1234 567 890</a>
+        <a href="#">London, UK</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 StormCloud AI Ltd. All rights reserved.</span>
+      <span>Registered in England &amp; Wales</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="StormCloud AI — UK digital marketing agency specialising in SEO, paid ads, social media, content and AI-powered growth for SMEs. Get found. Get leads. Get growth." />
+  <title>StormCloud AI — SEO &amp; Digital Marketing Agency UK</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!--
+    PHOTOS: Replace the CSS custom properties below with real image URLs.
+    Recommended source: https://unsplash.com — search "woman datacenter",
+    "woman technology server", "AI data center", "woman working technology"
+    Then set e.g.  --hero-photo: url('images/hero.jpg');
+  -->
+  <style>
+    /* Photo slots ready — add real images here when available:
+       --hero-photo: url('images/hero.jpg');  — uncomment and set .hero-visual-panel .photo-layer
+       --banner-photo: url('images/banner.jpg');
+    */
+  </style>
+</head>
+<body>
+
+<!-- ── Navigation ── -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">⚡</div>
+      Storm<span>Cloud</span> AI
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="http://localhost:3000/login" class="nav-signin">Sign In</a></li>
+      <li><a href="contact.html" class="btn btn-primary nav-cta">Free Consultation</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<span class="close-nav" aria-label="Close menu">✕</span>
+
+<!-- ── Hero ── -->
+<section class="hero" style="padding-top:0; min-height:100vh; display:flex; align-items:center;">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <div class="container" style="width:100%;">
+    <div class="hero-inner">
+
+      <!-- Left: copy -->
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          UK Digital Marketing &amp; SEO Agency
+        </div>
+        <h1>Get found.<br />Get leads.<br /><em>Get growth.</em></h1>
+        <p class="hero-sub">We help UK SMEs dominate Google, win on social and turn clicks into customers — powered by AI, driven by results.</p>
+        <div class="hero-actions">
+          <a href="http://localhost:3000/register" class="btn btn-primary">Try the SEO Tool Free &rarr;</a>
+          <a href="contact.html" class="btn btn-outline">Get a Strategy Call</a>
+        </div>
+        <div class="hero-proof">
+          <span class="stars">★★★★★</span>
+          &nbsp;Trusted by 50+ UK businesses
+        </div>
+      </div>
+
+      <!-- Right: SEO Dashboard Panel -->
+      <div class="hero-visual-panel">
+
+        <!-- Live SEO Audit Dashboard -->
+        <div class="seo-dash">
+          <!-- URL bar -->
+          <div class="dash-urlbar">
+            <div class="dash-url">
+              <span class="dash-urlpip"></span>
+              yourclient.co.uk
+            </div>
+            <span class="dash-scanstatus"><span class="dash-spin">⟳</span>&nbsp;Scanning</span>
+          </div>
+
+          <!-- Score gauge + issues -->
+          <div class="dash-mid">
+            <div class="gauge-wrap">
+              <svg class="gauge-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="gaugeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#2D6ECC"/>
+                    <stop offset="100%" stop-color="#6AB4FF"/>
+                  </linearGradient>
+                </defs>
+                <circle class="gauge-bg" cx="50" cy="50" r="40"/>
+                <circle class="gauge-fill run" cx="50" cy="50" r="40"/>
+              </svg>
+              <div class="gauge-center">
+                <span class="gauge-num">74</span>
+                <span class="gauge-lbl">Score</span>
+              </div>
+            </div>
+            <div class="dash-issues">
+              <div class="dash-iss crit"><span class="iss-dot"></span>Critical Issues<span class="iss-count">4</span></div>
+              <div class="dash-iss warn"><span class="iss-dot"></span>Warnings<span class="iss-count">11</span></div>
+              <div class="dash-iss opp"><span class="iss-dot"></span>Opportunities<span class="iss-count">6</span></div>
+            </div>
+          </div>
+
+          <!-- Live scan checks -->
+          <div class="dash-checks" id="dashChecks">
+            <div class="chk done"><span class="chk-i">✓</span>Title &amp; meta tags</div>
+            <div class="chk done"><span class="chk-i">✓</span>SSL certificate valid</div>
+            <div class="chk active"><span class="chk-i dash-spin">⟳</span>Analysing Core Web Vitals...</div>
+            <div class="chk pending"><span class="chk-i">○</span>Schema markup</div>
+            <div class="chk pending"><span class="chk-i">○</span>Backlink profile</div>
+          </div>
+
+          <!-- Ranking chart -->
+          <div class="dash-rank">
+            <div class="rank-head">
+              <span class="rank-kw">"london accountant" — Google</span>
+              <span class="rank-pill">↑ Pos 18 → 3</span>
+            </div>
+            <div class="rank-chart-bars" id="rankBars">
+              <div class="rbar" style="height:14%;animation-delay:0.10s"></div>
+              <div class="rbar" style="height:19%;animation-delay:0.16s"></div>
+              <div class="rbar" style="height:27%;animation-delay:0.22s"></div>
+              <div class="rbar" style="height:35%;animation-delay:0.28s"></div>
+              <div class="rbar" style="height:44%;animation-delay:0.34s"></div>
+              <div class="rbar" style="height:54%;animation-delay:0.40s"></div>
+              <div class="rbar" style="height:64%;animation-delay:0.46s"></div>
+              <div class="rbar" style="height:74%;animation-delay:0.52s"></div>
+              <div class="rbar" style="height:86%;animation-delay:0.58s"></div>
+              <div class="rbar peak" style="height:100%;animation-delay:0.64s"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating chips -->
+        <div class="photo-chip chip-tr">
+          <div class="chip-icon">📈</div>
+          <div>
+            <div class="chip-val">+340%</div>
+            <div class="chip-lbl">Organic Traffic</div>
+          </div>
+        </div>
+        <div class="photo-chip chip-bl">
+          <div>
+            <div class="chip-live"><span class="pulse"></span>Live Campaign</div>
+            <div class="chip-val" style="margin-top:4px;">4.8× ROAS</div>
+            <div class="chip-lbl">Google Ads — Active</div>
+          </div>
+        </div>
+        <div class="photo-chip chip-br">
+          <div class="chip-icon">🎯</div>
+          <div>
+            <div class="chip-val">#1</div>
+            <div class="chip-lbl">Google Ranking</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Ticker ── -->
+<div class="ticker">
+  <div class="ticker-track">
+    <div class="ticker-item"><span class="t-icon">📈</span> <strong>+340%</strong> organic traffic in 6 months</div>
+    <div class="ticker-sep">·</div>
+    <div class="ticker-item"><span class="t-icon">🎯</span> Average <strong>4.8× ROAS</strong> on paid ads</div>
+    <div class="ticker-sep">·</div>
+    <div class="ticker-item"><span class="t-icon">🔍</span> <strong>Page 1</strong> Google rankings delivered</div>
+    <div class="ticker-sep">·</div>
+    <div class="ticker-item"><span class="t-icon">🤖</span> AI-powered campaigns that optimise 24/7</div>
+    <div class="ticker-sep">·</div>
+    <div class="ticker-item"><span class="t-icon">💷</span> <strong>£2M+</strong> revenue generated for clients</div>
+    <div class="ticker-sep">·</div>
+    <div class="ticker-item"><span class="t-icon">⚡</span> Campaigns live in <strong>72 hours</strong></div>
+    <div class="ticker-sep">·</div>
+    <div class="ticker-item"><span class="t-icon">📈</span> <strong>+340%</strong> organic traffic in 6 months</div>
+    <div class="ticker-sep">·</div>
+    <div class="ticker-item"><span class="t-icon">🎯</span> Average <strong>4.8× ROAS</strong> on paid ads</div>
+    <div class="ticker-sep">·</div>
+    <div class="ticker-item"><span class="t-icon">🔍</span> <strong>Page 1</strong> Google rankings delivered</div>
+    <div class="ticker-sep">·</div>
+    <div class="ticker-item"><span class="t-icon">🤖</span> AI-powered campaigns that optimise 24/7</div>
+    <div class="ticker-sep">·</div>
+    <div class="ticker-item"><span class="t-icon">💷</span> <strong>£2M+</strong> revenue generated for clients</div>
+    <div class="ticker-sep">·</div>
+    <div class="ticker-item"><span class="t-icon">⚡</span> Campaigns live in <strong>72 hours</strong></div>
+    <div class="ticker-sep">·</div>
+  </div>
+</div>
+
+<!-- ── Results Numbers ── -->
+<div class="results-strip">
+  <div class="container">
+    <div class="results-grid">
+      <div class="result-item">
+        <div class="result-num">50<span>+</span></div>
+        <div class="result-label">UK Businesses Grown</div>
+      </div>
+      <div class="result-item">
+        <div class="result-num">£2<span>M+</span></div>
+        <div class="result-label">Revenue Generated</div>
+      </div>
+      <div class="result-item">
+        <div class="result-num">4.8<span>×</span></div>
+        <div class="result-label">Average Ad ROAS</div>
+      </div>
+      <div class="result-item">
+        <div class="result-num">98<span>%</span></div>
+        <div class="result-label">Client Retention Rate</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Services ── -->
+<section id="services">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Our Services</span>
+      <h2>Everything you need to <span class="highlight">dominate your market</span></h2>
+      <p>From ranking #1 on Google to running ads that actually convert — we handle the full digital marketing stack so you can focus on running your business.</p>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card featured">
+        <div class="featured-tag">Most Popular</div>
+        <span class="svc-icon">🔍</span>
+        <h3>Search Engine Optimisation</h3>
+        <p>Own page one for the keywords your customers are searching. Technical SEO, content strategy and link building that compounds over time.</p>
+        <a href="services.html#seo" class="svc-link">Learn more →</a>
+      </div>
+      <div class="svc-card featured">
+        <div class="featured-tag">High ROI</div>
+        <span class="svc-icon">💰</span>
+        <h3>Google &amp; Meta Paid Ads</h3>
+        <p>Stop wasting ad spend. We build and manage PPC campaigns on Google and Meta that target the right people and turn clicks into customers.</p>
+        <a href="services.html#ads" class="svc-link">Learn more →</a>
+      </div>
+      <div class="svc-card">
+        <span class="svc-icon">📱</span>
+        <h3>Social Media Management</h3>
+        <p>Consistent, on-brand content across LinkedIn, Instagram, Facebook and X — building an audience that knows, likes and trusts you.</p>
+        <a href="services.html#social" class="svc-link">Learn more →</a>
+      </div>
+      <div class="svc-card">
+        <span class="svc-icon">✍️</span>
+        <h3>Content &amp; Copywriting</h3>
+        <p>SEO-optimised blogs, landing pages and email copy that ranks, converts and positions you as the expert in your field.</p>
+        <a href="services.html#content" class="svc-link">Learn more →</a>
+      </div>
+      <div class="svc-card">
+        <span class="svc-icon">🤖</span>
+        <h3>AI Marketing Automation</h3>
+        <p>Automate your follow-ups, lead nurturing and reporting with AI. Work less on marketing admin, see more results.</p>
+        <a href="services.html#automation" class="svc-link">Learn more →</a>
+      </div>
+      <div class="svc-card">
+        <span class="svc-icon">🎨</span>
+        <h3>Brand &amp; Web Design</h3>
+        <p>A brand identity and website that stops the scroll and converts visitors into leads. Built to perform, not just look good.</p>
+        <a href="services.html#brand" class="svc-link">Learn more →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Photo Banner — AI + Data ── -->
+<!--
+  PHOTO: Set --banner-photo in the <style> block at the top.
+  Ideal Unsplash searches: "woman datacenter", "AI technology woman", "server room professional"
+-->
+<div class="photo-banner">
+  <div class="banner-bg-grad"></div>
+  <div class="banner-grid-lines"></div>
+
+  <div class="photo-banner-content">
+    <div class="container">
+      <div>
+        <span class="section-label">AI-Powered Marketing</span>
+        <h2>Marketing intelligence that <span class="highlight">never sleeps</span></h2>
+        <p>Our AI systems analyse your campaigns 24/7 — identifying opportunities, adjusting bids and optimising content while your competitors are still manually checking dashboards.</p>
+        <a href="contact.html" class="btn btn-primary">See How It Works &rarr;</a>
+      </div>
+      <div class="banner-stats">
+        <div class="banner-stat-row">
+          <div class="bs-icon">🧠</div>
+          <div>
+            <div class="bs-val">24/7</div>
+            <div class="bs-lbl">AI campaign monitoring &amp; optimisation</div>
+          </div>
+        </div>
+        <div class="banner-stat-row">
+          <div class="bs-icon">⚡</div>
+          <div>
+            <div class="bs-val">72hrs</div>
+            <div class="bs-lbl">From briefing to live campaign</div>
+          </div>
+        </div>
+        <div class="banner-stat-row">
+          <div class="bs-icon">📊</div>
+          <div>
+            <div class="bs-val">Weekly</div>
+            <div class="bs-lbl">Plain-English performance reports</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── How We Work ── -->
+<section style="background: var(--navy-mid);">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Our Process</span>
+      <h2>From strategy to <span class="highlight">results</span> in 4 steps</h2>
+      <p>No lengthy onboarding. No fluff. We move fast and start delivering value from week one.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-step fade-up">
+        <div class="step-num">01</div>
+        <h4>Free Strategy Call</h4>
+        <p>We audit your current digital presence, understand your goals and identify your biggest growth opportunities.</p>
+      </div>
+      <div class="process-step fade-up">
+        <div class="step-num">02</div>
+        <h4>Custom Growth Plan</h4>
+        <p>You get a tailored plan — the right channels, the right budget and a clear picture of expected results.</p>
+      </div>
+      <div class="process-step fade-up">
+        <div class="step-num">03</div>
+        <h4>We Launch Fast</h4>
+        <p>Campaigns go live within 72 hours. No waiting months to see action — we get to work immediately.</p>
+      </div>
+      <div class="process-step fade-up">
+        <div class="step-num">04</div>
+        <h4>Optimise &amp; Scale</h4>
+        <p>Weekly reporting, continuous optimisation and a clear path to scaling what's working.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Photo Grid + Testimonials ── -->
+<section>
+  <div class="container">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start;">
+
+      <!-- Stat visualisation panels -->
+      <div class="photo-grid">
+
+        <!-- Rankings panel (tall) -->
+        <div class="stat-panel tall fade-up">
+          <div class="stat-tag">🔍 SEO Rankings</div>
+          <div class="stat-big">#1</div>
+          <div class="stat-sub">Google position achieved<br/>from a standing start</div>
+          <div class="stat-delta">↑ From position 18 in 6 months</div>
+          <div class="stat-bars-wrap" id="statBars1">
+            <div class="sbar" style="height:14%;animation-delay:0.10s"></div>
+            <div class="sbar" style="height:20%;animation-delay:0.16s"></div>
+            <div class="sbar" style="height:29%;animation-delay:0.22s"></div>
+            <div class="sbar" style="height:38%;animation-delay:0.28s"></div>
+            <div class="sbar" style="height:49%;animation-delay:0.34s"></div>
+            <div class="sbar" style="height:60%;animation-delay:0.40s"></div>
+            <div class="sbar" style="height:71%;animation-delay:0.46s"></div>
+            <div class="sbar" style="height:82%;animation-delay:0.52s"></div>
+            <div class="sbar g" style="height:100%;animation-delay:0.58s"></div>
+          </div>
+        </div>
+
+        <!-- Traffic panel -->
+        <div class="stat-panel fade-up">
+          <div class="stat-tag">📈 Organic Traffic</div>
+          <div class="stat-big">+340%</div>
+          <div class="stat-sub">Growth in 6 months</div>
+          <div class="stat-delta">↑ 8,200 → 36,000 monthly visits</div>
+          <svg class="sparkline-svg" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="spkGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="rgba(77,158,255,0.25)"/>
+                <stop offset="100%" stop-color="rgba(77,158,255,0)"/>
+              </linearGradient>
+            </defs>
+            <polygon points="0,50 0,44 22,42 44,38 66,34 88,28 110,22 132,16 154,10 176,6 200,2 200,50" fill="url(#spkGrad)"/>
+            <polyline points="0,44 22,42 44,38 66,34 88,28 110,22 132,16 154,10 176,6 200,2" fill="none" stroke="#4D9EFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <!-- Revenue panel -->
+        <div class="stat-panel fade-up">
+          <div class="stat-tag">💰 Revenue</div>
+          <div class="stat-big">£2M+</div>
+          <div class="stat-sub">Generated for UK clients</div>
+          <div class="stat-delta">↑ 98% client retention</div>
+        </div>
+
+      </div>
+
+      <!-- Testimonials stacked -->
+      <div>
+        <span class="section-label">Client Results</span>
+        <h2 style="margin-bottom:32px;">Real businesses.<br /><span class="highlight">Real growth.</span></h2>
+        <div style="display:flex; flex-direction:column; gap:20px;">
+          <div class="testi-card fade-up">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-quote">"Our organic traffic tripled in four months. We're now ranking for terms we never thought possible."</p>
+            <div class="testi-author">
+              <div class="testi-avatar">SH</div>
+              <div>
+                <div class="testi-name">Sarah H.</div>
+                <div class="testi-role">Founder, The Interior Studio</div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card fade-up">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-quote">"We rebuilt our Google Ads from scratch and now get 5× the leads at half the cost. Incredible."</p>
+            <div class="testi-author">
+              <div class="testi-avatar">MR</div>
+              <div>
+                <div class="testi-name">Mark R.</div>
+                <div class="testi-role">Director, Apex Recruitment</div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card fade-up">
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-quote">"LinkedIn following grew by 2,000 in three months. The content quality is outstanding."</p>
+            <div class="testi-author">
+              <div class="testi-avatar">JT</div>
+              <div>
+                <div class="testi-name">James T.</div>
+                <div class="testi-role">CEO, Meridian Consulting</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Why Us ── -->
+<section style="background: var(--navy-mid);">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Why StormCloud AI</span>
+      <h2>Not your average <span class="highlight">marketing agency</span></h2>
+      <p>We combine the creativity of a marketing agency with the precision of a technology company.</p>
+    </div>
+    <div class="why-grid" style="max-width:900px; margin:0 auto;">
+      <div class="why-card fade-up">
+        <div class="why-icon">🤖</div>
+        <div>
+          <h3>AI-Powered Campaigns</h3>
+          <p>We use AI to research, optimise and report on every campaign — so your budget works harder and results compound faster.</p>
+        </div>
+      </div>
+      <div class="why-card fade-up">
+        <div class="why-icon">📊</div>
+        <div>
+          <h3>100% Transparent Reporting</h3>
+          <p>Weekly reports in plain English. You always know exactly what we're doing, what it's costing and what it's returning.</p>
+        </div>
+      </div>
+      <div class="why-card fade-up">
+        <div class="why-icon">🇬🇧</div>
+        <div>
+          <h3>Built for UK SMEs</h3>
+          <p>No offshore teams, no template strategies. We know the UK market inside out and build campaigns that speak to your customers.</p>
+        </div>
+      </div>
+      <div class="why-card fade-up">
+        <div class="why-icon">⚡</div>
+        <div>
+          <h3>Fast to Launch, Built to Scale</h3>
+          <p>Campaigns live in 72 hours. As your results grow, we scale what's working — fast, efficiently and without losing quality.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-section" style="padding-top:100px;">
+  <div class="container">
+    <div class="cta-box">
+      <span class="section-label">Get Started Today</span>
+      <h2>Ready to grow your business <span class="highlight">faster?</span></h2>
+      <p>Book a free 30-minute strategy call. We'll audit your digital presence and show you exactly where your biggest growth opportunities are.</p>
+      <div class="cta-actions">
+        <a href="http://localhost:3000/register" class="btn btn-primary">Try the SEO Tool Free &rarr;</a>
+        <a href="contact.html" class="btn btn-outline">Book a Strategy Call</a>
+      </div>
+      <p class="cta-note">No commitment required. No sales pressure. Just honest advice.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <div class="logo-icon">⚡</div>
+          Storm<span>Cloud</span> AI
+        </a>
+        <p>UK digital marketing agency helping SMEs get found, get leads and get growth with AI-powered SEO, ads and social media.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="services.html#seo">SEO</a>
+        <a href="services.html#ads">Paid Ads</a>
+        <a href="services.html#social">Social Media</a>
+        <a href="services.html#content">Content</a>
+        <a href="services.html#automation">AI Automation</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:hello@stormcloud.ai">hello@stormcloud.ai</a>
+        <a href="tel:+441234567890">+44 (0) 1234 567 890</a>
+        <a href="#">London, UK</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 StormCloud AI Ltd. All rights reserved.</span>
+      <span>Registered in England &amp; Wales</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

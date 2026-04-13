@@ -1,0 +1,7 @@
+CLAUDE.md
+README.md
+.git
+.gitignore
+*.sh
+Dockerfile
+.dockerignore
