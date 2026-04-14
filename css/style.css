@@ -151,7 +151,8 @@ section { padding: 100px 0; }
   transition: color var(--transition);
 }
 .nav-links a:hover, .nav-links a.active { color: var(--white); }
-.nav-cta { margin-left: 8px; }
+.nav-cta { margin-left: 8px; border: 1px solid rgba(77,158,255,0.4) !important; border-radius: 6px !important; padding: 6px 14px !important; background: transparent !important; color: var(--blue) !important; font-weight: 600 !important; box-shadow: none !important; transition: background 0.2s, border-color 0.2s !important; }
+.nav-cta:hover { background: rgba(77,158,255,0.1) !important; border-color: var(--blue) !important; color: var(--white) !important; transform: none !important; }
 .nav-signin { border: 1px solid rgba(77,158,255,0.4); border-radius: 6px; padding: 6px 14px !important; color: var(--blue) !important; font-weight: 600 !important; transition: background 0.2s, border-color 0.2s; }
 .nav-signin:hover { background: rgba(77,158,255,0.1); border-color: var(--blue); color: var(--white) !important; }
 

@@ -3,11 +3,150 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="StormCloud AI services — SEO, Google Ads, Meta Ads, social media, content marketing, AI automation, web design and brand identity for UK SMEs." />
-  <title>Services — StormCloud AI | SEO &amp; Digital Marketing UK</title>
+  <meta name="description" content="StormCloud AI services — SEO audit reports, fix packs, managed SEO, website redesign and paid digital marketing for UK SMEs. Transparent pricing, real results." />
+  <title>Services &amp; Pricing — StormCloud AI | SEO &amp; Digital Marketing UK</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    .svc-detail {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+      padding: 80px 0;
+      border-bottom: 1px solid var(--navy-border);
+    }
+    .svc-detail:last-child { border-bottom: none; }
+    .svc-detail.reverse { direction: rtl; }
+    .svc-detail.reverse > * { direction: ltr; }
+    .svc-detail-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      background: rgba(77,158,255,0.1);
+      border: 1px solid rgba(77,158,255,0.2);
+      border-radius: 20px;
+      padding: 4px 12px;
+      margin-bottom: 16px;
+    }
+    .svc-detail h2 {
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .svc-detail .svc-price {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--blue-bright);
+      margin-bottom: 16px;
+    }
+    .svc-detail .svc-price span {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--grey);
+      margin-left: 4px;
+    }
+    .svc-detail p {
+      font-size: 15px;
+      color: var(--grey-light);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .svc-detail-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .svc-feature-list {
+      background: var(--navy-card);
+      border: 1px solid var(--navy-border);
+      border-radius: 16px;
+      padding: 32px;
+    }
+    .svc-feature-list h4 {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--grey);
+      margin-bottom: 20px;
+    }
+    .svc-feature-list ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .svc-feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--grey-light);
+      line-height: 1.5;
+    }
+    .svc-feature-list li .fi {
+      font-size: 18px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .svc-feature-list li strong {
+      display: block;
+      color: var(--white);
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .svc-hero-icon {
+      font-size: 80px;
+      line-height: 1;
+      margin-bottom: 24px;
+      display: block;
+    }
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 48px;
+    }
+    .compare-table th {
+      text-align: left;
+      padding: 16px 20px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--grey);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      background: var(--navy-mid);
+      border-bottom: 1px solid var(--navy-border);
+    }
+    .compare-table th:not(:first-child) { text-align: center; }
+    .compare-table td {
+      padding: 14px 20px;
+      font-size: 14px;
+      color: var(--grey-light);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .compare-table td:not(:first-child) { text-align: center; }
+    .compare-table tr:hover td { background: rgba(255,255,255,0.02); }
+    .compare-table .yes { color: var(--green); font-size: 16px; }
+    .compare-table .no { color: var(--grey); opacity: 0.4; font-size: 16px; }
+    .compare-table .val { color: var(--white); font-weight: 600; }
+    .compare-table .col-head { color: var(--white); font-weight: 700; font-size: 15px; }
+    .compare-table .col-price { color: var(--blue-bright); font-size: 13px; display: block; font-weight: 500; margin-top: 2px; }
+    @media (max-width: 900px) {
+      .svc-detail { grid-template-columns: 1fr; gap: 32px; }
+      .svc-detail.reverse { direction: ltr; }
+      .compare-table { display: block; overflow-x: auto; }
+    }
+  </style>
 </head>
 <body>
 
@@ -20,7 +159,7 @@
     </a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="http://localhost:3000/login" class="nav-signin">Sign In</a></li>
       <li><a href="contact.html" class="btn btn-primary nav-cta">Free Consultation</a></li>
@@ -35,265 +174,285 @@
 <!-- ── Page Hero ── -->
 <div class="page-hero">
   <div class="container">
-    <span class="section-label">Services</span>
-    <h1>Marketing that <span class="highlight">actually works</span></h1>
-    <p>We don't sell vanity metrics. Every service we offer is tied to real business outcomes — more traffic, more leads, more revenue.</p>
+    <span class="section-label">Services &amp; Pricing</span>
+    <h1>Clear services. <span class="highlight">Honest pricing.</span></h1>
+    <p>No retainers you don't understand. No hidden fees. Every service tied to a real business outcome — more traffic, more leads, more revenue.</p>
   </div>
 </div>
 
-<!-- ── Services Content ── -->
+<!-- ── Services Detail ── -->
 <section>
   <div class="container">
 
-    <!-- SEO -->
-    <div class="service-category" id="seo">
-      <div class="service-category-header">
-        <div class="service-category-label">Most Impactful</div>
-        <h2>Search Engine Optimisation <span class="highlight">(SEO)</span></h2>
-        <p>Ranking on page one of Google is the single best long-term investment for your business. We make it happen through a combination of technical excellence, strategic content and authoritative link building.</p>
+    <!-- SEO Audit Report -->
+    <div class="svc-detail" id="seo-audit">
+      <div>
+        <span class="svc-detail-label">One-off · Instant value</span>
+        <h2>SEO Audit <span class="highlight">Report</span></h2>
+        <div class="svc-price">From £149</div>
+        <p>A complete technical and content SEO audit of your website — saved to your StormCloud dashboard and delivered as a professional PDF straight to your inbox. Every issue is explained in plain English, so you know exactly what's wrong, why it matters, and what to do about it.</p>
+        <p>Powered by our AI scanner, your audit covers over 50 checks across technical SEO, page speed, Core Web Vitals, mobile usability, keyword targeting, and content quality — with a prioritised 90-day improvement roadmap.</p>
+        <div class="svc-detail-actions">
+          <a href="http://localhost:3000/register" class="btn btn-primary">Get my audit →</a>
+          <a href="contact.html" class="btn btn-outline">Talk to us first</a>
+        </div>
       </div>
-      <div class="service-list">
-        <div class="service-item fade-up">
-          <div class="item-icon">🔬</div>
-          <h4>Technical SEO Audit &amp; Fix</h4>
-          <p>We crawl your site, identify every issue holding you back — speed, indexation, structured data, Core Web Vitals — and fix them.</p>
-        </div>
-        <div class="service-item fade-up">
-          <div class="item-icon">🗝️</div>
-          <h4>Keyword Strategy</h4>
-          <p>In-depth research to find the exact search terms your ideal customers use, mapped to pages and content that will rank.</p>
-        </div>
-        <div class="service-item fade-up">
-          <div class="item-icon">📄</div>
-          <h4>On-Page Optimisation</h4>
-          <p>Every title tag, meta description, heading, internal link and content block optimised to signal relevance to Google.</p>
-        </div>
-        <div class="service-item fade-up">
-          <div class="item-icon">🔗</div>
-          <h4>Link Building &amp; Authority</h4>
-          <p>High-quality, relevant backlinks from UK publications and industry sites that build your domain authority over time.</p>
-        </div>
-        <div class="service-item fade-up">
-          <div class="item-icon">📍</div>
-          <h4>Local SEO</h4>
-          <p>Dominate local search results and Google Maps. Essential for service businesses targeting customers in a specific area.</p>
-        </div>
-        <div class="service-item fade-up">
-          <div class="item-icon">📊</div>
-          <h4>SEO Reporting &amp; Insights</h4>
-          <p>Monthly reports showing rankings, traffic, conversions and a clear picture of ROI — in plain English, not agency jargon.</p>
-        </div>
+      <div class="svc-feature-list">
+        <h4>What's included</h4>
+        <ul>
+          <li><span class="fi">🔬</span><div><strong>Technical SEO audit</strong>Broken links, crawl errors, indexation issues, redirect chains, canonical tags, schema markup</div></li>
+          <li><span class="fi">⚡</span><div><strong>Core Web Vitals &amp; page speed</strong>LCP, CLS, INP scores with root-cause diagnostics and fix guidance</div></li>
+          <li><span class="fi">📱</span><div><strong>Mobile usability</strong>Viewport, tap targets, font sizes and responsive layout checks</div></li>
+          <li><span class="fi">🗝️</span><div><strong>Keyword targeting analysis</strong>How well your pages target your priority keywords — title, H1, meta description</div></li>
+          <li><span class="fi">🔒</span><div><strong>Security &amp; infrastructure</strong>SSL validity, HTTPS, security headers, CDN detection, compression</div></li>
+          <li><span class="fi">📄</span><div><strong>PDF report + dashboard</strong>Saved to your account and emailed as a branded PDF you can share with your team</div></li>
+        </ul>
       </div>
     </div>
 
-    <!-- Paid Ads -->
-    <div class="service-category" id="ads">
-      <div class="service-category-header">
-        <div class="service-category-label">Fastest Results</div>
-        <h2>Google &amp; Meta <span class="highlight">Paid Advertising</span></h2>
-        <p>When you need leads now, paid advertising delivers. We build, manage and optimise campaigns that turn ad spend into predictable revenue — with full transparency on every penny.</p>
+    <!-- SEO Starter Fix -->
+    <div class="svc-detail reverse" id="seo-starter">
+      <div>
+        <span class="svc-detail-label">One-off · Quick wins</span>
+        <h2>SEO Starter <span class="highlight">Fix</span></h2>
+        <div class="svc-price">From £299</div>
+        <p>Not ready to commit to the full Fix Pack? The SEO Starter Fix targets your top 3 critical issues — the ones with the biggest ranking impact — and gets them resolved without the full project overhead.</p>
+        <p>We run an audit scan first, identify the highest-priority issues, fix them directly on your site, then re-scan to confirm the improvements. A simple, low-risk way to make measurable progress.</p>
+        <div class="svc-detail-actions">
+          <a href="mailto:hello@stormcloudai.com?subject=SEO Starter Fix enquiry" class="btn btn-primary">Get started →</a>
+          <a href="http://localhost:3000/register" class="btn btn-outline">Run a scan first</a>
+        </div>
       </div>
-      <div class="service-list">
-        <div class="service-item fade-up">
-          <div class="item-icon">🔍</div>
-          <h4>Google Search Ads</h4>
-          <p>Appear at the top of Google the moment someone searches for what you offer. Precision targeting, compelling copy, relentless optimisation.</p>
-        </div>
-        <div class="service-item fade-up">
-          <div class="item-icon">🛍️</div>
-          <h4>Google Shopping &amp; Performance Max</h4>
-          <p>For e-commerce businesses — product listings that appear across Google Search, Shopping, YouTube and Display.</p>
-        </div>
-        <div class="service-item fade-up">
-          <div class="item-icon">📘</div>
-          <h4>Facebook &amp; Instagram Ads</h4>
-          <p>Scroll-stopping creative and laser-targeted audiences on Meta. Ideal for brand awareness, lead generation and retargeting.</p>
-        </div>
-        <div class="service-item fade-up">
-          <div class="item-icon">🔄</div>
-          <h4>Retargeting Campaigns</h4>
-          <p>Re-engage visitors who didn't convert the first time. Retargeting typically delivers the highest ROAS of any campaign type.</p>
-        </div>
-        <div class="service-item fade-up">
-          <div class="item-icon">🧪</div>
-          <h4>A/B Testing &amp; CRO</h4>
-          <p>We test everything — ad copy, creative, landing pages, audiences — so every iteration improves your cost per lead.</p>
-        </div>
-        <div class="service-item fade-up">
-          <div class="item-icon">📈</div>
-          <h4>Campaign Management &amp; Reporting</h4>
-          <p>Weekly performance reports, proactive budget management and a dedicated account manager who picks up the phone.</p>
-        </div>
+      <div class="svc-feature-list">
+        <h4>What's included</h4>
+        <ul>
+          <li><span class="fi">🔍</span><div><strong>Pre-fix audit scan</strong>We scan your site to identify all issues, then prioritise the top 3 critical ones to fix first</div></li>
+          <li><span class="fi">🔩</span><div><strong>Remediation of top 3 critical issues</strong>Applied directly to your site — no developer needed on your end</div></li>
+          <li><span class="fi">✅</span><div><strong>Post-fix verification scan</strong>We re-scan after fixing to confirm every issue is resolved and the score has improved</div></li>
+          <li><span class="fi">📝</span><div><strong>Fix summary report</strong>A clear record of every change made, with before-and-after evidence</div></li>
+          <li><span class="fi">🗓️</span><div><strong>7-day support window</strong>Questions after delivery? We're here for a week post-fix</div></li>
+          <li><span class="fi">🚀</span><div><strong>Natural upgrade path</strong>Credit your £299 toward the full Fix Pack if you want to tackle more issues</div></li>
+        </ul>
       </div>
     </div>
 
-    <!-- Social Media -->
-    <div class="service-category" id="social">
-      <div class="service-category-header">
-        <div class="service-category-label">Brand Building</div>
-        <h2>Social Media <span class="highlight">Management</span></h2>
-        <p>Consistent, high-quality social media builds the trust that converts followers into customers. We handle strategy, content creation and community management — you just show up and grow.</p>
+    <!-- SEO Fix Pack -->
+    <div class="svc-detail" id="seo-fix">
+      <div>
+        <span class="svc-detail-label">One-off · We do the work</span>
+        <h2>SEO Fix <span class="highlight">Pack</span></h2>
+        <div class="svc-price">From £999</div>
+        <p>Everything in the SEO Audit Report, plus our team rolls up their sleeves and fixes the issues for you. No developer needed, no technical knowledge required — we go directly into your site and remediate up to 10 critical issues identified in your audit.</p>
+        <p>You get a pre-fix audit, a post-fix verification scan, and a summary of everything we changed. Perfect for businesses who know they have SEO problems but don't have the in-house resource to fix them.</p>
+        <div class="svc-detail-actions">
+          <a href="contact.html" class="btn btn-primary">Get a quote →</a>
+          <a href="http://localhost:3000/register" class="btn btn-outline">Run a scan first</a>
+        </div>
       </div>
-      <div class="service-list">
-        <div class="service-item fade-up">
-          <div class="item-icon">📋</div>
-          <h4>Social Media Strategy</h4>
-          <p>Platform selection, audience definition, content pillars and a posting strategy built around your business goals.</p>
-        </div>
-        <div class="service-item fade-up">
-          <div class="item-icon">🎨</div>
-          <h4>Content Creation</h4>
-          <p>On-brand graphics, captions and short-form video tailored for LinkedIn, Instagram, Facebook and X/Twitter.</p>
-        </div>
-        <div class="service-item fade-up">
-          <div class="item-icon">📅</div>
-          <h4>Scheduling &amp; Publishing</h4>
-          <p>Consistent posting at optimal times — no more scrambling to find something to post or letting weeks go by in silence.</p>
-        </div>
-        <div class="service-item fade-up">
-          <div class="item-icon">💬</div>
-          <h4>Community Management</h4>
-          <p>We respond to comments, DMs and mentions in your brand voice — keeping your audience engaged and your reputation protected.</p>
-        </div>
+      <div class="svc-feature-list">
+        <h4>What's included</h4>
+        <ul>
+          <li><span class="fi">📋</span><div><strong>Full SEO Audit Report</strong>Complete audit before we start so we know exactly what needs fixing</div></li>
+          <li><span class="fi">🔧</span><div><strong>Up to 10 critical issue remediations</strong>Applied directly to your site by our team — no back-and-forth</div></li>
+          <li><span class="fi">✅</span><div><strong>Post-fix verification scan</strong>We re-scan after fixing to confirm every issue is resolved</div></li>
+          <li><span class="fi">📝</span><div><strong>Fix summary report</strong>A clear record of every change made to your site</div></li>
+          <li><span class="fi">🗓️</span><div><strong>14-day support window</strong>Questions after the fix? We're here for two weeks post-delivery</div></li>
+          <li><span class="fi">🔐</span><div><strong>Secure credential handling</strong>We request only the access we need, and you can revoke it any time</div></li>
+        </ul>
       </div>
     </div>
 
-    <!-- Content -->
-    <div class="service-category" id="content">
-      <div class="service-category-header">
-        <div class="service-category-label">SEO Fuel</div>
-        <h2>Content &amp; <span class="highlight">Copywriting</span></h2>
-        <p>Great content ranks on Google, converts visitors and positions you as the authority in your industry. We create content that does all three.</p>
+    <!-- SEO Monthly -->
+    <div class="svc-detail reverse" id="seo-monthly">
+      <div>
+        <span class="svc-detail-label">Rolling or annual · Fully managed</span>
+        <h2>SEO <span class="highlight">Monthly</span></h2>
+        <div class="svc-price">From £299 <span>/ month</span></div>
+        <p>A fully managed SEO subscription for businesses serious about ranking. We handle the scanning, reporting, and hands-on remediation — you get a clear picture of your SEO health every month and the peace of mind that your site is continuously improving.</p>
+        <p>Start on a 3-month rolling contract to prove the ROI, then move to a 12-month annual plan for best value. Included in your subscription: up to 5 scans per month, automated monthly PDF reports, keyword tracking, and 4 remediation requests per year.</p>
+        <div class="svc-detail-actions">
+          <a href="contact.html" class="btn btn-primary">Start today →</a>
+          <a href="http://localhost:3000/register" class="btn btn-outline">Try a free scan first</a>
+        </div>
       </div>
-      <div class="service-list">
-        <div class="service-item fade-up">
-          <div class="item-icon">📝</div>
-          <h4>SEO Blog Content</h4>
-          <p>Keyword-researched, expertly written blog posts that rank for the terms your customers search and drive qualified traffic month after month.</p>
-        </div>
-        <div class="service-item fade-up">
-          <div class="item-icon">🖥️</div>
-          <h4>Website Copywriting</h4>
-          <p>Landing pages and service pages written to convert — clear, compelling and optimised for both humans and search engines.</p>
-        </div>
-        <div class="service-item fade-up">
-          <div class="item-icon">📧</div>
-          <h4>Email Marketing</h4>
-          <p>Automated sequences and broadcast campaigns that nurture leads, drive repeat purchases and keep you top of mind.</p>
-        </div>
-        <div class="service-item fade-up">
-          <div class="item-icon">📰</div>
-          <h4>Content Strategy</h4>
-          <p>A 90-day content calendar aligned to your SEO goals, sales funnel and seasonal opportunities — so you never run dry.</p>
-        </div>
+      <div class="svc-feature-list">
+        <h4>What's included</h4>
+        <ul>
+          <li><span class="fi">🔍</span><div><strong>Up to 5 scans per month</strong>Run scans whenever you need them — after updates, redesigns, or on a regular cadence</div></li>
+          <li><span class="fi">📄</span><div><strong>Automated monthly PDF report</strong>Emailed to you each month — your score, issue counts, keyword analysis, and recommendations</div></li>
+          <li><span class="fi">🗝️</span><div><strong>Keyword tracking &amp; analysis</strong>We track your priority keywords and flag how well each page is targeting them</div></li>
+          <li><span class="fi">🔧</span><div><strong>4 remediation requests per year</strong>Need us to fix something? Request it and we'll handle it — included at no extra cost</div></li>
+          <li><span class="fi">⭐</span><div><strong>Priority support</strong>Dedicated account manager and faster response times than one-off clients</div></li>
+          <li><span class="fi">📅</span><div><strong>Flexible contract options</strong>Start on a 3-month rolling contract, then upgrade to 12-month annual — SEO compounds over time</div></li>
+        </ul>
       </div>
     </div>
 
-    <!-- AI Automation -->
-    <div class="service-category" id="automation">
-      <div class="service-category-header">
-        <div class="service-category-label">Work Smarter</div>
-        <h2>AI Marketing <span class="highlight">Automation</span></h2>
-        <p>AI lets you do more with less. We build automations that handle your follow-ups, lead nurturing and reporting — so your marketing runs in the background while you run your business.</p>
-      </div>
-      <div class="service-list">
-        <div class="service-item fade-up">
-          <div class="item-icon">🤖</div>
-          <h4>AI Lead Follow-Up</h4>
-          <p>Instant, personalised follow-up messages triggered the moment a lead comes in — capturing them before they go cold.</p>
-        </div>
-        <div class="service-item fade-up">
-          <div class="item-icon">⚙️</div>
-          <h4>Marketing Workflow Automation</h4>
-          <p>Connect your CRM, email, ads and reporting tools into automated workflows that save hours of manual work each week.</p>
-        </div>
-        <div class="service-item fade-up">
-          <div class="item-icon">💬</div>
-          <h4>AI Website Chatbot</h4>
-          <p>A custom-trained chatbot that answers questions, qualifies leads and books meetings on your website — 24/7.</p>
+    <!-- Website Redesign -->
+    <div class="svc-detail" id="redesign">
+      <div>
+        <span class="svc-detail-label">Bespoke · Quoted per project</span>
+        <h2>Website <span class="highlight">Redesign</span></h2>
+        <div class="svc-price">From £3,499</div>
+        <p>A complete website redesign with SEO performance, conversion optimisation, and content clarity baked in from day one — not bolted on afterwards. We design for humans first and Google second, which is why our sites rank and convert from the moment they launch.</p>
+        <p>Every redesign project includes a content audit, UX strategy, keyword mapping, and a post-launch SEO scan to make sure everything is set up for success. Quoted based on the size and complexity of your site.</p>
+        <div class="svc-detail-actions">
+          <a href="mailto:hello@stormcloudai.com?subject=Website Redesign enquiry" class="btn btn-primary">Get a quote →</a>
+          <a href="contact.html" class="btn btn-outline">Book a call first</a>
         </div>
       </div>
-    </div>
-
-    <!-- Brand & Web -->
-    <div class="service-category" id="brand">
-      <div class="service-category-header">
-        <div class="service-category-label">Foundation First</div>
-        <h2>Brand Identity &amp; <span class="highlight">Web Design</span></h2>
-        <p>Your brand and website are the foundation everything else sits on. We make sure they're strong enough to convert the traffic you're about to get.</p>
-      </div>
-      <div class="service-list">
-        <div class="service-item fade-up">
-          <div class="item-icon">🎨</div>
-          <h4>Brand Identity Design</h4>
-          <p>Logo, colour system, typography and brand guidelines — a professional identity that stands out and builds trust instantly.</p>
-        </div>
-        <div class="service-item fade-up">
-          <div class="item-icon">🌐</div>
-          <h4>Website Design &amp; Build</h4>
-          <p>Fast, beautiful, conversion-focused websites. Built to rank on Google and turn visitors into enquiries from day one.</p>
-        </div>
-        <div class="service-item fade-up">
-          <div class="item-icon">📅</div>
-          <h4>Booking &amp; Lead Capture</h4>
-          <p>Contact forms, booking widgets and lead capture tools integrated into your site to make it easy for customers to reach you.</p>
-        </div>
+      <div class="svc-feature-list">
+        <h4>What's included</h4>
+        <ul>
+          <li><span class="fi">🎨</span><div><strong>UX &amp; conversion-led design</strong>Wireframes, page layouts and visual design optimised to guide visitors to take action</div></li>
+          <li><span class="fi">🔍</span><div><strong>Technical SEO built in from the start</strong>URL structure, meta tags, schema, page speed, sitemaps — right from the first line of code</div></li>
+          <li><span class="fi">✍️</span><div><strong>Content strategy &amp; copywriting</strong>Keyword-mapped copy for every key page, written to rank and to convert</div></li>
+          <li><span class="fi">📱</span><div><strong>Mobile-first, fast-loading build</strong>Optimised for Core Web Vitals — fast on every device</div></li>
+          <li><span class="fi">✅</span><div><strong>Post-launch SEO audit</strong>We scan your new site after launch to confirm everything is clean</div></li>
+          <li><span class="fi">🚀</span><div><strong>Hosting &amp; deployment support</strong>We can host on AWS (S3 + CloudFront) or deploy to your existing host</div></li>
+        </ul>
       </div>
     </div>
 
-    <!-- AWS Cloud Migration -->
-    <div class="service-category" id="cloud-migration">
-      <div class="service-category-header">
-        <div class="service-category-label">AWS Infrastructure</div>
-        <h2>Cloud &amp; S3 <span class="highlight">Website Migration</span></h2>
-        <p>Your website could be running faster, cheaper, and at infinite scale on AWS. We migrate sites to S3 + CloudFront — eliminating server costs and delivering sub-second load times globally.</p>
-      </div>
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">⚡</div>
-          <h3>Static Site Migration</h3>
-          <p>Move your existing WordPress, PHP or CMS site to a blazing-fast static architecture hosted on AWS S3 + CloudFront. Up to 10× faster. Near-zero hosting costs.</p>
-          <ul class="service-features">
-            <li>Full site audit &amp; compatibility assessment</li>
-            <li>Migration to Next.js or static HTML</li>
-            <li>S3 + CloudFront setup and configuration</li>
-            <li>CI/CD pipeline via GitHub Actions</li>
-            <li>DNS cutover with zero downtime</li>
-          </ul>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">☁️</div>
-          <h3>Headless CMS Migration</h3>
-          <p>Migrate your content from WordPress or Drupal to a headless CMS (Contentful, Sanity) with a Next.js frontend — giving you full control and a modern development workflow.</p>
-          <ul class="service-features">
-            <li>Content migration and restructuring</li>
-            <li>Headless CMS setup (Contentful / Sanity)</li>
-            <li>Next.js frontend development</li>
-            <li>SEO preservation (redirects, meta, schema)</li>
-            <li>Full AWS deployment</li>
-          </ul>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🔒</div>
-          <h3>AWS Infrastructure Setup</h3>
-          <p>Need more than S3? We set up full AWS environments: CloudFront CDN, Route 53 DNS, WAF security, SSL certificates, and automated deployments. Built to scale.</p>
-          <ul class="service-features">
-            <li>CloudFront CDN with global edge locations</li>
-            <li>Route 53 DNS management</li>
-            <li>AWS WAF for bot &amp; DDoS protection</li>
-            <li>Terraform infrastructure-as-code</li>
-            <li>Monitoring &amp; alerting via CloudWatch</li>
-          </ul>
+    <!-- Paid Digital Marketing -->
+    <div class="svc-detail reverse" id="paid-ads">
+      <div>
+        <span class="svc-detail-label">Monthly · Managed end-to-end</span>
+        <h2>Paid Digital <span class="highlight">Marketing</span></h2>
+        <div class="svc-price">From £649 <span>/ month</span></div>
+        <p>Full-service management of your Meta (Facebook &amp; Instagram) and Google Ads campaigns. We handle everything from strategy and audience research to creative direction, bid management and monthly reporting — so you can focus on delivering for the customers we send you.</p>
+        <p>Our management fee is separate from your ad budget. We're incentivised to make your spend as efficient as possible, not to inflate it. Monthly retainer, no long-term lock-in after the initial 3-month setup period.</p>
+        <div class="svc-detail-actions">
+          <a href="mailto:hello@stormcloudai.com?subject=Paid Digital Marketing enquiry" class="btn btn-primary">Get a quote →</a>
+          <a href="contact.html" class="btn btn-outline">Book a strategy call</a>
         </div>
       </div>
-      <div style="margin-top:2rem;background:linear-gradient(135deg,#0D47A1,#1565C0);border-radius:12px;padding:32px;color:white;text-align:center">
-        <p style="font-size:0.875rem;letter-spacing:2px;text-transform:uppercase;opacity:0.7;margin-bottom:8px">SEO Tool Integration</p>
-        <h3 style="font-size:1.5rem;font-weight:800;margin-bottom:12px">Find out if your site is a migration candidate</h3>
-        <p style="opacity:0.9;max-width:560px;margin:0 auto 20px">Run a free SEO scan and we'll automatically check your site's technology stack and tell you exactly what it would take to migrate to AWS.</p>
-        <a href="http://localhost:3000/register" class="btn btn-primary" style="background:white;color:#1565C0;font-weight:700">Run your free scan →</a>
+      <div class="svc-feature-list">
+        <h4>What's included</h4>
+        <ul>
+          <li><span class="fi">🎯</span><div><strong>Meta Ads — Facebook &amp; Instagram</strong>Scroll-stopping creative, lookalike audiences, retargeting and full funnel campaign management</div></li>
+          <li><span class="fi">🔍</span><div><strong>Google Search &amp; Display Ads</strong>Keyword targeting, responsive search ads, bidding strategy and negative keyword management</div></li>
+          <li><span class="fi">🧪</span><div><strong>A/B testing &amp; creative iteration</strong>We test copy, imagery, audiences and landing pages continuously to drive down your cost per lead</div></li>
+          <li><span class="fi">📊</span><div><strong>Monthly performance reports</strong>Clear reporting on spend, clicks, leads, cost per acquisition — in plain English</div></li>
+          <li><span class="fi">🏷️</span><div><strong>Conversion tracking &amp; attribution</strong>Proper tracking setup so you know exactly which ads are generating real business</div></li>
+          <li><span class="fi">📞</span><div><strong>Dedicated account manager</strong>A real person who knows your campaigns, answers your questions and proactively flags opportunities</div></li>
+        </ul>
       </div>
     </div>
 
+    <!-- Local SEO -->
+    <div class="svc-detail" id="local-seo">
+      <div>
+        <span class="svc-detail-label">Monthly · Location-targeted</span>
+        <h2>Local <span class="highlight">SEO</span></h2>
+        <div class="svc-price">From £299 <span>/ month</span></div>
+        <p>For businesses that serve a specific town, city or region, local SEO is the fastest route to winning customers who are actively searching for your service nearby. We optimise your Google Business Profile, build local citations, and manage your review strategy so you dominate the local pack.</p>
+        <p>Perfect for trades, clinics, restaurants, estate agents, and any service-area business that lives or dies by local search visibility.</p>
+        <div class="svc-detail-actions">
+          <a href="mailto:hello@stormcloudai.com?subject=Local SEO enquiry" class="btn btn-primary">Get a quote →</a>
+          <a href="contact.html" class="btn btn-outline">Book a strategy call</a>
+        </div>
+      </div>
+      <div class="svc-feature-list">
+        <h4>What's included</h4>
+        <ul>
+          <li><span class="fi">📍</span><div><strong>Google Business Profile optimisation</strong>Full setup or audit and refresh — photos, categories, services, Q&amp;A, and ongoing posting</div></li>
+          <li><span class="fi">📋</span><div><strong>Local citations &amp; directory listings</strong>Consistent NAP (name, address, phone) across the major UK directories that signal trust to Google</div></li>
+          <li><span class="fi">⭐</span><div><strong>Review management strategy</strong>A repeatable system for generating positive reviews and handling responses professionally</div></li>
+          <li><span class="fi">🗝️</span><div><strong>Local keyword targeting</strong>On-page optimisation for "[service] + [location]" search terms across your key pages</div></li>
+          <li><span class="fi">🗺️</span><div><strong>Google Maps pack ranking</strong>We work specifically to improve your position in the 3-pack that appears above organic results</div></li>
+          <li><span class="fi">📊</span><div><strong>Monthly local SEO report</strong>Visibility score, ranking positions, Google Business Profile insights and competitor comparison</div></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Analytics & Tracking Setup -->
+    <div class="svc-detail reverse" id="analytics">
+      <div>
+        <span class="svc-detail-label">One-off · Foundation work</span>
+        <h2>Analytics &amp; Tracking <span class="highlight">Setup</span></h2>
+        <div class="svc-price">From £299</div>
+        <p>Most SME websites have broken, missing or misconfigured analytics — which means decisions are being made on incomplete or misleading data. We fix that in a single session, so you finally know what's actually happening on your site.</p>
+        <p>We set up GA4, Google Search Console and conversion tracking correctly, verify everything is firing as expected, and give you a plain English dashboard so you can monitor what matters without needing to be a data analyst.</p>
+        <div class="svc-detail-actions">
+          <a href="mailto:hello@stormcloudai.com?subject=Analytics Setup enquiry" class="btn btn-primary">Get a quote →</a>
+          <a href="contact.html" class="btn btn-outline">Talk to us first</a>
+        </div>
+      </div>
+      <div class="svc-feature-list">
+        <h4>What's included</h4>
+        <ul>
+          <li><span class="fi">📊</span><div><strong>GA4 installation &amp; configuration</strong>Full setup including events, goals and ecommerce tracking if applicable</div></li>
+          <li><span class="fi">🔍</span><div><strong>Google Search Console setup</strong>Property verification, sitemap submission and initial coverage audit</div></li>
+          <li><span class="fi">🏷️</span><div><strong>Conversion tracking</strong>Form submissions, calls, purchases and other key actions — tracked accurately</div></li>
+          <li><span class="fi">🐛</span><div><strong>Tag &amp; tracking audit</strong>We check all existing tags for errors, duplication and gaps before we build anything new</div></li>
+          <li><span class="fi">📈</span><div><strong>Plain English reporting dashboard</strong>A simple GA4 view showing the metrics that actually matter to your business</div></li>
+          <li><span class="fi">📝</span><div><strong>Handover documentation</strong>A written guide to your new analytics setup so you and your team can use it confidently</div></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Email Marketing -->
+    <div class="svc-detail" id="email">
+      <div>
+        <span class="svc-detail-label">Monthly · High-ROI channel</span>
+        <h2>Email <span class="highlight">Marketing</span></h2>
+        <div class="svc-price">From £199 <span>/ month</span></div>
+        <p>Email is consistently the highest-ROI marketing channel — and one that most SMEs either ignore entirely or use badly. We build automated sequences that nurture new leads, and broadcast campaigns that keep your existing customers engaged and buying.</p>
+        <p>We handle the strategy, copywriting, design, list management and reporting. You just need a list of contacts and a product or service worth talking about.</p>
+        <div class="svc-detail-actions">
+          <a href="mailto:hello@stormcloudai.com?subject=Email Marketing enquiry" class="btn btn-primary">Get a quote →</a>
+          <a href="contact.html" class="btn btn-outline">Book a strategy call</a>
+        </div>
+      </div>
+      <div class="svc-feature-list">
+        <h4>What's included</h4>
+        <ul>
+          <li><span class="fi">✉️</span><div><strong>Welcome &amp; nurture sequences</strong>Automated email journeys that turn new subscribers into customers on autopilot</div></li>
+          <li><span class="fi">📣</span><div><strong>Broadcast campaigns</strong>Monthly (or more frequent) emails to your full list — promotions, updates, seasonal campaigns</div></li>
+          <li><span class="fi">✍️</span><div><strong>Copywriting &amp; design</strong>Emails written to get opened, read, and clicked — not just sent</div></li>
+          <li><span class="fi">🧪</span><div><strong>A/B subject line testing</strong>We test subject lines on every broadcast to continuously improve open rates</div></li>
+          <li><span class="fi">📋</span><div><strong>List segmentation</strong>We segment your audience so each person gets content relevant to where they are in the buying journey</div></li>
+          <li><span class="fi">📊</span><div><strong>Monthly performance report</strong>Open rates, click rates, revenue attributed, unsubscribes and list health — all in plain English</div></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Comparison Table ── -->
+<section style="background: var(--navy-mid);">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Compare</span>
+      <h2>Which service is <span class="highlight">right for you?</span></h2>
+      <p>Not sure where to start? This table shows what's included in each SEO package at a glance.</p>
+    </div>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th><span class="col-head">Audit Report</span><span class="col-price">From £149</span></th>
+          <th><span class="col-head">Fix Pack</span><span class="col-price">From £999</span></th>
+          <th><span class="col-head">SEO Monthly</span><span class="col-price">From £299/mo</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Full technical SEO audit</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+        <tr><td>Core Web Vitals analysis</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+        <tr><td>Keyword targeting review</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+        <tr><td>PDF report emailed to you</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+        <tr><td>Dashboard access</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+        <tr><td>Issue remediations by our team</td><td><span class="no">—</span></td><td><span class="val">Up to 10</span></td><td><span class="val">4× per year</span></td></tr>
+        <tr><td>Post-fix verification scan</td><td><span class="no">—</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+        <tr><td>Scans per month</td><td><span class="val">1</span></td><td><span class="val">1</span></td><td><span class="val">Up to 5</span></td></tr>
+        <tr><td>Monthly automated reports</td><td><span class="no">—</span></td><td><span class="no">—</span></td><td><span class="yes">✓</span></td></tr>
+        <tr><td>Priority support</td><td><span class="no">—</span></td><td><span class="no">—</span></td><td><span class="yes">✓</span></td></tr>
+        <tr><td>Commitment</td><td><span class="val">None</span></td><td><span class="val">None</span></td><td><span class="val">3-mo rolling or 12-mo</span></td></tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
@@ -301,13 +460,14 @@
 <section class="cta-section">
   <div class="container">
     <div class="cta-box">
-      <span class="section-label">Free Consultation</span>
-      <h2>Not sure which services <span class="highlight">you need?</span></h2>
-      <p>Book a free 30-minute call. We'll review your current digital presence and recommend exactly where to start for maximum impact.</p>
+      <span class="section-label">Get Started</span>
+      <h2>Not sure which service <span class="highlight">you need?</span></h2>
+      <p>Run a free SEO scan to see your health score in minutes, or book a free 30-minute strategy call and we'll recommend exactly where to start.</p>
       <div class="cta-actions">
-        <a href="contact.html" class="btn btn-primary">Book a Free Strategy Call &rarr;</a>
+        <a href="http://localhost:3000/register" class="btn btn-primary">Run a Free SEO Scan &rarr;</a>
+        <a href="contact.html" class="btn btn-outline">Book a Strategy Call</a>
       </div>
-      <p class="cta-note">No commitment. No sales pitch. Just honest advice.</p>
+      <p class="cta-note">No commitment. No sales pressure. Just honest advice.</p>
     </div>
   </div>
 </section>
@@ -321,24 +481,25 @@
           <div class="logo-icon">⚡</div>
           Storm<span>Cloud</span> AI
         </a>
-        <p>UK digital marketing agency helping SMEs get found, get leads and get growth with AI-powered SEO, ads and social media.</p>
+        <p>UK SEO &amp; digital marketing agency helping SMEs rank higher, spend smarter and grow faster — powered by AI.</p>
       </div>
       <div class="footer-col">
         <h4>Services</h4>
-        <a href="#seo">SEO</a>
-        <a href="#ads">Paid Ads</a>
-        <a href="#social">Social Media</a>
-        <a href="#content">Content</a>
-        <a href="#automation">AI Automation</a>
+        <a href="#seo-audit">SEO Audit Report</a>
+        <a href="#seo-fix">SEO Fix Pack</a>
+        <a href="#seo-monthly">SEO Monthly</a>
+        <a href="#redesign">Website Redesign</a>
+        <a href="#paid-ads">Paid Digital Marketing</a>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
         <a href="about.html">About Us</a>
         <a href="contact.html">Contact</a>
+        <a href="http://localhost:3000/login">Client Login</a>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
-        <a href="mailto:hello@stormcloud.ai">hello@stormcloud.ai</a>
+        <a href="mailto:hello@stormcloudai.com">hello@stormcloudai.com</a>
         <a href="tel:+441234567890">+44 (0) 1234 567 890</a>
         <a href="#">London, UK</a>
       </div>
