@@ -309,72 +309,137 @@
 
     /* ── Customer journey section ── */
     .journey-section {
-      background: var(--navy-mid);
-      padding: 80px 0;
+      background: transparent;
+      padding: 100px 0;
     }
     .journey-steps {
       display: grid;
-      grid-template-columns: 1fr 40px 1fr 40px 1fr;
-      align-items: center;
+      grid-template-columns: 1fr 44px 1fr 44px 1fr;
+      align-items: start;
       gap: 0;
-      margin-top: 48px;
+      margin-top: 56px;
+      list-style: none;
+      padding: 0;
     }
     .journey-step {
       background: var(--navy-card);
       border: 1px solid var(--navy-border);
-      border-radius: 16px;
-      padding: 32px 28px;
-      text-align: center;
-      transition: border-color 0.25s, transform 0.25s;
+      border-radius: 20px;
+      padding: 32px 28px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
     }
     .journey-step:hover {
-      border-color: rgba(77,158,255,0.4);
-      transform: translateY(-4px);
+      transform: translateY(-7px);
+      box-shadow: 0 28px 70px rgba(0,0,0,0.45);
     }
+    /* coloured accent bar at top */
+    .journey-step--free  { border-top: 2px solid var(--green); }
+    .journey-step--free:hover  { border-color: var(--green); }
+    .journey-step--report { border-top: 2px solid var(--blue); }
+    .journey-step--report:hover { border-color: var(--blue); }
+    .journey-step--fix   { border-top: 2px solid var(--pink); }
+    .journey-step--fix:hover   { border-color: var(--pink); }
+
+    /* step number */
     .journey-step-num {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: rgba(77,158,255,0.12);
-      border: 1px solid rgba(77,158,255,0.25);
-      font-size: 14px;
-      font-weight: 800;
-      color: var(--blue);
-      margin: 0 auto 16px;
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      font-size: 15px; font-weight: 900;
+      margin-bottom: 20px;
+      flex-shrink: 0;
     }
-    .journey-step h4 {
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 8px;
-    }
-    .journey-step .journey-price {
-      display: inline-block;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--blue-bright);
-      background: rgba(77,158,255,0.1);
-      border: 1px solid rgba(77,158,255,0.2);
-      border-radius: 8px;
-      padding: 3px 10px;
-      margin-bottom: 12px;
-    }
-    .journey-step p {
-      font-size: 13px;
-      color: var(--grey-light);
-      line-height: 1.6;
-      margin: 0;
-    }
-    .journey-arrow {
-      display: flex;
+    .journey-step--free  .journey-step-num { background: rgba(34,212,160,0.12); border: 1px solid rgba(34,212,160,0.30); color: var(--green); }
+    .journey-step--report .journey-step-num { background: rgba(139,92,246,0.12); border: 1px solid rgba(139,92,246,0.30); color: var(--blue-bright); }
+    .journey-step--fix   .journey-step-num { background: rgba(236,72,153,0.12); border: 1px solid rgba(236,72,153,0.30); color: var(--pink); }
+
+    /* price badge */
+    .journey-price {
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      color: var(--blue);
-      opacity: 0.6;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      border-radius: 100px;
+      padding: 4px 12px;
+      margin-bottom: 16px;
+      width: fit-content;
+    }
+    .journey-step--free  .journey-price { background: rgba(34,212,160,0.10); border: 1px solid rgba(34,212,160,0.25); color: var(--green); }
+    .journey-step--report .journey-price { background: rgba(139,92,246,0.10); border: 1px solid rgba(139,92,246,0.25); color: var(--blue-bright); }
+    .journey-step--fix   .journey-price { background: rgba(236,72,153,0.10); border: 1px solid rgba(236,72,153,0.25); color: var(--pink); }
+
+    /* heading */
+    .journey-step h3 {
+      font-size: 1.05rem; font-weight: 800;
+      color: var(--white);
+      line-height: 1.25;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    /* description */
+    .journey-step p {
+      font-size: 0.83rem;
+      color: var(--grey-light);
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+
+    /* feature list */
+    .journey-features {
+      list-style: none; padding: 0;
+      margin: 0 0 22px;
+      border-top: 1px solid var(--navy-border);
+      padding-top: 14px;
+      display: flex; flex-direction: column; gap: 8px;
+      flex: 1;
+    }
+    .journey-features li {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.78rem; color: var(--grey-light);
+    }
+    .journey-step--free  .journey-features li::before { content: '✓'; color: var(--green); font-weight: 800; font-size: 11px; flex-shrink: 0; }
+    .journey-step--report .journey-features li::before { content: '✓'; color: var(--blue-bright); font-weight: 800; font-size: 11px; flex-shrink: 0; }
+    .journey-step--fix   .journey-features li::before { content: '✓'; color: var(--pink); font-weight: 800; font-size: 11px; flex-shrink: 0; }
+
+    /* in-step CTA link */
+    .journey-step-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.8rem; font-weight: 700;
+      padding: 9px 16px; border-radius: 8px;
+      transition: all 0.2s; align-self: flex-start;
+    }
+    .journey-step--free  .journey-step-link { background: rgba(34,212,160,0.10); color: var(--green); border: 1px solid rgba(34,212,160,0.25); }
+    .journey-step--free  .journey-step-link:hover { background: rgba(34,212,160,0.20); border-color: var(--green); }
+    .journey-step--report .journey-step-link { background: rgba(139,92,246,0.10); color: var(--blue-bright); border: 1px solid rgba(139,92,246,0.25); }
+    .journey-step--report .journey-step-link:hover { background: rgba(139,92,246,0.20); border-color: var(--blue); }
+    .journey-step--fix   .journey-step-link { background: rgba(236,72,153,0.10); color: var(--pink); border: 1px solid rgba(236,72,153,0.25); }
+    .journey-step--fix   .journey-step-link:hover { background: rgba(236,72,153,0.20); border-color: var(--pink); }
+
+    /* connector arrows */
+    .journey-arrow {
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; color: var(--blue); opacity: 0.45;
+      padding-top: 72px;
+    }
+
+    /* trust strip */
+    .journey-trust {
+      display: flex; align-items: center; justify-content: center;
+      gap: 28px; flex-wrap: wrap;
+      margin-top: 40px;
+      padding: 18px 32px;
+      background: var(--navy-card);
+      border: 1px solid var(--navy-border);
+      border-radius: 12px;
+      font-size: 0.78rem; color: var(--grey-light); font-weight: 500;
     }
 
     @media (max-width: 1024px) {
@@ -386,8 +451,9 @@
         grid-template-columns: 1fr;
         gap: 16px;
       }
-      .journey-arrow { transform: rotate(90deg); }
+      .journey-arrow { transform: rotate(90deg); padding-top: 0; height: 28px; }
       .also-available-cards { grid-template-columns: 1fr; }
+      .journey-trust { gap: 16px; }
     }
     @media (max-width: 640px) {
       .pricing-grid,
@@ -395,6 +461,7 @@
       .pricing-grid-bottom,
       .services-grid-v2-bottom { grid-template-columns: 1fr; }
       .services-grid-v2-bottom { max-width: 100%; }
+      .journey-trust { flex-direction: column; gap: 10px; text-align: center; }
     }
   </style>
 </head>
@@ -574,29 +641,62 @@
     <div class="section-header">
       <span class="section-label">How it works</span>
       <h2>Your path to <span class="highlight">page one</span></h2>
-      <p>Three simple steps from where you are now to where you want to be — each one delivers value on its own, and they compound over time.</p>
+      <p>Three proven steps — from your first free SEO health check to sustained Google rankings. Each step delivers real value on its own.</p>
     </div>
     <div class="journey-steps">
-      <div class="journey-step fade-up">
+
+      <article class="journey-step journey-step--free fade-up">
         <div class="journey-step-num">1</div>
-        <h4>Run a free SEO scan</h4>
-        <div class="journey-price">Free</div>
-        <p>Get your SEO health score in minutes. We scan your site across 50+ checks and show you exactly where you stand — no credit card, no commitment.</p>
-      </div>
-      <div class="journey-arrow">→</div>
-      <div class="journey-step fade-up">
+        <h3>Free SEO site audit</h3>
+        <div class="journey-price">Free — no credit card</div>
+        <p>Get your SEO health score in under 3 minutes. Our AI crawler checks your site across 50+ signals — technical errors, Core Web Vitals, on-page content, mobile usability and more.</p>
+        <ul class="journey-features">
+          <li>50+ technical SEO checks</li>
+          <li>Instant health score (0–100)</li>
+          <li>Core Web Vitals &amp; mobile audit</li>
+          <li>No commitment, no credit card</li>
+        </ul>
+        <a href="http://localhost:3000/register" class="journey-step-link">Scan my site free →</a>
+      </article>
+
+      <div class="journey-arrow" aria-hidden="true">→</div>
+
+      <article class="journey-step journey-step--report fade-up">
         <div class="journey-step-num">2</div>
-        <h4>Get your audit report</h4>
+        <h3>Full SEO audit report</h3>
         <div class="journey-price">From £149</div>
-        <p>Every issue explained in plain English, with a prioritised 90-day roadmap. Delivered as a PDF and saved to your dashboard. You'll know exactly what to fix and why.</p>
-      </div>
-      <div class="journey-arrow">→</div>
-      <div class="journey-step fade-up">
+        <p>Every SEO issue explained in plain English — no jargon. A detailed PDF report plus a prioritised 90-day fix roadmap, saved to your secure dashboard so your team can track progress.</p>
+        <ul class="journey-features">
+          <li>Plain-English issue explanations</li>
+          <li>Prioritised 90-day action roadmap</li>
+          <li>PDF + live dashboard report</li>
+          <li>Keyword gap &amp; competitor analysis</li>
+        </ul>
+        <a href="contact.html" class="journey-step-link">Get my audit report →</a>
+      </article>
+
+      <div class="journey-arrow" aria-hidden="true">→</div>
+
+      <article class="journey-step journey-step--fix fade-up">
         <div class="journey-step-num">3</div>
-        <h4>Fix it or go managed</h4>
+        <h3>Fix it or go fully managed</h3>
         <div class="journey-price">From £299</div>
-        <p>Go it alone with the roadmap, or let us fix it for you. Choose a targeted Starter Fix, our full Fix Pack, or ongoing managed SEO — pricing depends on your site size.</p>
-      </div>
+        <p>Use the roadmap yourself or hand it to us. Choose a targeted Starter Fix for quick wins, a comprehensive Fix Pack for a full overhaul, or ongoing managed SEO to keep your rankings climbing.</p>
+        <ul class="journey-features">
+          <li>Starter Fix — high-impact quick wins</li>
+          <li>Full Fix Pack — site-wide SEO overhaul</li>
+          <li>Managed SEO — ongoing page-1 strategy</li>
+          <li>Pricing scaled to your site size</li>
+        </ul>
+        <a href="services.html" class="journey-step-link">View SEO plans →</a>
+      </article>
+
+    </div>
+    <div class="journey-trust">
+      <span>🔒 Secure &amp; private</span>
+      <span>⚡ Results in 72 hours</span>
+      <span>🇬🇧 UK-based team</span>
+      <span>★★★★★ Trusted by 50+ UK businesses</span>
     </div>
   </div>
 </section>

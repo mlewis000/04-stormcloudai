@@ -2,6 +2,18 @@
    StormCloud AI — Main JS
    ============================================= */
 
+/* ── Animated Aurora Background (injected on every page) ── */
+(function () {
+  const bg = document.createElement('div');
+  bg.className = 'aurora-bg';
+  bg.innerHTML =
+    '<div class="aurora-orb aurora-orb-1"></div>' +
+    '<div class="aurora-orb aurora-orb-2"></div>' +
+    '<div class="aurora-orb aurora-orb-3"></div>' +
+    '<div class="aurora-grid"></div>';
+  document.body.insertBefore(bg, document.body.firstChild);
+}());
+
 /* Sticky nav */
 const nav = document.querySelector('.nav');
 if (nav) {
