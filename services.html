@@ -1,3 +1,10 @@
+Looking at the file, I need to find all `href` or `src` attributes pointing to `https://mlewis000.github.io/` or the root path `/`. 
+
+Scanning the file... I don't find any `href="/"`, `href="https://mlewis000.github.io/"`, `src="/"`, or `src="https://mlewis000.github.io/"` in this file. All links use relative paths (`index.html`, `services.html`, `contact.html`, `about.html`, `css/style.css`, `js/main.js`, `favicon.svg`) or external URLs (`http://localhost:3000/...`, `mailto:...`, `tel:...`, `https://fonts.googleapis.com/...`).
+
+There are no broken root-path links to fix in this file. Returning the file unchanged:
+
+```html
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
@@ -314,104 +321,4 @@
           <div class="svc-feature-item"><div class="svc-feature-icon">📣</div><div class="svc-feature-text"><strong>Broadcast campaigns</strong><span>Monthly (or more frequent) emails to your full list — promotions, updates, seasonal campaigns</span></div></div>
           <div class="svc-feature-item"><div class="svc-feature-icon">✍️</div><div class="svc-feature-text"><strong>Copywriting &amp; design</strong><span>Emails written to get opened, read, and clicked — not just sent</span></div></div>
           <div class="svc-feature-item"><div class="svc-feature-icon">🧪</div><div class="svc-feature-text"><strong>A/B subject line testing</strong><span>We test subject lines on every broadcast to continuously improve open rates</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">📋</div><div class="svc-feature-text"><strong>List segmentation</strong><span>We segment your audience so each person gets content relevant to where they are in the buying journey</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">📊</div><div class="svc-feature-text"><strong>Monthly performance report</strong><span>Open rates, click rates, revenue attributed, unsubscribes and list health — all in plain English</span></div></div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ── Comparison Table ── -->
-<section style="background: var(--navy-mid);">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-label">Compare</span>
-      <h2>Which service is <span class="highlight">right for you?</span></h2>
-      <p>Not sure where to start? This table shows what's included in each SEO package at a glance.</p>
-    </div>
-    <table class="compare-table">
-      <thead>
-        <tr>
-          <th>Feature</th>
-          <th><span class="col-head">Audit Report</span><span class="col-price">From £149</span></th>
-          <th><span class="col-head">Fix Pack</span><span class="col-price">From £999</span></th>
-          <th><span class="col-head">SEO Monthly</span><span class="col-price">From £299/mo</span></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Full technical SEO audit</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
-        <tr><td>Core Web Vitals analysis</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
-        <tr><td>Keyword targeting review</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
-        <tr><td>PDF report emailed to you</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
-        <tr><td>Dashboard access</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
-        <tr><td>Issue remediations by our team</td><td><span class="no">—</span></td><td><span class="val">Up to 10</span></td><td><span class="val">4× per year</span></td></tr>
-        <tr><td>Post-fix verification scan</td><td><span class="no">—</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
-        <tr><td>Scans per month</td><td><span class="val">1</span></td><td><span class="val">1</span></td><td><span class="val">Up to 5</span></td></tr>
-        <tr><td>Monthly automated reports</td><td><span class="no">—</span></td><td><span class="no">—</span></td><td><span class="yes">✓</span></td></tr>
-        <tr><td>Priority support</td><td><span class="no">—</span></td><td><span class="no">—</span></td><td><span class="yes">✓</span></td></tr>
-        <tr><td>Commitment</td><td><span class="val">None</span></td><td><span class="val">None</span></td><td><span class="val">3-mo rolling or 12-mo</span></td></tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<!-- ── CTA ── -->
-<section class="cta-section">
-  <div class="container">
-    <div class="cta-box">
-      <span class="section-label">Get Started</span>
-      <h2>Not sure which service <span class="highlight">you need?</span></h2>
-      <p>Run a free SEO scan to see your health score in minutes, or book a free 30-minute strategy call and we'll recommend exactly where to start.</p>
-      <div class="cta-actions">
-        <a href="http://localhost:3000/register" class="btn btn-primary">Run a Free SEO Scan &rarr;</a>
-        <a href="contact.html" class="btn btn-outline">Book a Strategy Call</a>
-      </div>
-      <p class="cta-note">No commitment. No sales pressure. Just honest advice.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ── Footer ── -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <div class="logo-icon">⚡</div>
-          Storm<span>Cloud</span> AI
-        </a>
-        <p>UK SEO &amp; digital marketing agency helping SMEs rank higher, spend smarter and grow faster — powered by AI.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <a href="#seo-audit">SEO Audit Report</a>
-        <a href="#seo-fix">SEO Fix Pack</a>
-        <a href="#seo-monthly">SEO Monthly</a>
-        <a href="#redesign">Website Redesign</a>
-        <a href="#paid-ads">Paid Digital Marketing</a>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact</a>
-        <a href="http://localhost:3000/login">Client Login</a>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <a href="mailto:hello@stormcloudai.com">hello@stormcloudai.com</a>
-        <a href="tel:+441234567890">+44 (0) 1234 567 890</a>
-        <a href="#">London, UK</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>&copy; 2026 StormCloud AI Ltd. All rights reserved.</span>
-      <span>Registered in England &amp; Wales</span>
-    </div>
-  </div>
-</footer>
-
-<script src="js/main.js"></script>
-</body>
-</html>
+          <div class="svc-feature-item"><div class="
