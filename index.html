@@ -9,461 +9,6 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <style>
-    /* ── Pricing section ── */
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      margin-top: 48px;
-    }
-    .pricing-grid-bottom {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      margin-top: 20px;
-    }
-    .price-card {
-      background: var(--navy-card);
-      border: 1px solid var(--navy-border);
-      border-radius: 16px;
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      transition: border-color 0.25s, transform 0.25s;
-      position: relative;
-      overflow: hidden;
-    }
-    .price-card:hover {
-      border-color: var(--blue);
-      transform: translateY(-4px);
-    }
-    .price-card.featured-price {
-      border-color: var(--blue);
-      background: linear-gradient(135deg, rgba(77,158,255,0.08) 0%, var(--navy-card) 60%);
-    }
-    .price-card .price-icon {
-      font-size: 28px;
-      line-height: 1;
-    }
-    .price-card .price-tag {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--blue);
-      background: rgba(77,158,255,0.12);
-      border: 1px solid rgba(77,158,255,0.25);
-      border-radius: 20px;
-      padding: 3px 10px;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-    .price-card h3 {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--white);
-      margin: 0;
-    }
-    .price-card .price-amount {
-      font-size: 32px;
-      font-weight: 800;
-      color: var(--white);
-      line-height: 1;
-    }
-    .price-card .price-amount span {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--grey);
-      margin-left: 4px;
-    }
-    .price-card .price-desc {
-      font-size: 14px;
-      color: var(--grey-light);
-      line-height: 1.6;
-      flex: 1;
-    }
-    .price-card .price-features {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .price-card .price-features li {
-      font-size: 13px;
-      color: var(--grey-light);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .price-card .price-features li::before {
-      content: '✓';
-      color: var(--green);
-      font-weight: 700;
-      font-size: 12px;
-      flex-shrink: 0;
-    }
-    .price-card .price-sub-tiers {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      border-top: 1px solid var(--navy-border);
-      padding-top: 12px;
-    }
-    .price-card .price-sub-tiers li {
-      font-size: 12px;
-      color: var(--grey-light);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .price-card .price-sub-tiers li span {
-      color: var(--blue-bright);
-      font-weight: 600;
-    }
-    .price-card .price-cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 20px;
-      border-radius: 10px;
-      font-size: 14px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.2s;
-      margin-top: 4px;
-    }
-    .price-card .price-cta.primary {
-      background: var(--blue);
-      color: #fff;
-    }
-    .price-card .price-cta.primary:hover { background: var(--blue-bright); }
-    .price-card .price-cta.outline {
-      border: 1px solid var(--navy-border);
-      color: var(--grey-light);
-    }
-    .price-card .price-cta.outline:hover {
-      border-color: var(--blue);
-      color: var(--blue);
-    }
-    .price-note {
-      font-size: 11px;
-      color: var(--grey);
-      font-style: italic;
-      margin-top: -4px;
-    }
-
-    /* ── Slicker service cards ── */
-    .svc-card-v2 {
-      background: var(--navy-card);
-      border: 1px solid var(--navy-border);
-      border-radius: 16px;
-      padding: 32px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
-      position: relative;
-      overflow: hidden;
-    }
-    .svc-card-v2::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--blue), transparent);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    .svc-card-v2:hover {
-      border-color: rgba(77,158,255,0.4);
-      transform: translateY(-4px);
-      box-shadow: 0 16px 48px rgba(0,0,0,0.3);
-    }
-    .svc-card-v2:hover::before { opacity: 1; }
-    .svc-card-v2 .svc-icon-v2 {
-      font-size: 32px;
-      line-height: 1;
-    }
-    .svc-card-v2 h3 {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--white);
-      margin: 0;
-    }
-    .svc-card-v2 p {
-      font-size: 14px;
-      color: var(--grey-light);
-      line-height: 1.65;
-      margin: 0;
-      flex: 1;
-    }
-    .svc-card-v2 .svc-price-badge {
-      display: inline-block;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--blue-bright);
-      background: rgba(77,158,255,0.1);
-      border: 1px solid rgba(77,158,255,0.2);
-      border-radius: 8px;
-      padding: 4px 12px;
-      align-self: flex-start;
-    }
-    .svc-card-v2 .svc-link-v2 {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--blue);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      transition: gap 0.2s;
-    }
-    .svc-card-v2 .svc-link-v2:hover { gap: 8px; }
-
-    /* ── 7-service grid: 2-column layout ── */
-    .services-grid-v2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-    .services-grid-v2-bottom {
-      display: grid;
-      grid-template-columns: repeat(1, 1fr);
-      gap: 20px;
-      margin-top: 20px;
-      max-width: 50%;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* ── Secondary services strip ── */
-    .also-available-strip {
-      margin-top: 40px;
-      padding: 32px;
-      background: var(--navy-card);
-      border: 1px solid var(--navy-border);
-      border-radius: 16px;
-    }
-    .also-available-strip h4 {
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--grey);
-      margin-bottom: 20px;
-    }
-    .also-available-cards {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-    .also-card {
-      background: var(--navy-mid);
-      border: 1px solid var(--navy-border);
-      border-radius: 12px;
-      padding: 20px 24px;
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      transition: border-color 0.25s, transform 0.25s;
-    }
-    .also-card:hover {
-      border-color: rgba(77,158,255,0.35);
-      transform: translateY(-2px);
-    }
-    .also-card .also-icon {
-      font-size: 28px;
-      line-height: 1;
-      flex-shrink: 0;
-    }
-    .also-card h5 {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--white);
-      margin: 0 0 4px;
-    }
-    .also-card p {
-      font-size: 13px;
-      color: var(--grey-light);
-      line-height: 1.55;
-      margin: 0 0 10px;
-    }
-    .also-card .svc-price-badge {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--blue-bright);
-      background: rgba(77,158,255,0.1);
-      border: 1px solid rgba(77,158,255,0.2);
-      border-radius: 8px;
-      padding: 3px 10px;
-    }
-
-    /* ── Customer journey section ── */
-    .journey-section {
-      background: transparent;
-      padding: 100px 0;
-    }
-    .journey-steps {
-      display: grid;
-      grid-template-columns: 1fr 44px 1fr 44px 1fr;
-      align-items: start;
-      gap: 0;
-      margin-top: 56px;
-      list-style: none;
-      padding: 0;
-    }
-    .journey-step {
-      background: var(--navy-card);
-      border: 1px solid var(--navy-border);
-      border-radius: 20px;
-      padding: 32px 28px 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-    }
-    .journey-step:hover {
-      transform: translateY(-7px);
-      box-shadow: 0 28px 70px rgba(0,0,0,0.45);
-    }
-    /* coloured accent bar at top */
-    .journey-step--free  { border-top: 2px solid var(--green); }
-    .journey-step--free:hover  { border-color: var(--green); }
-    .journey-step--report { border-top: 2px solid var(--blue); }
-    .journey-step--report:hover { border-color: var(--blue); }
-    .journey-step--fix   { border-top: 2px solid var(--pink); }
-    .journey-step--fix:hover   { border-color: var(--pink); }
-
-    /* step number */
-    .journey-step-num {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px; height: 40px;
-      border-radius: 10px;
-      font-size: 15px; font-weight: 900;
-      margin-bottom: 20px;
-      flex-shrink: 0;
-    }
-    .journey-step--free  .journey-step-num { background: rgba(34,212,160,0.12); border: 1px solid rgba(34,212,160,0.30); color: var(--green); }
-    .journey-step--report .journey-step-num { background: rgba(139,92,246,0.12); border: 1px solid rgba(139,92,246,0.30); color: var(--blue-bright); }
-    .journey-step--fix   .journey-step-num { background: rgba(236,72,153,0.12); border: 1px solid rgba(236,72,153,0.30); color: var(--pink); }
-
-    /* price badge */
-    .journey-price {
-      display: inline-flex;
-      align-items: center;
-      font-size: 10px; font-weight: 700;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      border-radius: 100px;
-      padding: 4px 12px;
-      margin-bottom: 16px;
-      width: fit-content;
-    }
-    .journey-step--free  .journey-price { background: rgba(34,212,160,0.10); border: 1px solid rgba(34,212,160,0.25); color: var(--green); }
-    .journey-step--report .journey-price { background: rgba(139,92,246,0.10); border: 1px solid rgba(139,92,246,0.25); color: var(--blue-bright); }
-    .journey-step--fix   .journey-price { background: rgba(236,72,153,0.10); border: 1px solid rgba(236,72,153,0.25); color: var(--pink); }
-
-    /* heading */
-    .journey-step h3 {
-      font-size: 1.05rem; font-weight: 800;
-      color: var(--white);
-      line-height: 1.25;
-      margin-bottom: 12px;
-      letter-spacing: -0.01em;
-    }
-
-    /* description */
-    .journey-step p {
-      font-size: 0.83rem;
-      color: var(--grey-light);
-      line-height: 1.7;
-      margin-bottom: 18px;
-    }
-
-    /* feature list */
-    .journey-features {
-      list-style: none; padding: 0;
-      margin: 0 0 22px;
-      border-top: 1px solid var(--navy-border);
-      padding-top: 14px;
-      display: flex; flex-direction: column; gap: 8px;
-      flex: 1;
-    }
-    .journey-features li {
-      display: flex; align-items: center; gap: 8px;
-      font-size: 0.78rem; color: var(--grey-light);
-    }
-    .journey-step--free  .journey-features li::before { content: '✓'; color: var(--green); font-weight: 800; font-size: 11px; flex-shrink: 0; }
-    .journey-step--report .journey-features li::before { content: '✓'; color: var(--blue-bright); font-weight: 800; font-size: 11px; flex-shrink: 0; }
-    .journey-step--fix   .journey-features li::before { content: '✓'; color: var(--pink); font-weight: 800; font-size: 11px; flex-shrink: 0; }
-
-    /* in-step CTA link */
-    .journey-step-link {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: 0.8rem; font-weight: 700;
-      padding: 9px 16px; border-radius: 8px;
-      transition: all 0.2s; align-self: flex-start;
-    }
-    .journey-step--free  .journey-step-link { background: rgba(34,212,160,0.10); color: var(--green); border: 1px solid rgba(34,212,160,0.25); }
-    .journey-step--free  .journey-step-link:hover { background: rgba(34,212,160,0.20); border-color: var(--green); }
-    .journey-step--report .journey-step-link { background: rgba(139,92,246,0.10); color: var(--blue-bright); border: 1px solid rgba(139,92,246,0.25); }
-    .journey-step--report .journey-step-link:hover { background: rgba(139,92,246,0.20); border-color: var(--blue); }
-    .journey-step--fix   .journey-step-link { background: rgba(236,72,153,0.10); color: var(--pink); border: 1px solid rgba(236,72,153,0.25); }
-    .journey-step--fix   .journey-step-link:hover { background: rgba(236,72,153,0.20); border-color: var(--pink); }
-
-    /* connector arrows */
-    .journey-arrow {
-      display: flex; align-items: center; justify-content: center;
-      font-size: 20px; color: var(--blue); opacity: 0.45;
-      padding-top: 72px;
-    }
-
-    /* trust strip */
-    .journey-trust {
-      display: flex; align-items: center; justify-content: center;
-      gap: 28px; flex-wrap: wrap;
-      margin-top: 40px;
-      padding: 18px 32px;
-      background: var(--navy-card);
-      border: 1px solid var(--navy-border);
-      border-radius: 12px;
-      font-size: 0.78rem; color: var(--grey-light); font-weight: 500;
-    }
-
-    @media (max-width: 1024px) {
-      .pricing-grid,
-      .services-grid-v2 { grid-template-columns: repeat(2, 1fr); }
-      .pricing-grid-bottom,
-      .services-grid-v2-bottom { max-width: 100%; }
-      .journey-steps {
-        grid-template-columns: 1fr;
-        gap: 16px;
-      }
-      .journey-arrow { transform: rotate(90deg); padding-top: 0; height: 28px; }
-      .also-available-cards { grid-template-columns: 1fr; }
-      .journey-trust { gap: 16px; }
-    }
-    @media (max-width: 640px) {
-      .pricing-grid,
-      .services-grid-v2,
-      .pricing-grid-bottom,
-      .services-grid-v2-bottom { grid-template-columns: 1fr; }
-      .services-grid-v2-bottom { max-width: 100%; }
-      .journey-trust { flex-direction: column; gap: 10px; text-align: center; }
-    }
-  </style>
 </head>
 <body>
 
@@ -478,125 +23,93 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
       <li><a href="http://localhost:3000/login" class="nav-signin">Sign In</a></li>
-      <li><a href="contact.html" class="btn btn-primary nav-cta">Free Consultation</a></li>
+      <li><a href="http://localhost:3000/register" class="btn btn-primary nav-cta">Free Scan</a></li>
     </ul>
     <button class="hamburger" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
-<span class="close-nav" aria-label="Close menu">✕</span>
+<button class="close-nav" aria-label="Close menu">✕</button>
 
-<!-- ── Hero ── -->
-<section class="hero" style="padding-top:0; min-height:100vh; display:flex; align-items:center;">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-orbs">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-  </div>
-  <div class="container" style="width:100%;">
+<!-- ── 1. Hero ── -->
+<section class="hero">
+  <div class="container">
     <div class="hero-inner">
-
-      <!-- Left: copy -->
       <div class="hero-content">
         <div class="hero-badge">
           <span class="dot"></span>
-          UK SEO &amp; Digital Marketing Agency
+          UK SEO &amp; digital marketing agency
         </div>
-        <h1>Rank higher.<br />Spend smarter.<br /><em>Grow faster.</em></h1>
-        <p class="hero-sub">We help UK SMEs dominate Google, run profitable paid campaigns and build websites that convert — powered by AI, driven by measurable results.</p>
+        <h1>Be found everywhere search <em>actually</em> happens.</h1>
+        <p class="hero-sub">
+          We help UK SMEs rank higher on Google, run profitable paid campaigns and turn organic traffic into revenue — backed by an AI-powered SEO platform you can use yourself.
+        </p>
         <div class="hero-actions">
-          <a href="http://localhost:3000/register" class="btn btn-primary">Run a Free SEO Scan &rarr;</a>
-          <a href="contact.html" class="btn btn-outline">Book a Strategy Call</a>
+          <a href="http://localhost:3000/register" class="btn btn-primary">Run a free SEO scan →</a>
+          <a href="contact.html" class="btn btn-outline">Book a strategy call</a>
         </div>
         <div class="hero-proof">
-          <span class="stars">★★★★★</span>
-          &nbsp;Trusted by 50+ UK businesses
+          <span class="stars">★★★★★</span> &nbsp; Trusted by 50+ UK businesses · No credit card required
         </div>
       </div>
 
-      <!-- Right: SEO Dashboard Panel -->
-      <div class="hero-visual-panel">
-        <div class="seo-dash">
-          <div class="dash-urlbar">
-            <div class="dash-url">
-              <span class="dash-urlpip"></span>
-              yourclient.co.uk
-            </div>
-            <span class="dash-scanstatus"><span class="dash-spin">⟳</span>&nbsp;Scanning</span>
+      <!-- Hero visual — compact dashboard preview -->
+      <div class="hero-visual">
+        <div class="showcase-frame" style="margin-top:0; padding:18px;">
+          <div class="showcase-frame-bar">
+            <div class="dots"><span></span><span></span><span></span></div>
+            <div class="url">app.stormcloudai.co.uk/dashboard</div>
           </div>
-          <div class="dash-mid">
-            <div class="gauge-wrap">
-              <svg class="gauge-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="gaugeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="#2D6ECC"/>
-                    <stop offset="100%" stop-color="#6AB4FF"/>
-                  </linearGradient>
-                </defs>
-                <circle class="gauge-bg" cx="50" cy="50" r="40"/>
-                <circle class="gauge-fill run" cx="50" cy="50" r="40"/>
-              </svg>
-              <div class="gauge-center">
-                <span class="gauge-num">74</span>
-                <span class="gauge-lbl">Score</span>
+
+          <!-- Site row -->
+          <div style="display:flex; align-items:center; gap:16px; margin-bottom:18px;">
+            <!-- Score gauge -->
+            <svg width="84" height="84" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+              <defs>
+                <linearGradient id="heroGauge" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#3B5BDB"/>
+                  <stop offset="100%" stop-color="#6B8AFE"/>
+                </linearGradient>
+              </defs>
+              <circle cx="50" cy="50" r="42" fill="none" stroke="#e2e8f0" stroke-width="9"/>
+              <circle cx="50" cy="50" r="42" fill="none" stroke="url(#heroGauge)" stroke-width="9"
+                      stroke-linecap="round" stroke-dasharray="195 264" transform="rotate(-90 50 50)"/>
+              <text x="50" y="50" text-anchor="middle" font-family="Inter,sans-serif" font-size="22" font-weight="800" fill="#0f172a" dy="0.35em">74</text>
+            </svg>
+            <div style="flex:1; min-width:0;">
+              <div style="font-size:0.95rem; font-weight:700; color:#0f172a;">yourclient.co.uk</div>
+              <div style="display:flex; gap:14px; font-size:0.78rem; color:#64748b; margin-top:6px;">
+                <span style="display:flex; align-items:center; gap:4px;"><span style="width:7px; height:7px; background:#dc2626; border-radius:50%;"></span><strong style="color:#0f172a;">4</strong> critical</span>
+                <span style="display:flex; align-items:center; gap:4px;"><span style="width:7px; height:7px; background:#f59e0b; border-radius:50%;"></span><strong style="color:#0f172a;">11</strong> warnings</span>
+                <span style="display:flex; align-items:center; gap:4px;"><span style="width:7px; height:7px; background:#16a34a; border-radius:50%;"></span><strong style="color:#0f172a;">6</strong> ops</span>
               </div>
             </div>
-            <div class="dash-issues">
-              <div class="dash-iss crit"><span class="iss-dot"></span>Critical Issues<span class="iss-count">4</span></div>
-              <div class="dash-iss warn"><span class="iss-dot"></span>Warnings<span class="iss-count">11</span></div>
-              <div class="dash-iss opp"><span class="iss-dot"></span>Opportunities<span class="iss-count">6</span></div>
-            </div>
           </div>
-          <div class="dash-checks" id="dashChecks">
-            <div class="chk done"><span class="chk-i">✓</span>Title &amp; meta tags</div>
-            <div class="chk done"><span class="chk-i">✓</span>SSL certificate valid</div>
-            <div class="chk active"><span class="chk-i dash-spin">⟳</span>Analysing Core Web Vitals...</div>
-            <div class="chk pending"><span class="chk-i">○</span>Schema markup</div>
-            <div class="chk pending"><span class="chk-i">○</span>Backlink profile</div>
-          </div>
-          <div class="dash-rank">
-            <div class="rank-head">
-              <span class="rank-kw">"london accountant" — Google</span>
-              <span class="rank-pill">↑ Pos 18 → 3</span>
-            </div>
-            <div class="rank-chart-bars" id="rankBars">
-              <div class="rbar" style="height:14%;animation-delay:0.10s"></div>
-              <div class="rbar" style="height:19%;animation-delay:0.16s"></div>
-              <div class="rbar" style="height:27%;animation-delay:0.22s"></div>
-              <div class="rbar" style="height:35%;animation-delay:0.28s"></div>
-              <div class="rbar" style="height:44%;animation-delay:0.34s"></div>
-              <div class="rbar" style="height:54%;animation-delay:0.40s"></div>
-              <div class="rbar" style="height:64%;animation-delay:0.46s"></div>
-              <div class="rbar" style="height:74%;animation-delay:0.52s"></div>
-              <div class="rbar" style="height:86%;animation-delay:0.58s"></div>
-              <div class="rbar peak" style="height:100%;animation-delay:0.64s"></div>
-            </div>
-          </div>
-        </div>
 
-        <div class="photo-chip chip-tr">
-          <div class="chip-icon">📈</div>
-          <div>
-            <div class="chip-val">+340%</div>
-            <div class="chip-lbl">Organic Traffic</div>
-          </div>
-        </div>
-        <div class="photo-chip chip-bl">
-          <div>
-            <div class="chip-live"><span class="pulse"></span>Live Campaign</div>
-            <div class="chip-val" style="margin-top:4px;">4.8× ROAS</div>
-            <div class="chip-lbl">Google Ads — Active</div>
-          </div>
-        </div>
-        <div class="photo-chip chip-br">
-          <div class="chip-icon">🎯</div>
-          <div>
-            <div class="chip-val">#1</div>
-            <div class="chip-lbl">Google Ranking</div>
+          <!-- Score trend area chart -->
+          <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:14px;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px;">
+              <span style="font-size:0.78rem; font-weight:600; color:#0f172a;">Score over time</span>
+              <span style="font-size:0.7rem; color:#94a3b8;">↑ +18 in 60 days</span>
+            </div>
+            <svg width="100%" height="90" viewBox="0 0 300 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="heroSparkFill" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#3B5BDB" stop-opacity="0.32"/>
+                  <stop offset="100%" stop-color="#3B5BDB" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <polygon points="0,90 0,72 30,68 60,60 90,55 120,48 150,38 180,32 210,26 240,22 270,16 300,10 300,90"
+                       fill="url(#heroSparkFill)"/>
+              <polyline points="0,72 30,68 60,60 90,55 120,48 150,38 180,32 210,26 240,22 270,16 300,10"
+                        fill="none" stroke="#3B5BDB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <!-- end dot -->
+              <circle cx="300" cy="10" r="4" fill="#3B5BDB"/>
+              <circle cx="300" cy="10" r="8" fill="#3B5BDB" opacity="0.2"/>
+            </svg>
           </div>
         </div>
       </div>
@@ -605,555 +118,363 @@
   </div>
 </section>
 
-<!-- ── Ticker ── -->
-<div class="ticker">
-  <div class="ticker-track">
-    <div class="ticker-item"><span class="t-icon">📈</span> <strong>+340%</strong> organic traffic in 6 months</div>
-    <div class="ticker-sep">·</div>
-    <div class="ticker-item"><span class="t-icon">🎯</span> Average <strong>4.8× ROAS</strong> on paid ads</div>
-    <div class="ticker-sep">·</div>
-    <div class="ticker-item"><span class="t-icon">🔍</span> <strong>Page 1</strong> Google rankings delivered</div>
-    <div class="ticker-sep">·</div>
-    <div class="ticker-item"><span class="t-icon">🤖</span> AI-powered campaigns that optimise 24/7</div>
-    <div class="ticker-sep">·</div>
-    <div class="ticker-item"><span class="t-icon">💷</span> <strong>£2M+</strong> revenue generated for clients</div>
-    <div class="ticker-sep">·</div>
-    <div class="ticker-item"><span class="t-icon">⚡</span> Campaigns live in <strong>72 hours</strong></div>
-    <div class="ticker-sep">·</div>
-    <div class="ticker-item"><span class="t-icon">📈</span> <strong>+340%</strong> organic traffic in 6 months</div>
-    <div class="ticker-sep">·</div>
-    <div class="ticker-item"><span class="t-icon">🎯</span> Average <strong>4.8× ROAS</strong> on paid ads</div>
-    <div class="ticker-sep">·</div>
-    <div class="ticker-item"><span class="t-icon">🔍</span> <strong>Page 1</strong> Google rankings delivered</div>
-    <div class="ticker-sep">·</div>
-    <div class="ticker-item"><span class="t-icon">🤖</span> AI-powered campaigns that optimise 24/7</div>
-    <div class="ticker-sep">·</div>
-    <div class="ticker-item"><span class="t-icon">💷</span> <strong>£2M+</strong> revenue generated for clients</div>
-    <div class="ticker-sep">·</div>
-    <div class="ticker-item"><span class="t-icon">⚡</span> Campaigns live in <strong>72 hours</strong></div>
-    <div class="ticker-sep">·</div>
+<!-- ── 2. Trust strip ── -->
+<div class="trust-strip">
+  <div class="container">
+    <div class="trust-label">Trusted by UK SMEs and agencies</div>
+    <div class="trust-items">
+      <span><span class="stars">★★★★★</span> &nbsp;50+ businesses</span>
+      <span>📈 <strong>+340%</strong> avg organic traffic</span>
+      <span>🎯 <strong>4.8×</strong> avg ad ROAS</span>
+      <span>💷 <strong>£2M+</strong> revenue generated</span>
+      <span>🇬🇧 UK-based team</span>
+    </div>
   </div>
 </div>
 
-<!-- ── Customer Journey — How it works ── -->
-<section class="journey-section">
+<!-- ── 3. Live data showcase — the marquee section ── -->
+<section class="showcase">
   <div class="container">
     <div class="section-header">
-      <span class="section-label">How it works</span>
-      <h2>Your path to <span class="highlight">page one</span></h2>
-      <p>Three proven steps — from your first free SEO health check to sustained Google rankings. Each step delivers real value on its own.</p>
+      <span class="section-label">A real product, not a deck</span>
+      <h2>Every scan, <span class="highlight">visualised</span></h2>
+      <p>Your dashboard turns 50+ technical SEO checks into one health score, an issue mix, a Core Web Vitals breakdown and a keyword position tracker — refreshed on every scan.</p>
     </div>
-    <div class="journey-steps">
 
-      <article class="journey-step journey-step--free fade-up">
-        <div class="journey-step-num">1</div>
-        <h3>Free SEO site audit</h3>
-        <div class="journey-price">Free — no credit card</div>
-        <p>Get your SEO health score in under 3 minutes. Our AI crawler checks your site across 50+ signals — technical errors, Core Web Vitals, on-page content, mobile usability and more.</p>
-        <ul class="journey-features">
-          <li>50+ technical SEO checks</li>
-          <li>Instant health score (0–100)</li>
-          <li>Core Web Vitals &amp; mobile audit</li>
-          <li>No commitment, no credit card</li>
-        </ul>
-        <a href="http://localhost:3000/register" class="journey-step-link">Scan my site free →</a>
-      </article>
+    <div class="showcase-frame">
+      <div class="showcase-frame-bar">
+        <div class="dots"><span></span><span></span><span></span></div>
+        <div class="url">app.stormcloudai.co.uk/dashboard</div>
+      </div>
 
-      <div class="journey-arrow" aria-hidden="true">→</div>
+      <div class="showcase-grid">
 
-      <article class="journey-step journey-step--report fade-up">
-        <div class="journey-step-num">2</div>
-        <h3>Full SEO audit report</h3>
-        <div class="journey-price">From £149</div>
-        <p>Every SEO issue explained in plain English — no jargon. A detailed PDF report plus a prioritised 90-day fix roadmap, saved to your secure dashboard so your team can track progress.</p>
-        <ul class="journey-features">
-          <li>Plain-English issue explanations</li>
-          <li>Prioritised 90-day action roadmap</li>
-          <li>PDF + live dashboard report</li>
-          <li>Keyword gap &amp; competitor analysis</li>
-        </ul>
-        <a href="contact.html" class="journey-step-link">Get my audit report →</a>
-      </article>
+        <!-- Card 1: Score trend area chart -->
+        <div class="showcase-card">
+          <div class="showcase-card-head">
+            <h4>Score over time</h4>
+            <span class="meta">last 8 scans</span>
+          </div>
+          <svg width="100%" height="160" viewBox="0 0 320 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="showFill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#3B5BDB" stop-opacity="0.32"/>
+                <stop offset="100%" stop-color="#3B5BDB" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <!-- gridlines -->
+            <line x1="0" y1="40"  x2="320" y2="40"  stroke="#e2e8f0" stroke-dasharray="3 3"/>
+            <line x1="0" y1="80"  x2="320" y2="80"  stroke="#e2e8f0" stroke-dasharray="3 3"/>
+            <line x1="0" y1="120" x2="320" y2="120" stroke="#e2e8f0" stroke-dasharray="3 3"/>
+            <!-- area + line -->
+            <polygon points="0,160 0,120 40,114 80,100 120,92 160,75 200,62 240,48 280,32 320,22 320,160" fill="url(#showFill)"/>
+            <polyline points="0,120 40,114 80,100 120,92 160,75 200,62 240,48 280,32 320,22"
+                      fill="none" stroke="#3B5BDB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- dots -->
+            <circle cx="0" cy="120" r="3" fill="#3B5BDB"/>
+            <circle cx="40" cy="114" r="3" fill="#3B5BDB"/>
+            <circle cx="80" cy="100" r="3" fill="#3B5BDB"/>
+            <circle cx="120" cy="92" r="3" fill="#3B5BDB"/>
+            <circle cx="160" cy="75" r="3" fill="#3B5BDB"/>
+            <circle cx="200" cy="62" r="3" fill="#3B5BDB"/>
+            <circle cx="240" cy="48" r="3" fill="#3B5BDB"/>
+            <circle cx="280" cy="32" r="3" fill="#3B5BDB"/>
+            <circle cx="320" cy="22" r="4.5" fill="#3B5BDB"/>
+          </svg>
+          <div style="display:flex; justify-content:space-between; font-size:0.7rem; color:#94a3b8; margin-top:6px;">
+            <span>Feb</span><span>Mar</span><span>Apr</span><span>Now</span>
+          </div>
+        </div>
 
-      <div class="journey-arrow" aria-hidden="true">→</div>
+        <!-- Card 2: Issue breakdown donut -->
+        <div class="showcase-card">
+          <div class="showcase-card-head">
+            <h4>Issue mix</h4>
+            <span class="meta">latest scan</span>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:center; height:160px; gap:16px;">
+            <svg width="130" height="130" viewBox="0 0 42 42" xmlns="http://www.w3.org/2000/svg">
+              <!-- donut: 21 critical (4), 58 warning (11), 32 opps (6) — circumference 100 -->
+              <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#e2e8f0" stroke-width="6"/>
+              <!-- critical 19% -->
+              <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#dc2626" stroke-width="6"
+                      stroke-dasharray="19 81" stroke-dashoffset="25" transform="rotate(-90 21 21)"/>
+              <!-- warning 52% -->
+              <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#f59e0b" stroke-width="6"
+                      stroke-dasharray="52 48" stroke-dashoffset="6" transform="rotate(-90 21 21)"/>
+              <!-- opportunity 29% -->
+              <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#16a34a" stroke-width="6"
+                      stroke-dasharray="29 71" stroke-dashoffset="-46" transform="rotate(-90 21 21)"/>
+              <text x="21" y="21" text-anchor="middle" font-family="Inter,sans-serif" font-size="6" font-weight="800" fill="#0f172a" dy="0.35em">21</text>
+            </svg>
+            <div style="display:flex; flex-direction:column; gap:8px; font-size:0.78rem;">
+              <div style="display:flex; align-items:center; gap:6px;"><span style="width:8px;height:8px;background:#dc2626;border-radius:50%;"></span><strong>4</strong> critical</div>
+              <div style="display:flex; align-items:center; gap:6px;"><span style="width:8px;height:8px;background:#f59e0b;border-radius:50%;"></span><strong>11</strong> warnings</div>
+              <div style="display:flex; align-items:center; gap:6px;"><span style="width:8px;height:8px;background:#16a34a;border-radius:50%;"></span><strong>6</strong> opps</div>
+            </div>
+          </div>
+        </div>
 
-      <article class="journey-step journey-step--fix fade-up">
-        <div class="journey-step-num">3</div>
-        <h3>Fix it or go fully managed</h3>
-        <div class="journey-price">From £299</div>
-        <p>Use the roadmap yourself or hand it to us. Choose a targeted Starter Fix for quick wins, a comprehensive Fix Pack for a full overhaul, or ongoing managed SEO to keep your rankings climbing.</p>
-        <ul class="journey-features">
-          <li>Starter Fix — high-impact quick wins</li>
-          <li>Full Fix Pack — site-wide SEO overhaul</li>
-          <li>Managed SEO — ongoing page-1 strategy</li>
-          <li>Pricing scaled to your site size</li>
-        </ul>
-        <a href="services.html" class="journey-step-link">View SEO plans →</a>
-      </article>
+        <!-- Card 3: Core Web Vitals radar -->
+        <div class="showcase-card">
+          <div class="showcase-card-head">
+            <h4>Core Web Vitals</h4>
+            <span class="meta">mobile vs desktop</span>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:center; height:160px;">
+            <svg width="180" height="150" viewBox="-90 -75 180 150" xmlns="http://www.w3.org/2000/svg">
+              <!-- 5-point radar -->
+              <!-- background pentagons -->
+              <g fill="none" stroke="#e2e8f0" stroke-width="1">
+                <!-- 100% -->
+                <polygon points="0,-65, 61.8,-20.1, 38.2,52.6, -38.2,52.6, -61.8,-20.1"/>
+                <!-- 75% -->
+                <polygon points="0,-48.75, 46.35,-15.08, 28.65,39.45, -28.65,39.45, -46.35,-15.08"/>
+                <!-- 50% -->
+                <polygon points="0,-32.5, 30.9,-10.05, 19.1,26.3, -19.1,26.3, -30.9,-10.05"/>
+                <!-- 25% -->
+                <polygon points="0,-16.25, 15.45,-5.03, 9.55,13.15, -9.55,13.15, -15.45,-5.03"/>
+              </g>
+              <!-- spokes -->
+              <g stroke="#e2e8f0" stroke-width="1">
+                <line x1="0" y1="0" x2="0" y2="-65"/>
+                <line x1="0" y1="0" x2="61.8" y2="-20.1"/>
+                <line x1="0" y1="0" x2="38.2" y2="52.6"/>
+                <line x1="0" y1="0" x2="-38.2" y2="52.6"/>
+                <line x1="0" y1="0" x2="-61.8" y2="-20.1"/>
+              </g>
+              <!-- desktop polygon (better, larger) -->
+              <polygon points="0,-58.5, 55.62,-18.09, 30.56,42.08, -34.38,47.34, -49.44,-16.08"
+                       fill="#16a34a" fill-opacity="0.18" stroke="#16a34a" stroke-width="2"/>
+              <!-- mobile polygon (worse, smaller) -->
+              <polygon points="0,-39, 37.08,-12.06, 21.01,28.93, -22.92,31.56, -37.08,-12.06"
+                       fill="#3B5BDB" fill-opacity="0.32" stroke="#3B5BDB" stroke-width="2"/>
+              <!-- labels -->
+              <g font-family="Inter,sans-serif" font-size="8" font-weight="600" fill="#475569" text-anchor="middle">
+                <text x="0" y="-70">LCP</text>
+                <text x="68" y="-22">INP</text>
+                <text x="44" y="60">CLS</text>
+                <text x="-44" y="60">FCP</text>
+                <text x="-68" y="-22">TTFB</text>
+              </g>
+            </svg>
+          </div>
+          <div style="display:flex; gap:14px; justify-content:center; font-size:0.72rem; color:#475569; margin-top:-6px;">
+            <span style="display:flex; align-items:center; gap:5px;"><span style="width:9px;height:9px;background:#3B5BDB;border-radius:2px;"></span>Mobile</span>
+            <span style="display:flex; align-items:center; gap:5px;"><span style="width:9px;height:9px;background:#16a34a;border-radius:2px;"></span>Desktop</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom row: keyword ranking horizontal bars -->
+      <div class="showcase-card" style="margin-top:16px;">
+        <div class="showcase-card-head">
+          <h4>Top keyword positions</h4>
+          <span class="meta">from Google Search Console · last 28 days</span>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:8px; padding-top:6px;">
+          <!-- row -->
+          <div style="display:grid; grid-template-columns:160px 1fr 50px; align-items:center; gap:10px; font-size:0.82rem;">
+            <span style="color:#0f172a;">london accountant</span>
+            <div style="height:10px; background:#f1f5f9; border-radius:5px; overflow:hidden;">
+              <div style="width:97%; height:100%; background:#16a34a; border-radius:5px;"></div>
+            </div>
+            <span style="color:#16a34a; font-weight:700; text-align:right;">#3</span>
+          </div>
+          <div style="display:grid; grid-template-columns:160px 1fr 50px; align-items:center; gap:10px; font-size:0.82rem;">
+            <span style="color:#0f172a;">small business tax</span>
+            <div style="height:10px; background:#f1f5f9; border-radius:5px; overflow:hidden;">
+              <div style="width:88%; height:100%; background:#3B5BDB; border-radius:5px;"></div>
+            </div>
+            <span style="color:#3B5BDB; font-weight:700; text-align:right;">#7</span>
+          </div>
+          <div style="display:grid; grid-template-columns:160px 1fr 50px; align-items:center; gap:10px; font-size:0.82rem;">
+            <span style="color:#0f172a;">vat registration uk</span>
+            <div style="height:10px; background:#f1f5f9; border-radius:5px; overflow:hidden;">
+              <div style="width:78%; height:100%; background:#3B5BDB; border-radius:5px;"></div>
+            </div>
+            <span style="color:#3B5BDB; font-weight:700; text-align:right;">#9</span>
+          </div>
+          <div style="display:grid; grid-template-columns:160px 1fr 50px; align-items:center; gap:10px; font-size:0.82rem;">
+            <span style="color:#0f172a;">limited company setup</span>
+            <div style="height:10px; background:#f1f5f9; border-radius:5px; overflow:hidden;">
+              <div style="width:60%; height:100%; background:#f59e0b; border-radius:5px;"></div>
+            </div>
+            <span style="color:#f59e0b; font-weight:700; text-align:right;">#14</span>
+          </div>
+          <div style="display:grid; grid-template-columns:160px 1fr 50px; align-items:center; gap:10px; font-size:0.82rem;">
+            <span style="color:#0f172a;">payroll services</span>
+            <div style="height:10px; background:#f1f5f9; border-radius:5px; overflow:hidden;">
+              <div style="width:35%; height:100%; background:#dc2626; border-radius:5px;"></div>
+            </div>
+            <span style="color:#dc2626; font-weight:700; text-align:right;">#27</span>
+          </div>
+        </div>
+      </div>
 
     </div>
-    <div class="journey-trust">
-      <span>🔒 Secure &amp; private</span>
-      <span>⚡ Results in 72 hours</span>
-      <span>🇬🇧 UK-based team</span>
-      <span>★★★★★ Trusted by 50+ UK businesses</span>
+
+    <div style="text-align:center; margin-top:36px;">
+      <a href="http://localhost:3000/register" class="btn btn-primary">See your own dashboard — free →</a>
     </div>
   </div>
 </section>
 
-<!-- ── Results Numbers ── -->
+<!-- ── 4. Stats ── -->
 <div class="results-strip">
   <div class="container">
     <div class="results-grid">
       <div class="result-item">
         <div class="result-num">50<span>+</span></div>
-        <div class="result-label">UK Businesses Grown</div>
+        <div class="result-label">UK businesses grown</div>
       </div>
       <div class="result-item">
         <div class="result-num">£2<span>M+</span></div>
-        <div class="result-label">Revenue Generated</div>
+        <div class="result-label">Revenue generated</div>
       </div>
       <div class="result-item">
         <div class="result-num">4.8<span>×</span></div>
-        <div class="result-label">Average Ad ROAS</div>
+        <div class="result-label">Average ad ROAS</div>
       </div>
       <div class="result-item">
         <div class="result-num">98<span>%</span></div>
-        <div class="result-label">Client Retention Rate</div>
+        <div class="result-label">Client retention</div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ── Services ── -->
-<section id="services">
+<!-- ── 5. Services ── -->
+<section>
   <div class="container">
     <div class="section-header">
-      <span class="section-label">Our Services</span>
-      <h2>Everything you need to <span class="highlight">dominate your market</span></h2>
-      <p>From ranking #1 on Google to running profitable paid campaigns and redesigning your website — we handle the full digital stack so you can focus on running your business.</p>
+      <span class="section-label">Services</span>
+      <h2>One platform, <span class="highlight">every channel</span></h2>
+      <p>Run a free scan to see your SEO health score, then upgrade only when you need more — no agency lock-in, no surprises.</p>
     </div>
 
-    <!-- 7 services: 3+3+1 layout in 2-column grid -->
-    <div class="services-grid-v2">
-      <div class="svc-card-v2 fade-up">
-        <div class="svc-icon-v2">📋</div>
-        <h3>SEO Audit Report</h3>
-        <p>Complete audit saved to dashboard and emailed as PDF. Every issue explained in plain English with a 90-day roadmap.</p>
-        <div class="svc-price-badge">From £149</div>
-        <a href="services.html#seo-audit" class="svc-link-v2">Learn more →</a>
+    <div class="services-grid">
+      <div class="svc-card">
+        <div class="svc-icon">📋</div>
+        <h3>Full Scan Report</h3>
+        <p>Complete audit saved to dashboard and emailed as PDF. Every issue explained in plain English with fix instructions and a 90-day roadmap.</p>
+        <div class="svc-price-badge">£49.99 one-off</div>
+        <a href="services.html#seo-audit" class="svc-link">Learn more →</a>
       </div>
-      <div class="svc-card-v2 fade-up">
-        <div class="svc-icon-v2">🔩</div>
-        <h3>SEO Starter Fix</h3>
-        <p>Fix your top 3 critical SEO issues. Perfect first step if you're not ready for the full fix pack — results without the full commitment.</p>
-        <div class="svc-price-badge">From £299</div>
-        <a href="services.html#seo-starter" class="svc-link-v2">Learn more →</a>
+      <div class="svc-card">
+        <div class="svc-icon">⚡</div>
+        <h3>Per-Fix Pricing</h3>
+        <p>Pay only for the fixes you need. Easy fixes £29.99, tricky fixes £49.99. Run them yourself via the dashboard — no subscription.</p>
+        <div class="svc-price-badge">From £29.99</div>
+        <a href="services.html#per-fix" class="svc-link">Learn more →</a>
       </div>
-      <div class="svc-card-v2 fade-up">
-        <div class="svc-icon-v2">🔧</div>
-        <h3>SEO Fix Pack</h3>
-        <p>Everything in the Audit plus our team remediates up to 10 critical issues. No developer needed.</p>
-        <div class="svc-price-badge">From £999</div>
-        <a href="services.html#seo-fix" class="svc-link-v2">Learn more →</a>
+      <div class="svc-card">
+        <div class="svc-icon">📊</div>
+        <h3>Competitor Scan</h3>
+        <p>See exactly how your SEO score compares to a rival domain. Side-by-side reports showing where they beat you and what to copy.</p>
+        <div class="svc-price-badge">£99.99 one-off</div>
+        <a href="services.html#competitor" class="svc-link">Learn more →</a>
       </div>
-      <div class="svc-card-v2 fade-up">
-        <div class="svc-icon-v2">📅</div>
-        <h3>SEO Monthly</h3>
-        <p>Fully managed 12-month SEO. 5 scans/month, monthly PDF reports, 4 remediation requests/year included. Start on a 3-month rolling contract first.</p>
-        <div class="svc-price-badge">From £299 / month</div>
-        <a href="services.html#seo-monthly" class="svc-link-v2">Learn more →</a>
+      <div class="svc-card">
+        <div class="svc-icon">📅</div>
+        <h3>Monthly Plan</h3>
+        <p>Fully managed SEO — 5 scans/month, full dashboard, automated fixes applied for you, and 1 competitor scan included monthly.</p>
+        <div class="svc-price-badge">£299.99/month</div>
+        <a href="services.html#seo-monthly" class="svc-link">Learn more →</a>
       </div>
-      <div class="svc-card-v2 fade-up">
-        <div class="svc-icon-v2">🎨</div>
+      <div class="svc-card">
+        <div class="svc-icon">🎨</div>
         <h3>Website Redesign</h3>
-        <p>Full redesign built for SEO, conversion and content clarity from day one. Starter (5 pages), Business (15 pages) and Bespoke packages available.</p>
+        <p>Bespoke redesign built for SEO and conversion from day one. Starter (5 pages), Business (15 pages), or Bespoke e-commerce builds.</p>
         <div class="svc-price-badge">From £3,499</div>
-        <a href="services.html#redesign" class="svc-link-v2">Learn more →</a>
+        <a href="services.html#redesign" class="svc-link">Learn more →</a>
       </div>
-      <div class="svc-card-v2 fade-up">
-        <div class="svc-icon-v2">🎯</div>
-        <h3>Paid Digital Marketing</h3>
-        <p>Meta and Google Ads managed end-to-end. Suitable for businesses with £1,000+/month ad budgets.</p>
-        <div class="svc-price-badge">From £649 / month</div>
-        <a href="services.html#paid-ads" class="svc-link-v2">Learn more →</a>
+      <div class="svc-card">
+        <div class="svc-icon">🎯</div>
+        <h3>Paid Ads</h3>
+        <p>Meta and Google Ads managed end-to-end — strategy, creative, targeting, optimisation. Best for businesses with £1,000+/month ad budgets.</p>
+        <div class="svc-price-badge">From £649/month</div>
+        <a href="services.html#paid-ads" class="svc-link">Learn more →</a>
       </div>
-    </div>
-
-    <!-- 7th service — centred bottom row -->
-    <div class="services-grid-v2-bottom">
-      <div class="svc-card-v2 fade-up">
-        <div class="svc-icon-v2">📍</div>
-        <h3>Local SEO</h3>
-        <p>Dominate local search and Google Maps. Google Business Profile optimisation, local citations and review management. Perfect for trades, clinics and local services.</p>
-        <div class="svc-price-badge">From £299 / month</div>
-        <a href="services.html#local-seo" class="svc-link-v2">Learn more →</a>
-      </div>
-    </div>
-
-    <!-- Also available strip -->
-    <div class="also-available-strip">
-      <h4>Also available</h4>
-      <div class="also-available-cards">
-        <div class="also-card">
-          <div class="also-icon">📊</div>
-          <div>
-            <h5>Analytics &amp; Tracking Setup</h5>
-            <p>GA4, Search Console and conversion tracking installed and verified correctly. Most SME sites have broken tracking — we fix it.</p>
-            <a href="services.html#analytics" class="svc-price-badge">From £299</a>
-          </div>
-        </div>
-        <div class="also-card">
-          <div class="also-icon">✉️</div>
-          <div>
-            <h5>Email Marketing</h5>
-            <p>Automated sequences and broadcast campaigns that turn your list into revenue. Often the highest ROI channel SMEs ignore.</p>
-            <a href="services.html#email" class="svc-price-badge">From £199 / month</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div style="text-align:center; margin-top:40px;">
-      <a href="http://localhost:3000/register" class="btn btn-primary">Run a Free SEO Scan &rarr;</a>
     </div>
   </div>
 </section>
 
-<!-- ── Pricing ── -->
-<section id="pricing" style="background: var(--navy-mid);">
+<!-- ── 6. Pricing ── -->
+<section style="background: var(--bg-soft); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
   <div class="container">
     <div class="section-header">
-      <span class="section-label">Transparent Pricing</span>
-      <h2>Simple packages, <span class="highlight">no surprises</span></h2>
-      <p>Prices shown are starting points — we size each quote based on your site. Run a free scan and the app shows your personalised estimate instantly. No hidden fees, no lock-in until you're ready.</p>
+      <span class="section-label">Transparent pricing</span>
+      <h2>Simple plans, <span class="highlight">no surprises</span></h2>
+      <p>Start free. Upgrade only when the data tells you it's time. No lock-in, no hidden fees.</p>
     </div>
 
-    <!-- SEO packages: 2x2 grid -->
     <div class="pricing-grid">
 
-      <div class="price-card fade-up">
+      <div class="price-card">
+        <div class="price-icon">🔍</div>
+        <h3>Free Scan</h3>
+        <div class="price-amount">£0</div>
+        <p class="price-desc">See your SEO health score instantly. Basic results on your dashboard, no credit card required.</p>
+        <ul class="price-features">
+          <li>Site health score out of 100</li>
+          <li>Critical issue count</li>
+          <li>Core Web Vitals overview</li>
+          <li>Predicted score if all issues fixed</li>
+        </ul>
+        <a href="http://localhost:3000/register" class="price-cta outline">Run free scan →</a>
+      </div>
+
+      <div class="price-card featured-price">
+        <div class="price-tag">Most popular</div>
+        <div class="price-icon">📅</div>
+        <h3>Monthly Plan</h3>
+        <div class="price-amount">£299.99 <span>/ month</span></div>
+        <p class="price-desc">Fully managed SEO — we keep watching, catch new issues, apply safe fixes automatically. Cancel anytime.</p>
+        <ul class="price-features">
+          <li>5 full site scans per month</li>
+          <li>Managed automated fixes included</li>
+          <li>1 competitor scan per month</li>
+          <li>Keyword tracking &amp; analysis</li>
+          <li>Priority support</li>
+        </ul>
+        <a href="http://localhost:3000/register" class="price-cta primary">Start today →</a>
+      </div>
+
+      <div class="price-card">
         <div class="price-icon">📋</div>
-        <h3>SEO Audit Report</h3>
-        <div class="price-amount">From £149</div>
-        <p class="price-desc">A one-off deep-dive into your site's SEO health. Saved to your dashboard and emailed as a professional PDF report.</p>
+        <h3>Full Scan Report</h3>
+        <div class="price-amount">£49.99</div>
+        <p class="price-desc">One-off full scan — complete audit saved to dashboard and delivered as a professional PDF with fix instructions.</p>
         <ul class="price-features">
           <li>Full technical SEO audit</li>
           <li>Core Web Vitals analysis</li>
-          <li>Keyword targeting review</li>
-          <li>Plain English recommendations</li>
+          <li>Plain-English fix instructions</li>
           <li>90-day improvement roadmap</li>
           <li>PDF delivered to your inbox</li>
         </ul>
-        <a href="http://localhost:3000/register" class="price-cta primary">Get my audit →</a>
-      </div>
-
-      <div class="price-card fade-up">
-        <div class="price-icon">🔩</div>
-        <h3>SEO Starter Fix</h3>
-        <div class="price-amount">From £299</div>
-        <p class="price-desc">Fix your top 3 critical SEO issues without committing to the full fix pack. The perfect first step to measurable improvement.</p>
-        <ul class="price-features">
-          <li>Pre-fix audit scan</li>
-          <li>Remediation of top 3 critical issues</li>
-          <li>Post-fix verification scan</li>
-          <li>Fix summary report</li>
-          <li>7-day support window</li>
-          <li>Natural upgrade path to Fix Pack</li>
-        </ul>
-        <a href="contact.html" class="price-cta primary">Get started →</a>
-      </div>
-
-      <div class="price-card featured-price fade-up">
-        <div class="price-tag">Most Popular</div>
-        <div class="price-icon">🔧</div>
-        <h3>SEO Fix Pack</h3>
-        <div class="price-amount">From £999</div>
-        <p class="price-desc">Everything in the Audit Report, plus our team fixes your issues for you. No developer needed.</p>
-        <ul class="price-features">
-          <li>Everything in the Audit Report</li>
-          <li>Remediation of up to 10 critical issues</li>
-          <li>Direct fixes applied to your site</li>
-          <li>No technical knowledge required</li>
-          <li>Post-fix verification scan included</li>
-          <li>14-day support window</li>
-        </ul>
-        <a href="contact.html" class="price-cta primary">Get a quote →</a>
-      </div>
-
-      <div class="price-card fade-up">
-        <div class="price-icon">📅</div>
-        <h3>SEO Monthly</h3>
-        <div class="price-amount">From £299 <span>/ month</span></div>
-        <p class="price-desc">Fully managed SEO with scans, reports and remediation included. Start on a 3-month rolling contract. Move to 12-month annual for best value.</p>
-        <ul class="price-features">
-          <li>Up to 5 scans per month</li>
-          <li>Automated monthly PDF reports</li>
-          <li>4 remediation requests per year</li>
-          <li>Keyword tracking &amp; analysis</li>
-          <li>Priority support</li>
-          <li>3-month rolling or 12-month annual</li>
-        </ul>
-        <a href="contact.html" class="price-cta primary">Start today →</a>
+        <a href="http://localhost:3000/register" class="price-cta outline">Get my report →</a>
       </div>
 
     </div>
 
-    <!-- Bespoke service cards below SEO grid -->
-    <div class="pricing-grid-bottom" style="margin-top:20px;">
-
-      <div class="price-card fade-up">
-        <div class="price-icon">🎨</div>
-        <h3>Website Redesign</h3>
-        <div class="price-amount">From £3,499</div>
-        <p class="price-desc">A bespoke redesign built for SEO, conversion and content clarity from day one. Three packages to suit your needs.</p>
-        <ul class="price-sub-tiers">
-          <li>Starter — 5 pages, template-based <span>£3,499</span></li>
-          <li>Business — 15 pages, custom design <span>£5,999</span></li>
-          <li>Bespoke — E-commerce &amp; complex builds <span>POA</span></li>
-        </ul>
-        <ul class="price-features">
-          <li>UX &amp; conversion-led design</li>
-          <li>Technical SEO built in from the start</li>
-          <li>Mobile-first, fast-loading build</li>
-          <li>Post-launch SEO audit included</li>
-        </ul>
-        <a href="mailto:hello@stormcloudai.com?subject=Website Redesign enquiry" class="price-cta outline">Get a quote →</a>
-      </div>
-
-      <div class="price-card fade-up">
-        <div class="price-icon">🎯</div>
-        <h3>Paid Digital Marketing</h3>
-        <div class="price-amount">From £649 <span>/ month</span></div>
-        <p class="price-desc">Meta and Google Ads managed end-to-end. Strategy, creative, targeting and optimisation — all handled.</p>
-        <p class="price-note">Minimum recommended ad budget: £1,000/month. Management fee is separate from your ad spend.</p>
-        <ul class="price-features">
-          <li>Meta Ads (Facebook &amp; Instagram)</li>
-          <li>Google Search &amp; Display Ads</li>
-          <li>Audience research &amp; targeting</li>
-          <li>Creative direction &amp; copy</li>
-          <li>Monthly performance reports</li>
-        </ul>
-        <a href="mailto:hello@stormcloudai.com?subject=Paid Digital Marketing enquiry" class="price-cta outline">Get a quote →</a>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- ── AI Banner ── -->
-<div class="photo-banner">
-  <div class="banner-bg-grad"></div>
-  <div class="banner-grid-lines"></div>
-  <div class="photo-banner-content">
-    <div class="container">
-      <div>
-        <span class="section-label">AI-Powered Marketing</span>
-        <h2>Marketing intelligence that <span class="highlight">never sleeps</span></h2>
-        <p>Our AI systems analyse your site and campaigns around the clock — identifying opportunities, flagging issues and surfacing improvements while your competitors are still manually checking dashboards.</p>
-        <a href="contact.html" class="btn btn-primary">See How It Works &rarr;</a>
-      </div>
-      <div class="banner-stats">
-        <div class="banner-stat-row">
-          <div class="bs-icon">🧠</div>
-          <div>
-            <div class="bs-val">24/7</div>
-            <div class="bs-lbl">AI campaign monitoring &amp; optimisation</div>
-          </div>
-        </div>
-        <div class="banner-stat-row">
-          <div class="bs-icon">⚡</div>
-          <div>
-            <div class="bs-val">72hrs</div>
-            <div class="bs-lbl">From briefing to live campaign</div>
-          </div>
-        </div>
-        <div class="banner-stat-row">
-          <div class="bs-icon">📊</div>
-          <div>
-            <div class="bs-val">Monthly</div>
-            <div class="bs-lbl">Plain-English performance reports</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ── How We Work ── -->
-<section style="background: var(--navy-mid);">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-label">Our Process</span>
-      <h2>From strategy to <span class="highlight">results</span> in 4 steps</h2>
-      <p>No lengthy onboarding. No fluff. We move fast and start delivering value from week one.</p>
-    </div>
-    <div class="process-grid">
-      <div class="process-step fade-up">
-        <div class="step-num">01</div>
-        <h4>Free Strategy Call</h4>
-        <p>We audit your current digital presence, understand your goals and identify your biggest growth opportunities — at no cost.</p>
-      </div>
-      <div class="process-step fade-up">
-        <div class="step-num">02</div>
-        <h4>Custom Growth Plan</h4>
-        <p>You get a tailored plan — the right channels, the right budget and a clear picture of expected results before you spend a penny.</p>
-      </div>
-      <div class="process-step fade-up">
-        <div class="step-num">03</div>
-        <h4>We Launch Fast</h4>
-        <p>Campaigns and fixes go live within 72 hours. No waiting months to see action — we get to work immediately.</p>
-      </div>
-      <div class="process-step fade-up">
-        <div class="step-num">04</div>
-        <h4>Optimise &amp; Scale</h4>
-        <p>Monthly reporting, continuous optimisation and a clear path to scaling what's working. You always know what's happening.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── Testimonials + Stats ── -->
-<section>
-  <div class="container">
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start;">
-      <div class="photo-grid">
-        <div class="stat-panel tall fade-up">
-          <div class="stat-tag">🔍 SEO Rankings</div>
-          <div class="stat-big">#1</div>
-          <div class="stat-sub">Google position achieved<br/>from a standing start</div>
-          <div class="stat-delta">↑ From position 18 in 6 months</div>
-          <div class="stat-bars-wrap" id="statBars1">
-            <div class="sbar" style="height:14%;animation-delay:0.10s"></div>
-            <div class="sbar" style="height:20%;animation-delay:0.16s"></div>
-            <div class="sbar" style="height:29%;animation-delay:0.22s"></div>
-            <div class="sbar" style="height:38%;animation-delay:0.28s"></div>
-            <div class="sbar" style="height:49%;animation-delay:0.34s"></div>
-            <div class="sbar" style="height:60%;animation-delay:0.40s"></div>
-            <div class="sbar" style="height:71%;animation-delay:0.46s"></div>
-            <div class="sbar" style="height:82%;animation-delay:0.52s"></div>
-            <div class="sbar g" style="height:100%;animation-delay:0.58s"></div>
-          </div>
-        </div>
-        <div class="stat-panel fade-up">
-          <div class="stat-tag">📈 Organic Traffic</div>
-          <div class="stat-big">+340%</div>
-          <div class="stat-sub">Growth in 6 months</div>
-          <div class="stat-delta">↑ 8,200 → 36,000 monthly visits</div>
-          <svg class="sparkline-svg" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-            <defs>
-              <linearGradient id="spkGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="rgba(77,158,255,0.25)"/>
-                <stop offset="100%" stop-color="rgba(77,158,255,0)"/>
-              </linearGradient>
-            </defs>
-            <polygon points="0,50 0,44 22,42 44,38 66,34 88,28 110,22 132,16 154,10 176,6 200,2 200,50" fill="url(#spkGrad)"/>
-            <polyline points="0,44 22,42 44,38 66,34 88,28 110,22 132,16 154,10 176,6 200,2" fill="none" stroke="#4D9EFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <div class="stat-panel fade-up">
-          <div class="stat-tag">💰 Revenue</div>
-          <div class="stat-big">£2M+</div>
-          <div class="stat-sub">Generated for UK clients</div>
-          <div class="stat-delta">↑ 98% client retention</div>
-        </div>
-      </div>
-
-      <div>
-        <span class="section-label">Client Results</span>
-        <h2 style="margin-bottom:32px;">Real businesses.<br /><span class="highlight">Real growth.</span></h2>
-        <div style="display:flex; flex-direction:column; gap:20px;">
-          <div class="testi-card fade-up">
-            <div class="testi-stars">★★★★★</div>
-            <p class="testi-quote">"Our organic traffic tripled in four months. We're now ranking for terms we never thought possible and the SEO audit report made everything crystal clear."</p>
-            <div class="testi-author">
-              <div class="testi-avatar">SH</div>
-              <div>
-                <div class="testi-name">Sarah H.</div>
-                <div class="testi-role">Founder, The Interior Studio</div>
-              </div>
-            </div>
-          </div>
-          <div class="testi-card fade-up">
-            <div class="testi-stars">★★★★★</div>
-            <p class="testi-quote">"We rebuilt our Google Ads from scratch with StormCloud. Now getting 5× the leads at half the cost. The targeting and creative quality is on a different level."</p>
-            <div class="testi-author">
-              <div class="testi-avatar">MR</div>
-              <div>
-                <div class="testi-name">Mark R.</div>
-                <div class="testi-role">Director, Apex Recruitment</div>
-              </div>
-            </div>
-          </div>
-          <div class="testi-card fade-up">
-            <div class="testi-stars">★★★★★</div>
-            <p class="testi-quote">"The website redesign was exactly what we needed — it looks incredible and we've seen a 60% improvement in time-on-site since launch. Ranking higher too."</p>
-            <div class="testi-author">
-              <div class="testi-avatar">JT</div>
-              <div>
-                <div class="testi-name">James T.</div>
-                <div class="testi-role">CEO, Meridian Consulting</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── Why Us ── -->
-<section style="background: var(--navy-mid);">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-label">Why StormCloud AI</span>
-      <h2>Not your average <span class="highlight">marketing agency</span></h2>
-      <p>We combine the creativity of a marketing agency with the precision of a technology company — and we put our money where our mouth is.</p>
-    </div>
-    <div class="why-grid" style="max-width:900px; margin:0 auto;">
-      <div class="why-card fade-up">
-        <div class="why-icon">🤖</div>
-        <div>
-          <h3>AI-Powered Precision</h3>
-          <p>We use AI to scan, research, optimise and report — so your budget works harder, results compound faster, and nothing slips through the cracks.</p>
-        </div>
-      </div>
-      <div class="why-card fade-up">
-        <div class="why-icon">📊</div>
-        <div>
-          <h3>100% Transparent Reporting</h3>
-          <p>Monthly reports in plain English. You always know exactly what we're doing, what it's costing and what it's returning — no agency jargon.</p>
-        </div>
-      </div>
-      <div class="why-card fade-up">
-        <div class="why-icon">🇬🇧</div>
-        <div>
-          <h3>Built for UK SMEs</h3>
-          <p>No offshore teams, no template strategies. We know the UK market inside out and build campaigns that speak directly to your customers.</p>
-        </div>
-      </div>
-      <div class="why-card fade-up">
-        <div class="why-icon">⚡</div>
-        <div>
-          <h3>Fast to Launch, Built to Scale</h3>
-          <p>Campaigns and fixes live in 72 hours. As your results grow, we scale what's working — fast, efficiently and without losing quality.</p>
-        </div>
-      </div>
-    </div>
+    <p style="text-align:center; margin-top:32px; font-size:0.88rem; color:var(--text-soft);">
+      Need website redesign or paid ads? <a href="services.html">See all services →</a>
+    </p>
   </div>
 </section>
 
 <!-- ── CTA ── -->
-<section class="cta-section" style="padding-top:100px;">
+<section class="cta-section">
   <div class="container">
     <div class="cta-box">
-      <span class="section-label">Get Started Today</span>
+      <span class="section-label">Get started today</span>
       <h2>Ready to see where your site <span class="highlight">really stands?</span></h2>
       <p>Run a free SEO scan and get your health score in minutes. No credit card, no commitment — just a clear picture of where you are and how to improve.</p>
       <div class="cta-actions">
-        <a href="http://localhost:3000/register" class="btn btn-primary">Run a Free SEO Scan &rarr;</a>
-        <a href="contact.html" class="btn btn-outline">Book a Strategy Call</a>
+        <a href="http://localhost:3000/register" class="btn btn-primary">Run a free SEO scan →</a>
+        <a href="contact.html" class="btn btn-outline">Book a strategy call</a>
       </div>
       <p class="cta-note">Free scan takes 2 minutes. No credit card required.</p>
     </div>
@@ -1173,15 +494,13 @@
       </div>
       <div class="footer-col">
         <h4>Services</h4>
-        <a href="services.html#seo-audit">SEO Audit Report</a>
-        <a href="services.html#seo-starter">SEO Starter Fix</a>
-        <a href="services.html#seo-fix">SEO Fix Pack</a>
-        <a href="services.html#seo-monthly">SEO Monthly</a>
+        <a href="services.html#seo-audit">Full Scan Report</a>
+        <a href="services.html#per-fix">Per-Fix Pricing</a>
+        <a href="services.html#competitor">Competitor Scan</a>
+        <a href="services.html#seo-monthly">Monthly Plan</a>
         <a href="services.html#redesign">Website Redesign</a>
         <a href="services.html#paid-ads">Paid Digital Marketing</a>
         <a href="services.html#local-seo">Local SEO</a>
-        <a href="services.html#analytics">Analytics &amp; Tracking</a>
-        <a href="services.html#email">Email Marketing</a>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
@@ -1197,7 +516,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; 2026 StormCloud AI Ltd. All rights reserved.</span>
+      <span>© 2026 StormCloud AI Ltd. All rights reserved.</span>
       <span>Registered in England &amp; Wales</span>
     </div>
   </div>
