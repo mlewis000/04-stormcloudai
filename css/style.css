@@ -1945,3 +1945,61 @@ section { padding: 100px 0; }
 .pmock-score-pill--good { color: #34d399; background: rgba(34,212,160,0.1); }
 .pmock-score-pill--mid  { color: #fbbf24; background: rgba(245,158,11,0.1); }
 .pmock-score-pill--poor { color: #f87171; background: rgba(239,68,68,0.1); }
+
+/* ── About page stat grid ── */
+.about-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+.about-stat-box  { background: var(--navy-mid); border-radius: 10px; padding: 20px; border: 1px solid var(--navy-border); }
+.about-stat-num  { font-size: 1.8rem; font-weight: 800; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.about-stat-lbl  { font-size: 0.8rem; color: var(--grey); margin-top: 4px; }
+
+/* ── Reveals grid ── */
+.reveals-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.reveals-card  { background: var(--navy-card); border: 1px solid var(--navy-border); border-radius: 16px; padding: 32px 28px; transition: border-color 0.25s, transform 0.25s; }
+.reveals-card:hover { border-color: rgba(139,92,246,0.35); transform: translateY(-4px); }
+.reveals-icon  { font-size: 2rem; display: block; margin-bottom: 16px; }
+.reveals-title { font-size: 0.95rem; font-weight: 800; color: var(--white); margin-bottom: 10px; }
+.reveals-sub   { font-size: 0.82rem; color: var(--grey-light); line-height: 1.7; }
+.reveals-cta   { text-align: center; margin-top: 52px; }
+.reveals-cta p { font-size: 0.8rem; color: var(--grey); margin-top: 12px; }
+
+/* ── Agency vs StormCloud comparison ── */
+.vs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 56px; }
+.vs-col  { border-radius: 20px; padding: 36px 32px; }
+.vs-col--agency { background: rgba(239,68,68,0.04); border: 1px solid rgba(239,68,68,0.15); }
+.vs-col--sc     { background: rgba(34,212,160,0.04); border: 1px solid rgba(34,212,160,0.15); }
+.vs-col-head  { margin-bottom: 28px; }
+.vs-col-label { display: block; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 8px; }
+.vs-col--agency .vs-col-label { color: #f87171; }
+.vs-col--sc     .vs-col-label { color: var(--green); }
+.vs-col-price { display: block; font-size: 1.7rem; font-weight: 900; color: var(--white); letter-spacing: -0.03em; }
+.vs-list  { display: flex; flex-direction: column; gap: 14px; list-style: none; }
+.vs-item  { font-size: 0.875rem; color: var(--grey-light); line-height: 1.5; padding-left: 26px; position: relative; }
+.vs-item::before   { position: absolute; left: 0; font-weight: 900; font-size: 0.9rem; }
+.vs-item--bad::before  { content: '✕'; color: #f87171; }
+.vs-item--good::before { content: '✓'; color: var(--green); }
+
+/* ── FAQ grid ── */
+.faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.faq-item { background: var(--navy-card); border: 1px solid var(--navy-border); border-radius: 16px; padding: 28px; }
+.faq-q    { font-size: 0.95rem; font-weight: 800; color: var(--white); margin-bottom: 12px; }
+.faq-a    { font-size: 0.85rem; color: var(--grey-light); line-height: 1.75; }
+
+/* ── Personas grid (services) ── */
+.personas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.persona-card  { background: var(--navy-card); border: 1px solid var(--navy-border); border-radius: 20px; padding: 36px 28px; display: flex; flex-direction: column; gap: 0; }
+.persona-icon  { font-size: 2.4rem; display: block; margin-bottom: 20px; }
+.persona-card h4 { font-size: 1rem; font-weight: 800; color: var(--white); margin-bottom: 14px; }
+.persona-card p  { font-size: 0.85rem; color: var(--grey); line-height: 1.75; font-style: italic; flex: 1; margin-bottom: 20px; }
+.persona-result  { font-size: 0.78rem; font-weight: 700; color: var(--green); background: rgba(34,212,160,0.08); border: 1px solid rgba(34,212,160,0.2); border-radius: 8px; padding: 10px 14px; line-height: 1.5; }
+
+/* ── Responsive for new sections ── */
+@media (max-width: 960px) {
+  .reveals-grid  { grid-template-columns: repeat(2, 1fr); }
+  .vs-grid       { grid-template-columns: 1fr; }
+  .faq-grid      { grid-template-columns: 1fr; }
+  .personas-grid { grid-template-columns: 1fr; max-width: 440px; margin-left: auto; margin-right: auto; }
+  .about-stat-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .reveals-grid  { grid-template-columns: 1fr; }
+}
