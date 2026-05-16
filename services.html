@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <style>
 
     /* ── Scan split layout ── */
@@ -277,19 +278,19 @@
     </div>
     <div class="personas-grid">
       <div class="persona-card">
-        <span class="persona-icon">🏪</span>
+        <div class="icon-wrap icon-wrap--green"><i data-lucide="map-pin"></i></div>
         <h4>Local Business Owners</h4>
         <p>"I need to show up when people in my area search for what I do. I don't have time to become an SEO expert and I can't afford an agency."</p>
         <div class="persona-result">↗ Typical result: Local keywords on page 1 within 60 days</div>
       </div>
       <div class="persona-card">
-        <span class="persona-icon">😤</span>
+        <div class="icon-wrap icon-wrap--pink"><i data-lucide="alert-circle"></i></div>
         <h4>Burned by Agencies</h4>
         <p>"I paid £2,000 a month for 6 months. I still don't know what they actually did, or whether any of it worked."</p>
         <div class="persona-result">↗ Full transparency — every check explained, every fix tracked</div>
       </div>
       <div class="persona-card">
-        <span class="persona-icon">🚀</span>
+        <div class="icon-wrap icon-wrap--blue"><i data-lucide="rocket"></i></div>
         <h4>Growing Startups</h4>
         <p>"I've built something people need but I can't afford to wait 12 months for organic search to kick in. I need the quick wins first."</p>
         <div class="persona-result">↗ Prioritised plan — critical fixes first, growth second</div>
@@ -310,37 +311,37 @@
     <!-- Full-width 3×2 module stat grid -->
     <div class="feat-grid">
       <div class="feat-card">
-        <span class="feat-icon">🔬</span>
+        <div class="icon-wrap icon-wrap--blue"><i data-lucide="code-2"></i></div>
         <span class="feat-count counter" data-target="8">8</span>
         <div class="feat-name">Technical SEO</div>
         <div class="feat-sub">Tags, crawlability &amp; indexation</div>
       </div>
       <div class="feat-card">
-        <span class="feat-icon">⚡</span>
+        <div class="icon-wrap icon-wrap--cyan"><i data-lucide="gauge"></i></div>
         <span class="feat-count counter" data-target="8">8</span>
         <div class="feat-name">Page Speed &amp; Core Web Vitals</div>
         <div class="feat-sub">LCP, CLS, INP, FCP &amp; TTFB</div>
       </div>
       <div class="feat-card">
-        <span class="feat-icon">🏗️</span>
+        <div class="icon-wrap icon-wrap--green"><i data-lucide="server"></i></div>
         <span class="feat-count counter" data-target="7">7</span>
         <div class="feat-name">Infrastructure</div>
         <div class="feat-sub">SSL, CDN, compression &amp; headers</div>
       </div>
       <div class="feat-card">
-        <span class="feat-icon">📱</span>
+        <div class="icon-wrap icon-wrap--pink"><i data-lucide="smartphone"></i></div>
         <span class="feat-count counter" data-target="5">5</span>
         <div class="feat-name">Mobile Usability</div>
         <div class="feat-sub">Google's mobile-first criteria</div>
       </div>
       <div class="feat-card">
-        <span class="feat-icon">✍️</span>
+        <div class="icon-wrap icon-wrap--amber"><i data-lucide="file-text"></i></div>
         <span class="feat-count counter" data-target="5">5</span>
         <div class="feat-name">Content Quality</div>
         <div class="feat-sub">Depth, keywords &amp; structure</div>
       </div>
       <div class="feat-card">
-        <span class="feat-icon">🤖</span>
+        <div class="icon-wrap icon-wrap--blue"><i data-lucide="sparkles"></i></div>
         <span class="feat-count-free">Free</span>
         <div class="feat-name">AI SEO Action Plan</div>
         <div class="feat-sub">Personalised 90-day roadmap</div>
@@ -408,19 +409,19 @@
     <table class="ai-feat-table">
       <tr>
         <td class="ai-feat-cell">
-          <span class="ai-feat-emoji">🎯</span>
+          <div class="icon-wrap icon-wrap--blue"><i data-lucide="crosshair"></i></div>
           <span class="ai-feat-label">Personalised</span>
           <span class="ai-feat-title">Specific to your business</span>
           <span class="ai-feat-sub">Your keywords, industry, competitors &amp; location — not a generic template.</span>
         </td>
         <td class="ai-feat-cell ai-feat-cell--cyan">
-          <span class="ai-feat-emoji">📅</span>
+          <div class="icon-wrap icon-wrap--cyan"><i data-lucide="calendar-days"></i></div>
           <span class="ai-feat-label ai-feat-label--cyan">Structured</span>
           <span class="ai-feat-title">30 / 60 / 90-day roadmap</span>
           <span class="ai-feat-sub">Critical fixes first, then visibility growth, then long-term competitive wins.</span>
         </td>
         <td class="ai-feat-cell ai-feat-cell--green">
-          <span class="ai-feat-emoji">🔄</span>
+          <div class="icon-wrap icon-wrap--green"><i data-lucide="refresh-cw"></i></div>
           <span class="ai-feat-label ai-feat-label--green">Adaptive</span>
           <span class="ai-feat-title">Regenerate any time</span>
           <span class="ai-feat-sub">Updated as your score improves and your business evolves.</span>
@@ -657,6 +658,7 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script>lucide.createIcons({ attrs: { 'stroke-width': 1.75 } });</script>
 <script>
 (function(){
   var els = document.querySelectorAll('.counter');

@@ -1946,6 +1946,29 @@ section { padding: 100px 0; }
 .pmock-score-pill--mid  { color: #fbbf24; background: rgba(245,158,11,0.1); }
 .pmock-score-pill--poor { color: #f87171; background: rgba(239,68,68,0.1); }
 
+/* ── Icon wrapper tiles (replaces emojis site-wide) ── */
+.icon-wrap {
+  width: 56px; height: 56px;
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 22px;
+  flex-shrink: 0;
+}
+.icon-wrap svg { width: 26px; height: 26px; stroke-width: 1.75; fill: none; }
+.icon-wrap--blue   { background: rgba(139,92,246,0.12); border: 1px solid rgba(139,92,246,0.25); }
+.icon-wrap--blue   svg { stroke: #A78BFA; }
+.icon-wrap--cyan   { background: rgba(6,182,212,0.10);  border: 1px solid rgba(6,182,212,0.22); }
+.icon-wrap--cyan   svg { stroke: var(--cyan); }
+.icon-wrap--green  { background: rgba(34,212,160,0.10); border: 1px solid rgba(34,212,160,0.22); }
+.icon-wrap--green  svg { stroke: var(--green); }
+.icon-wrap--pink   { background: rgba(236,72,153,0.10); border: 1px solid rgba(236,72,153,0.22); }
+.icon-wrap--pink   svg { stroke: var(--pink); }
+.icon-wrap--amber  { background: rgba(245,158,11,0.10); border: 1px solid rgba(245,158,11,0.22); }
+.icon-wrap--amber  svg { stroke: #FBBF24; }
+/* Large variant for about page */
+.icon-wrap--lg { width: 72px; height: 72px; border-radius: 18px; margin-bottom: 20px; }
+.icon-wrap--lg svg { width: 36px; height: 36px; }
+
 /* ── About page stat grid ── */
 .about-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
 .about-stat-box  { background: var(--navy-mid); border-radius: 10px; padding: 20px; border: 1px solid var(--navy-border); }

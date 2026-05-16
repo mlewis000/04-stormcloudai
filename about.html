@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 <body>
 
@@ -58,7 +59,7 @@
       </div>
       <div class="about-visual">
         <div class="about-box">
-          <div class="big-icon">⚡</div>
+          <div class="icon-wrap icon-wrap--blue icon-wrap--lg" style="margin:0 auto 16px;"><i data-lucide="zap"></i></div>
           <h3>StormCloud AI</h3>
           <p style="font-size:0.9rem; margin-top:8px;">Built for UK small businesses.<br/>Powered by AI. Obsessed with results.</p>
           <div class="about-stat-grid">
@@ -95,22 +96,22 @@
     </div>
     <div class="values-grid" style="max-width:900px; margin:0 auto;">
       <div class="value-card">
-        <div class="v-icon">🎯</div>
+        <div class="icon-wrap icon-wrap--blue"><i data-lucide="target"></i></div>
         <h4>Results First</h4>
         <p>Every scan, every plan, every recommendation is measured against one question: will this move rankings? We don't do vanity metrics or vague "brand awareness." We do positions and traffic.</p>
       </div>
       <div class="value-card">
-        <div class="v-icon">🔬</div>
+        <div class="icon-wrap icon-wrap--cyan"><i data-lucide="zap"></i></div>
         <h4>Always Current</h4>
         <p>Google's algorithm changes constantly. Our platform is updated to match — so when you get a plan, it's based on what works now, not what worked in 2022.</p>
       </div>
       <div class="value-card">
-        <div class="v-icon">🤝</div>
+        <div class="icon-wrap icon-wrap--green"><i data-lucide="shield-check"></i></div>
         <h4>Brutally Honest</h4>
         <p>If your site has serious problems, we tell you. If your score is poor, we show you why. We'd rather give you an uncomfortable truth than a comfortable dashboard that doesn't reflect reality.</p>
       </div>
       <div class="value-card">
-        <div class="v-icon">⚡</div>
+        <div class="icon-wrap icon-wrap--pink"><i data-lucide="message-circle"></i></div>
         <h4>Plain English, Always</h4>
         <p>Every issue is explained in language a business owner can act on. If you'd need a developer to understand the report, we've failed. Our job is to make the complex simple.</p>
       </div>
@@ -171,5 +172,6 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script>lucide.createIcons({ attrs: { 'stroke-width': 1.75 } });</script>
 </body>
 </html>

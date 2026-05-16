@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <style>
 
     /* ── How-it-works strip ── */
@@ -350,21 +351,21 @@
     <div class="process-strip">
       <div class="ps-step ps-step--1 fade-up">
         <span class="ps-lbl">Step 01</span>
-        <span class="ps-icon">🔍</span>
+        <div class="icon-wrap icon-wrap--green"><i data-lucide="scan-search"></i></div>
         <div class="ps-title">Free SEO scan</div>
         <div class="ps-sub">Enter your domain. We run 50+ checks — the same signals Google uses to rank sites. You get a score from 0–100 and a full breakdown of every issue, ranked by impact. Done in under 3 minutes.</div>
       </div>
       <div class="ps-arrow" aria-hidden="true">→</div>
       <div class="ps-step ps-step--2 fade-up">
         <span class="ps-lbl">Step 02</span>
-        <span class="ps-icon">🤖</span>
+        <div class="icon-wrap icon-wrap--blue"><i data-lucide="bot"></i></div>
         <div class="ps-title">Get your AI plan</div>
         <div class="ps-sub">Answer 5 quick questions about your business, keywords and competitors. Our AI reads your scan results and builds a 90-day action plan written specifically for you. Not a template. Yours.</div>
       </div>
       <div class="ps-arrow" aria-hidden="true">→</div>
       <div class="ps-step ps-step--3 fade-up">
         <span class="ps-lbl">Step 03</span>
-        <span class="ps-icon">📈</span>
+        <div class="icon-wrap icon-wrap--pink"><i data-lucide="trending-up"></i></div>
         <div class="ps-title">Fix, rescan &amp; grow</div>
         <div class="ps-sub">Work through your list — most fixes take minutes, not days. Rescan monthly and watch your score climb. Starter plan customers average +32 points in their first 60 days.</div>
       </div>
@@ -382,32 +383,32 @@
     </div>
     <div class="reveals-grid">
       <div class="reveals-card">
-        <span class="reveals-icon">🔍</span>
+        <div class="icon-wrap icon-wrap--blue"><i data-lucide="eye-off"></i></div>
         <div class="reveals-title">Why you're invisible on Google</div>
         <div class="reveals-sub">Missing title tags, noindex flags, and crawl blocks that stop Google finding your pages — even when your content is great.</div>
       </div>
       <div class="reveals-card">
-        <span class="reveals-icon">⚡</span>
+        <div class="icon-wrap icon-wrap--amber"><i data-lucide="timer"></i></div>
         <div class="reveals-title">What's making your site slow</div>
         <div class="reveals-sub">We pinpoint the exact images, scripts, and server issues slowing you down — and show you exactly what fixing each one is worth to your rankings.</div>
       </div>
       <div class="reveals-card">
-        <span class="reveals-icon">📱</span>
+        <div class="icon-wrap icon-wrap--cyan"><i data-lucide="smartphone"></i></div>
         <div class="reveals-title">How you look on mobile</div>
         <div class="reveals-sub">Over 60% of Google searches happen on mobile. We check tap targets, font sizes, and viewport settings — the things that silently tank your rankings.</div>
       </div>
       <div class="reveals-card">
-        <span class="reveals-icon">🔒</span>
+        <div class="icon-wrap icon-wrap--pink"><i data-lucide="shield-alert"></i></div>
         <div class="reveals-title">Security issues Google penalises</div>
         <div class="reveals-sub">SSL problems, mixed content, and missing security headers that tell Google your site isn't safe — and push you down the results.</div>
       </div>
       <div class="reveals-card">
-        <span class="reveals-icon">🗺️</span>
+        <div class="icon-wrap icon-wrap--green"><i data-lucide="git-branch"></i></div>
         <div class="reveals-title">Whether Google can find your pages</div>
         <div class="reveals-sub">Sitemap errors, broken links, and redirect chains that waste crawl budget and keep new pages from ever being indexed.</div>
       </div>
       <div class="reveals-card">
-        <span class="reveals-icon">📊</span>
+        <div class="icon-wrap icon-wrap--blue"><i data-lucide="bar-chart-2"></i></div>
         <div class="reveals-title">Where you stand vs competitors</div>
         <div class="reveals-sub">See how your score compares to industry benchmarks — and what it would specifically take to move from the bottom of page 2 to the top of page 1.</div>
       </div>
@@ -755,5 +756,6 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script>lucide.createIcons({ attrs: { 'stroke-width': 1.75 } });</script>
 </body>
 </html>
