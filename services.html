@@ -3,405 +3,618 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="StormCloud AI services — SEO audit reports, fix packs, managed SEO, website redesign and paid digital marketing for UK SMEs. Transparent pricing, real results." />
-  <title>Services &amp; Pricing — StormCloud AI | SEO &amp; Digital Marketing UK</title>
+  <meta name="description" content="StormCloud AI features and pricing — free SEO health scan, AI-generated action plans, and monthly tracking for UK small businesses. Plans from £0." />
+  <title>Features &amp; Pricing — StormCloud AI SEO Platform</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+
+    /* ── Scan split layout ── */
+    .scan-split {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 48px;
+      align-items: center;
+      margin-top: 56px;
+    }
+
+    /* Feature module grid */
+    .feat-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: var(--navy-border);
+      border: 1px solid var(--navy-border); border-radius: 20px;
+      overflow: hidden; margin-bottom: 44px;
+    }
+    .feat-card { background: var(--navy-card); padding: 44px 24px 38px; text-align: center; transition: background 0.25s; }
+    .feat-card:hover { background: rgba(139,92,246,0.04); }
+    .feat-icon { font-size: 42px; display: block; margin-bottom: 18px; }
+    .feat-count {
+      font-size: 3.4rem; font-weight: 900; letter-spacing: -0.05em; line-height: 1;
+      background: linear-gradient(135deg, #8B5CF6, #06B6D4);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; display: block; margin-bottom: 10px;
+    }
+    .feat-count-free {
+      font-size: 1.6rem; font-weight: 900; letter-spacing: -0.02em; line-height: 1;
+      background: linear-gradient(135deg, #8B5CF6, #06B6D4);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; display: block; margin-bottom: 10px;
+    }
+    .feat-name { font-size: 0.92rem; font-weight: 800; color: var(--white); margin-bottom: 6px; }
+    .feat-sub { font-size: 0.76rem; color: var(--grey); }
+    .mchips { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; }
+    .mchip {
+      font-size: 0.58rem; font-weight: 600; padding: 3px 8px; border-radius: 100px;
+      background: rgba(255,255,255,0.05); border: 1px solid var(--navy-border);
+      color: var(--grey-light); white-space: nowrap;
+    }
+    .mchip-hl { color: var(--blue-bright); border-color: rgba(139,92,246,0.3); background: rgba(139,92,246,0.08); }
+
+    /* Right: scan result mockup */
+    .scan-mock-panel {
+      background: var(--navy-card); border: 1px solid var(--navy-border);
+      border-radius: 22px; overflow: hidden;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+    }
+    .mock-urlbar {
+      background: var(--navy-mid); border-bottom: 1px solid var(--navy-border);
+      padding: 12px 20px; display: flex; align-items: center; gap: 12px;
+    }
+    .mock-dots { display: flex; gap: 6px; }
+    .mock-dots span { width: 10px; height: 10px; border-radius: 50%; opacity: 0.7; display: block; }
+    .mock-url {
+      flex: 1; background: rgba(255,255,255,0.05); border-radius: 6px;
+      padding: 5px 12px; font-size: 0.72rem; color: var(--grey); font-family: monospace;
+    }
+    .mock-status { font-size: 0.7rem; color: var(--green); font-weight: 700; flex-shrink: 0; }
+    .mock-score-row {
+      display: grid; grid-template-columns: auto 1fr; padding: 24px; gap: 0;
+    }
+    .mock-gauge-wrap {
+      text-align: center; padding-right: 24px; border-right: 1px solid var(--navy-border);
+    }
+    .mock-gauge-wrap svg { width: 130px; display: block; margin: 0 auto; }
+    .mock-gauge-label { font-size: 0.64rem; color: var(--green); font-weight: 700; margin-top: 6px; }
+    .mock-issues { padding-left: 24px; display: flex; flex-direction: column; gap: 8px; justify-content: center; }
+    .mock-issue {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 8px 14px; border-radius: 10px; font-size: 0.75rem; font-weight: 600;
+    }
+    .mock-issue--crit { background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.20); color: #f87171; }
+    .mock-issue--warn { background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.20); color: #fbbf24; }
+    .mock-issue--opp  { background: rgba(34,212,160,0.08); border: 1px solid rgba(34,212,160,0.20); color: #34d399; }
+    .mock-issue strong { font-size: 1.15rem; font-weight: 900; }
+    .mock-checks {
+      border-top: 1px solid var(--navy-border); padding: 16px 24px;
+      display: flex; flex-direction: column; gap: 9px;
+    }
+    .mock-check { display: flex; align-items: center; gap: 10px; font-size: 0.75rem; }
+    .mock-chk-icon {
+      width: 20px; height: 20px; border-radius: 6px;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 900; flex-shrink: 0;
+    }
+    .pass-icon { background: rgba(34,212,160,0.12); color: #22D4A0; }
+    .fail-icon { background: rgba(239,68,68,0.12);  color: #f87171; }
+    .warn-icon { background: rgba(245,158,11,0.12); color: #fbbf24; }
+    .mc-pass { color: var(--grey-light); }
+    .mc-fail { color: #f87171; }
+    .mc-warn { color: #fbbf24; }
+
+    /* ── AI Plan feature grid ── */
+    .plan-feat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+      margin-bottom: 48px;
+    }
+    .plan-feat-card {
+      background: var(--navy-card);
+      border: 1px solid var(--navy-border);
+      border-radius: 16px;
+      padding: 36px 24px;
+      text-align: center;
+    }
+    .plan-feat-icon { font-size: 40px; display: block; margin-bottom: 16px; }
+    .plan-feat-title { font-size: 0.95rem; font-weight: 800; color: var(--white); margin-bottom: 8px; }
+    .plan-feat-sub { font-size: 0.78rem; color: var(--grey-light); line-height: 1.65; }
+
+    .plan-mock-panel {
+      background: var(--navy-card); border: 1px solid var(--navy-border);
+      border-radius: 22px; overflow: hidden;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+    }
+    .plan-mock-head {
+      background: linear-gradient(135deg, rgba(139,92,246,0.15), rgba(6,182,212,0.08));
+      border-bottom: 1px solid var(--navy-border);
+      padding: 20px 24px;
+    }
+    .plan-mock-title { font-size: 0.8rem; font-weight: 800; color: var(--white); }
+    .plan-mock-sub { font-size: 0.68rem; color: var(--grey); margin-top: 4px; }
+    .plan-mock-body { padding: 20px 24px; display: flex; flex-direction: column; gap: 14px; }
+    .plan-phase {
+      padding: 14px 16px; border-radius: 12px;
+      border-left: 3px solid transparent;
+    }
+    .plan-phase--30 { background: rgba(34,212,160,0.06); border-left-color: #22D4A0; }
+    .plan-phase--60 { background: rgba(139,92,246,0.06); border-left-color: #8B5CF6; }
+    .plan-phase--90 { background: rgba(236,72,153,0.06); border-left-color: #EC4899; }
+    .plan-phase-lbl { font-size: 0.62rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+    .pp-30 { color: #22D4A0; }
+    .pp-60 { color: #A78BFA; }
+    .pp-90 { color: #EC4899; }
+    .plan-action {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.73rem; color: var(--grey-light); margin-bottom: 4px;
+    }
+    .plan-action::before { content: '→'; font-weight: 800; opacity: 0.6; flex-shrink: 0; }
+    .plan-priority {
+      display: inline-block; font-size: 0.58rem; font-weight: 700;
+      padding: 2px 7px; border-radius: 100px; margin-left: 4px;
+    }
+    .pri-high { background: rgba(239,68,68,0.15); color: #f87171; }
+    .pri-med  { background: rgba(245,158,11,0.15); color: #fbbf24; }
+    .pri-low  { background: rgba(34,212,160,0.15); color: #34d399; }
+
+    /* ── Score section ── */
+    .score-visual {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+      align-items: center; margin-top: 56px;
+    }
+    .score-deductions { display: flex; flex-direction: column; gap: 14px; }
+    .deduct-row { padding: 24px 20px; border-radius: 16px; text-align: center; }
+    .dr-num { font-size: 3rem; font-weight: 900; line-height: 1; letter-spacing: -0.04em; margin-bottom: 6px; }
+    .dr-label { font-size: 0.82rem; font-weight: 700; margin-bottom: 12px; }
+    .dr-chips { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; }
+    .dr-chip { font-size: 0.6rem; font-weight: 600; padding: 3px 9px; border-radius: 100px; white-space: nowrap; }
+    .score-bands-wrap { }
+    .score-bands-title { font-size: 0.75rem; font-weight: 700; color: var(--grey); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; text-align: center; }
+    .score-bands { display: flex; flex-direction: column; gap: 10px; }
+    .band-row { padding: 16px 20px; border-radius: 12px; text-align: center; }
+    .band-range { font-size: 1.4rem; font-weight: 900; margin-bottom: 2px; }
+    .band-name { font-size: 0.8rem; font-weight: 700; margin-bottom: 8px; }
+    .band-bar { height: 7px; border-radius: 4px; margin: 0 auto; }
+
+    /* ── Plans ── */
+    .plans-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 20px; margin-top: 48px;
+    }
+    .plan-card {
+      background: var(--navy-card); border: 1px solid var(--navy-border);
+      border-radius: 20px; padding: 32px;
+      display: flex; flex-direction: column; gap: 18px;
+      position: relative; transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .plan-card.plan-featured {
+      border-color: var(--blue);
+      background: linear-gradient(150deg, rgba(139,92,246,0.08) 0%, var(--navy-card) 65%);
+    }
+    .plan-card:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(0,0,0,0.35); }
+    .plan-badge {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: var(--blue); color: #fff;
+      font-size: 0.62rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em;
+      padding: 4px 14px; border-radius: 20px; white-space: nowrap;
+    }
+    .plan-name { font-size: 1.1rem; font-weight: 800; color: var(--white); text-align: center; }
+    .plan-price { font-size: 2.4rem; font-weight: 900; color: var(--white); line-height: 1; text-align: center; }
+    .plan-price span { font-size: 0.9rem; font-weight: 500; color: var(--grey); }
+    .plan-note { font-size: 0.72rem; color: var(--grey); margin-top: -10px; text-align: center; }
+    .plan-desc { font-size: 0.82rem; color: var(--grey-light); line-height: 1.65; flex: 1; text-align: center; }
+    .plan-chips { display: flex; flex-wrap: wrap; gap: 7px; justify-content: center; }
+    .plan-chip {
+      font-size: 0.68rem; font-weight: 600; padding: 4px 10px;
+      border-radius: 100px; background: rgba(255,255,255,0.05);
+      border: 1px solid var(--navy-border); color: var(--grey-light);
+    }
+    .plan-featured .plan-chip { background: rgba(139,92,246,0.08); border-color: rgba(139,92,246,0.25); color: var(--blue-bright); }
+    .plan-cta {
+      display: block; text-align: center; padding: 14px; border-radius: 12px;
+      font-size: 0.88rem; font-weight: 700; text-decoration: none; transition: all 0.25s;
+    }
+    .plan-cta-solid { background: var(--gradient-btn); color: #fff; box-shadow: 0 4px 20px rgba(139,92,246,0.3); }
+    .plan-cta-solid:hover { opacity: 0.9; transform: translateY(-1px); }
+    .plan-cta-ghost { background: transparent; border: 1px solid var(--navy-border); color: var(--grey-light); }
+    .plan-cta-ghost:hover { border-color: var(--blue); color: var(--blue); }
+
+    .plan-faq {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      margin-top: 28px; border: 1px solid var(--navy-border); border-radius: 16px; overflow: hidden;
+    }
+    .plan-faq-item { padding: 22px 24px; background: var(--navy-card); }
+    .plan-faq-item:not(:last-child) { border-right: 1px solid var(--navy-border); }
+    .plan-faq-q { font-size: 0.85rem; font-weight: 700; color: var(--white); margin-bottom: 6px; text-align: center; }
+    .plan-faq-a { font-size: 0.78rem; color: var(--grey-light); line-height: 1.6; text-align: center; }
+
+    @media (max-width: 960px) {
+      .scan-split { grid-template-columns: 1fr; }
+      .scan-mock-panel, .plan-mock-panel { max-width: 500px; margin: 0 auto; }
+      .score-visual { grid-template-columns: 1fr; gap: 40px; }
+      .plans-grid { grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; }
+      .plan-faq { grid-template-columns: 1fr; }
+      .plan-faq-item:not(:last-child) { border-right: none; border-bottom: 1px solid var(--navy-border); }
+      .plan-feat-grid { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- ── Navigation ── -->
 <nav class="nav">
   <div class="container nav-inner">
-    <a href="index.html" class="logo">
-      <div class="logo-icon">⚡</div>
-      Storm<span>Cloud</span> AI
-    </a>
+    <a href="index.html" class="logo"><div class="logo-icon">⚡</div>Storm<span>Cloud</span> AI</a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
-      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="services.html" class="active">Features</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="http://localhost:3000/login" class="nav-signin">Sign In</a></li>
-      <li><a href="contact.html" class="btn btn-primary nav-cta">Free Consultation</a></li>
+      <li><a href="http://localhost:3000/register" class="btn btn-primary nav-cta">Free SEO Scan</a></li>
     </ul>
-    <button class="hamburger" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <span class="close-nav" aria-label="Close menu">✕</span>
 
-<!-- ── Page Hero ── -->
+<!-- Hero -->
 <div class="page-hero">
   <div class="container">
-    <span class="section-label">Services &amp; Pricing</span>
-    <h1>Clear services. <span class="highlight">Honest pricing.</span></h1>
-    <p>No retainers you don't understand. No hidden fees. Every service tied to a real business outcome — more traffic, more leads, more revenue.</p>
+    <span class="section-label">Features &amp; Pricing</span>
+    <h1>Your site. <span class="highlight">Every signal Google checks.</span></h1>
+    <p>50+ checks. One score. A personalised AI plan. Free to start.</p>
   </div>
 </div>
 
-<!-- ── Services Detail ── -->
+<!-- ── What we scan — split layout ── -->
 <section>
   <div class="container">
+    <div class="section-header">
+      <span class="section-label">What we scan</span>
+      <h2>Six modules. <span class="highlight">Nothing missed.</span></h2>
+      <p>Every issue ranked by impact — critical issues surface first, every time.</p>
+    </div>
 
-    <!-- SEO Audit Report -->
-    <div class="svc-detail" id="seo-audit">
-      <div class="svc-left">
-        <span class="svc-type-label">One-off · Instant value</span>
-        <h2>SEO Audit <span class="highlight">Report</span></h2>
-        <div class="svc-price-block">
-          <span class="svc-price-amount">From £149</span>
-        </div>
-        <div class="svc-desc">
-          <p>A complete technical and content SEO audit of your website — saved to your StormCloud dashboard and delivered as a professional PDF straight to your inbox. Every issue is explained in plain English, so you know exactly what's wrong, why it matters, and what to do about it.</p>
-          <p>Powered by our AI scanner, your audit covers over 50 checks across technical SEO, page speed, Core Web Vitals, mobile usability, keyword targeting, and content quality — with a prioritised 90-day improvement roadmap.</p>
-        </div>
-        <div class="svc-actions">
-          <a href="http://localhost:3000/register" class="btn btn-primary">Get my audit →</a>
-          <a href="contact.html" class="btn btn-outline">Talk to us first</a>
-        </div>
+    <!-- Full-width 3×2 module stat grid -->
+    <div class="feat-grid">
+      <div class="feat-card">
+        <span class="feat-icon">🔬</span>
+        <span class="feat-count counter" data-target="8">8</span>
+        <div class="feat-name">Technical SEO</div>
+        <div class="feat-sub">Tags, crawlability &amp; indexation</div>
       </div>
-      <div class="svc-right">
-        <h4>What's included</h4>
-        <div class="svc-feature-list">
-          <div class="svc-feature-item"><div class="svc-feature-icon">🔬</div><div class="svc-feature-text"><strong>Technical SEO audit</strong><span>Broken links, crawl errors, indexation issues, redirect chains, canonical tags, schema markup</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">⚡</div><div class="svc-feature-text"><strong>Core Web Vitals &amp; page speed</strong><span>LCP, CLS, INP scores with root-cause diagnostics and fix guidance</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">📱</div><div class="svc-feature-text"><strong>Mobile usability</strong><span>Viewport, tap targets, font sizes and responsive layout checks</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">🗝️</div><div class="svc-feature-text"><strong>Keyword targeting analysis</strong><span>How well your pages target your priority keywords — title, H1, meta description</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">🔒</div><div class="svc-feature-text"><strong>Security &amp; infrastructure</strong><span>SSL validity, HTTPS, security headers, CDN detection, compression</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">📄</div><div class="svc-feature-text"><strong>PDF report + dashboard</strong><span>Saved to your account and emailed as a branded PDF you can share with your team</span></div></div>
-        </div>
+      <div class="feat-card">
+        <span class="feat-icon">⚡</span>
+        <span class="feat-count counter" data-target="8">8</span>
+        <div class="feat-name">Page Speed &amp; Core Web Vitals</div>
+        <div class="feat-sub">LCP, CLS, INP, FCP &amp; TTFB</div>
+      </div>
+      <div class="feat-card">
+        <span class="feat-icon">🏗️</span>
+        <span class="feat-count counter" data-target="7">7</span>
+        <div class="feat-name">Infrastructure</div>
+        <div class="feat-sub">SSL, CDN, compression &amp; headers</div>
+      </div>
+      <div class="feat-card">
+        <span class="feat-icon">📱</span>
+        <span class="feat-count counter" data-target="5">5</span>
+        <div class="feat-name">Mobile Usability</div>
+        <div class="feat-sub">Google's mobile-first criteria</div>
+      </div>
+      <div class="feat-card">
+        <span class="feat-icon">✍️</span>
+        <span class="feat-count counter" data-target="5">5</span>
+        <div class="feat-name">Content Quality</div>
+        <div class="feat-sub">Depth, keywords &amp; structure</div>
+      </div>
+      <div class="feat-card">
+        <span class="feat-icon">🤖</span>
+        <span class="feat-count-free">Free</span>
+        <div class="feat-name">AI SEO Action Plan</div>
+        <div class="feat-sub">Personalised 90-day roadmap</div>
       </div>
     </div>
 
-    <!-- SEO Starter Fix -->
-    <div class="svc-detail reverse" id="seo-starter">
-      <div class="svc-left">
-        <span class="svc-type-label">One-off · Quick wins</span>
-        <h2>SEO Starter <span class="highlight">Fix</span></h2>
-        <div class="svc-price-block">
-          <span class="svc-price-amount">From £299</span>
-        </div>
-        <div class="svc-desc">
-          <p>Not ready to commit to the full Fix Pack? The SEO Starter Fix targets your top 3 critical issues — the ones with the biggest ranking impact — and gets them resolved without the full project overhead.</p>
-          <p>We run an audit scan first, identify the highest-priority issues, fix them directly on your site, then re-scan to confirm the improvements. A simple, low-risk way to make measurable progress.</p>
-        </div>
-        <div class="svc-actions">
-          <a href="mailto:hello@stormcloudai.com?subject=SEO Starter Fix enquiry" class="btn btn-primary">Get started →</a>
-          <a href="http://localhost:3000/register" class="btn btn-outline">Run a scan first</a>
-        </div>
-      </div>
-      <div class="svc-right">
-        <h4>What's included</h4>
-        <div class="svc-feature-list">
-          <div class="svc-feature-item"><div class="svc-feature-icon">🔍</div><div class="svc-feature-text"><strong>Pre-fix audit scan</strong><span>We scan your site to identify all issues, then prioritise the top 3 critical ones to fix first</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">🔩</div><div class="svc-feature-text"><strong>Remediation of top 3 critical issues</strong><span>Applied directly to your site — no developer needed on your end</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">✅</div><div class="svc-feature-text"><strong>Post-fix verification scan</strong><span>We re-scan after fixing to confirm every issue is resolved and the score has improved</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">📝</div><div class="svc-feature-text"><strong>Fix summary report</strong><span>A clear record of every change made, with before-and-after evidence</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">🗓️</div><div class="svc-feature-text"><strong>7-day support window</strong><span>Questions after delivery? We're here for a week post-fix</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">🚀</div><div class="svc-feature-text"><strong>Natural upgrade path</strong><span>Credit your £299 toward the full Fix Pack if you want to tackle more issues</span></div></div>
-        </div>
-      </div>
+    <div style="text-align:center; margin-bottom:56px;">
+      <a href="http://localhost:3000/register" class="btn btn-primary">Scan my site free &rarr;</a>
     </div>
 
-    <!-- SEO Fix Pack -->
-    <div class="svc-detail" id="seo-fix">
-      <div class="svc-left">
-        <span class="svc-type-label">One-off · We do the work</span>
-        <h2>SEO Fix <span class="highlight">Pack</span></h2>
-        <div class="svc-price-block">
-          <span class="svc-price-amount">From £999</span>
+    <!-- Centred scan result mockup -->
+    <div class="scan-mock-panel" style="max-width:640px; margin:0 auto;">
+      <div class="mock-urlbar">
+        <div class="mock-dots">
+          <span style="background:#EF4444;"></span>
+          <span style="background:#F59E0B;"></span>
+          <span style="background:#22C55E;"></span>
         </div>
-        <div class="svc-desc">
-          <p>Everything in the SEO Audit Report, plus our team rolls up their sleeves and fixes the issues for you. No developer needed, no technical knowledge required — we go directly into your site and remediate up to 10 critical issues identified in your audit.</p>
-          <p>You get a pre-fix audit, a post-fix verification scan, and a summary of everything we changed. Perfect for businesses who know they have SEO problems but don't have the in-house resource to fix them.</p>
+        <div class="mock-url">yourbusiness.co.uk</div>
+        <div class="mock-status">✓ Scan complete</div>
+      </div>
+      <div class="mock-score-row">
+        <div class="mock-gauge-wrap">
+          <svg viewBox="0 0 120 75" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="sg1" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#8B5CF6"/>
+                <stop offset="100%" stop-color="#06B6D4"/>
+              </linearGradient>
+            </defs>
+            <path d="M 12 65 A 48 48 0 0 1 108 65" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="12" stroke-linecap="round"/>
+            <path d="M 12 65 A 48 48 0 0 1 108 65" fill="none" stroke="url(#sg1)" stroke-width="12" stroke-linecap="round" stroke-dasharray="150.8" stroke-dashoffset="37.7"/>
+            <text x="60" y="58" text-anchor="middle" fill="white" font-size="24" font-weight="900" font-family="Inter,sans-serif">74</text>
+            <text x="60" y="70" text-anchor="middle" fill="#6B7280" font-size="8" font-family="Inter,sans-serif">Health Score</text>
+          </svg>
+          <div class="mock-gauge-label">▲ Good — room to improve</div>
         </div>
-        <div class="svc-actions">
-          <a href="contact.html" class="btn btn-primary">Get a quote →</a>
-          <a href="http://localhost:3000/register" class="btn btn-outline">Run a scan first</a>
+        <div class="mock-issues">
+          <div class="mock-issue mock-issue--crit"><span>🔴 Critical</span><strong>4</strong></div>
+          <div class="mock-issue mock-issue--warn"><span>🟡 Warnings</span><strong>11</strong></div>
+          <div class="mock-issue mock-issue--opp"><span>🟢 Opportunities</span><strong>6</strong></div>
         </div>
       </div>
-      <div class="svc-right">
-        <h4>What's included</h4>
-        <div class="svc-feature-list">
-          <div class="svc-feature-item"><div class="svc-feature-icon">📋</div><div class="svc-feature-text"><strong>Full SEO Audit Report</strong><span>Complete audit before we start so we know exactly what needs fixing</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">🔧</div><div class="svc-feature-text"><strong>Up to 10 critical issue remediations</strong><span>Applied directly to your site by our team — no back-and-forth</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">✅</div><div class="svc-feature-text"><strong>Post-fix verification scan</strong><span>We re-scan after fixing to confirm every issue is resolved</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">📝</div><div class="svc-feature-text"><strong>Fix summary report</strong><span>A clear record of every change made to your site</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">🗓️</div><div class="svc-feature-text"><strong>14-day support window</strong><span>Questions after the fix? We're here for two weeks post-delivery</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">🔐</div><div class="svc-feature-text"><strong>Secure credential handling</strong><span>We request only the access we need, and you can revoke it any time</span></div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SEO Monthly -->
-    <div class="svc-detail reverse" id="seo-monthly">
-      <div class="svc-left">
-        <span class="svc-type-label">Rolling or annual · Fully managed</span>
-        <h2>SEO <span class="highlight">Monthly</span></h2>
-        <div class="svc-price-block">
-          <span class="svc-price-amount">From £299</span>
-          <span class="svc-price-note">/ month</span>
-        </div>
-        <div class="svc-desc">
-          <p>A fully managed SEO subscription for businesses serious about ranking. We handle the scanning, reporting, and hands-on remediation — you get a clear picture of your SEO health every month and the peace of mind that your site is continuously improving.</p>
-          <p>Start on a 3-month rolling contract to prove the ROI, then move to a 12-month annual plan for best value. Included: up to 5 scans per month, automated monthly PDF reports, keyword tracking, and 4 remediation requests per year.</p>
-        </div>
-        <div class="svc-actions">
-          <a href="contact.html" class="btn btn-primary">Start today →</a>
-          <a href="http://localhost:3000/register" class="btn btn-outline">Try a free scan first</a>
-        </div>
-      </div>
-      <div class="svc-right">
-        <h4>What's included</h4>
-        <div class="svc-feature-list">
-          <div class="svc-feature-item"><div class="svc-feature-icon">🔍</div><div class="svc-feature-text"><strong>Up to 5 scans per month</strong><span>Run scans whenever you need them — after updates, redesigns, or on a regular cadence</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">📄</div><div class="svc-feature-text"><strong>Automated monthly PDF report</strong><span>Emailed to you each month — your score, issue counts, keyword analysis, and recommendations</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">🗝️</div><div class="svc-feature-text"><strong>Keyword tracking &amp; analysis</strong><span>We track your priority keywords and flag how well each page is targeting them</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">🔧</div><div class="svc-feature-text"><strong>4 remediation requests per year</strong><span>Need us to fix something? Request it and we'll handle it — included at no extra cost</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">⭐</div><div class="svc-feature-text"><strong>Priority support</strong><span>Dedicated account manager and faster response times than one-off clients</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">📅</div><div class="svc-feature-text"><strong>Flexible contract options</strong><span>Start on a 3-month rolling contract, then upgrade to 12-month annual — SEO compounds over time</span></div></div>
-        </div>
+      <div class="mock-checks">
+        <div class="mock-check mc-pass"><span class="mock-chk-icon pass-icon">✓</span>Title tags &amp; meta descriptions — 12 pages</div>
+        <div class="mock-check mc-pass"><span class="mock-chk-icon pass-icon">✓</span>SSL valid · HTTPS enforced · HTTP/2 active</div>
+        <div class="mock-check mc-fail"><span class="mock-chk-icon fail-icon">✕</span>LCP 4.2s — above Good threshold of 2.5s</div>
+        <div class="mock-check mc-warn"><span class="mock-chk-icon warn-icon">!</span>3 images missing alt text — fix for quick win</div>
+        <div class="mock-check mc-warn"><span class="mock-chk-icon warn-icon">!</span>No XML sitemap — Google may miss new pages</div>
       </div>
     </div>
-
-    <!-- Website Redesign -->
-    <div class="svc-detail" id="redesign">
-      <div class="svc-left">
-        <span class="svc-type-label">Bespoke · Quoted per project</span>
-        <h2>Website <span class="highlight">Redesign</span></h2>
-        <div class="svc-price-block">
-          <span class="svc-price-amount">From £3,499</span>
-        </div>
-        <div class="svc-desc">
-          <p>A complete website redesign with SEO performance, conversion optimisation, and content clarity baked in from day one — not bolted on afterwards. We design for humans first and Google second, which is why our sites rank and convert from the moment they launch.</p>
-          <p>Every redesign project includes a content audit, UX strategy, keyword mapping, and a post-launch SEO scan to make sure everything is set up for success. Quoted based on the size and complexity of your site.</p>
-        </div>
-        <div class="svc-actions">
-          <a href="mailto:hello@stormcloudai.com?subject=Website Redesign enquiry" class="btn btn-primary">Get a quote →</a>
-          <a href="contact.html" class="btn btn-outline">Book a call first</a>
-        </div>
-      </div>
-      <div class="svc-right">
-        <h4>What's included</h4>
-        <div class="svc-feature-list">
-          <div class="svc-feature-item"><div class="svc-feature-icon">🎨</div><div class="svc-feature-text"><strong>UX &amp; conversion-led design</strong><span>Wireframes, page layouts and visual design optimised to guide visitors to take action</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">🔍</div><div class="svc-feature-text"><strong>Technical SEO built in from the start</strong><span>URL structure, meta tags, schema, page speed, sitemaps — right from the first line of code</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">✍️</div><div class="svc-feature-text"><strong>Content strategy &amp; copywriting</strong><span>Keyword-mapped copy for every key page, written to rank and to convert</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">📱</div><div class="svc-feature-text"><strong>Mobile-first, fast-loading build</strong><span>Optimised for Core Web Vitals — fast on every device</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">✅</div><div class="svc-feature-text"><strong>Post-launch SEO audit</strong><span>We scan your new site after launch to confirm everything is clean</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">🚀</div><div class="svc-feature-text"><strong>Hosting &amp; deployment support</strong><span>We can host on AWS (S3 + CloudFront) or deploy to your existing host</span></div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Paid Digital Marketing -->
-    <div class="svc-detail reverse" id="paid-ads">
-      <div class="svc-left">
-        <span class="svc-type-label">Monthly · Managed end-to-end</span>
-        <h2>Paid Digital <span class="highlight">Marketing</span></h2>
-        <div class="svc-price-block">
-          <span class="svc-price-amount">From £649</span>
-          <span class="svc-price-note">/ month</span>
-        </div>
-        <div class="svc-desc">
-          <p>Full-service management of your Meta (Facebook &amp; Instagram) and Google Ads campaigns. We handle everything from strategy and audience research to creative direction, bid management and monthly reporting — so you can focus on delivering for the customers we send you.</p>
-          <p>Our management fee is separate from your ad budget. We're incentivised to make your spend as efficient as possible, not to inflate it. Monthly retainer, no long-term lock-in after the initial 3-month setup period.</p>
-        </div>
-        <div class="svc-actions">
-          <a href="mailto:hello@stormcloudai.com?subject=Paid Digital Marketing enquiry" class="btn btn-primary">Get a quote →</a>
-          <a href="contact.html" class="btn btn-outline">Book a strategy call</a>
-        </div>
-      </div>
-      <div class="svc-right">
-        <h4>What's included</h4>
-        <div class="svc-feature-list">
-          <div class="svc-feature-item"><div class="svc-feature-icon">🎯</div><div class="svc-feature-text"><strong>Meta Ads — Facebook &amp; Instagram</strong><span>Scroll-stopping creative, lookalike audiences, retargeting and full funnel campaign management</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">🔍</div><div class="svc-feature-text"><strong>Google Search &amp; Display Ads</strong><span>Keyword targeting, responsive search ads, bidding strategy and negative keyword management</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">🧪</div><div class="svc-feature-text"><strong>A/B testing &amp; creative iteration</strong><span>We test copy, imagery, audiences and landing pages continuously to drive down your cost per lead</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">📊</div><div class="svc-feature-text"><strong>Monthly performance reports</strong><span>Clear reporting on spend, clicks, leads, cost per acquisition — in plain English</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">🏷️</div><div class="svc-feature-text"><strong>Conversion tracking &amp; attribution</strong><span>Proper tracking setup so you know exactly which ads are generating real business</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">📞</div><div class="svc-feature-text"><strong>Dedicated account manager</strong><span>A real person who knows your campaigns, answers your questions and proactively flags opportunities</span></div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Local SEO -->
-    <div class="svc-detail" id="local-seo">
-      <div class="svc-left">
-        <span class="svc-type-label">Monthly · Location-targeted</span>
-        <h2>Local <span class="highlight">SEO</span></h2>
-        <div class="svc-price-block">
-          <span class="svc-price-amount">From £299</span>
-          <span class="svc-price-note">/ month</span>
-        </div>
-        <div class="svc-desc">
-          <p>For businesses that serve a specific town, city or region, local SEO is the fastest route to winning customers who are actively searching for your service nearby. We optimise your Google Business Profile, build local citations, and manage your review strategy so you dominate the local pack.</p>
-          <p>Perfect for trades, clinics, restaurants, estate agents, and any service-area business that lives or dies by local search visibility.</p>
-        </div>
-        <div class="svc-actions">
-          <a href="mailto:hello@stormcloudai.com?subject=Local SEO enquiry" class="btn btn-primary">Get a quote →</a>
-          <a href="contact.html" class="btn btn-outline">Book a strategy call</a>
-        </div>
-      </div>
-      <div class="svc-right">
-        <h4>What's included</h4>
-        <div class="svc-feature-list">
-          <div class="svc-feature-item"><div class="svc-feature-icon">📍</div><div class="svc-feature-text"><strong>Google Business Profile optimisation</strong><span>Full setup or audit and refresh — photos, categories, services, Q&amp;A, and ongoing posting</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">📋</div><div class="svc-feature-text"><strong>Local citations &amp; directory listings</strong><span>Consistent NAP across the major UK directories that signal trust to Google</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">⭐</div><div class="svc-feature-text"><strong>Review management strategy</strong><span>A repeatable system for generating positive reviews and handling responses professionally</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">🗝️</div><div class="svc-feature-text"><strong>Local keyword targeting</strong><span>On-page optimisation for "[service] + [location]" search terms across your key pages</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">🗺️</div><div class="svc-feature-text"><strong>Google Maps pack ranking</strong><span>We work specifically to improve your position in the 3-pack that appears above organic results</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">📊</div><div class="svc-feature-text"><strong>Monthly local SEO report</strong><span>Visibility score, ranking positions, Google Business Profile insights and competitor comparison</span></div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Analytics & Tracking Setup -->
-    <div class="svc-detail reverse" id="analytics">
-      <div class="svc-left">
-        <span class="svc-type-label">One-off · Foundation work</span>
-        <h2>Analytics &amp; Tracking <span class="highlight">Setup</span></h2>
-        <div class="svc-price-block">
-          <span class="svc-price-amount">From £299</span>
-        </div>
-        <div class="svc-desc">
-          <p>Most SME websites have broken, missing or misconfigured analytics — which means decisions are being made on incomplete or misleading data. We fix that in a single session, so you finally know what's actually happening on your site.</p>
-          <p>We set up GA4, Google Search Console and conversion tracking correctly, verify everything is firing as expected, and give you a plain English dashboard so you can monitor what matters without needing to be a data analyst.</p>
-        </div>
-        <div class="svc-actions">
-          <a href="mailto:hello@stormcloudai.com?subject=Analytics Setup enquiry" class="btn btn-primary">Get a quote →</a>
-          <a href="contact.html" class="btn btn-outline">Talk to us first</a>
-        </div>
-      </div>
-      <div class="svc-right">
-        <h4>What's included</h4>
-        <div class="svc-feature-list">
-          <div class="svc-feature-item"><div class="svc-feature-icon">📊</div><div class="svc-feature-text"><strong>GA4 installation &amp; configuration</strong><span>Full setup including events, goals and ecommerce tracking if applicable</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">🔍</div><div class="svc-feature-text"><strong>Google Search Console setup</strong><span>Property verification, sitemap submission and initial coverage audit</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">🏷️</div><div class="svc-feature-text"><strong>Conversion tracking</strong><span>Form submissions, calls, purchases and other key actions — tracked accurately</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">🐛</div><div class="svc-feature-text"><strong>Tag &amp; tracking audit</strong><span>We check all existing tags for errors, duplication and gaps before we build anything new</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">📈</div><div class="svc-feature-text"><strong>Plain English reporting dashboard</strong><span>A simple GA4 view showing the metrics that actually matter to your business</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">📝</div><div class="svc-feature-text"><strong>Handover documentation</strong><span>A written guide to your new analytics setup so you and your team can use it confidently</span></div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Email Marketing -->
-    <div class="svc-detail" id="email">
-      <div class="svc-left">
-        <span class="svc-type-label">Monthly · High-ROI channel</span>
-        <h2>Email <span class="highlight">Marketing</span></h2>
-        <div class="svc-price-block">
-          <span class="svc-price-amount">From £199</span>
-          <span class="svc-price-note">/ month</span>
-        </div>
-        <div class="svc-desc">
-          <p>Email is consistently the highest-ROI marketing channel — and one that most SMEs either ignore entirely or use badly. We build automated sequences that nurture new leads, and broadcast campaigns that keep your existing customers engaged and buying.</p>
-          <p>We handle the strategy, copywriting, design, list management and reporting. You just need a list of contacts and a product or service worth talking about.</p>
-        </div>
-        <div class="svc-actions">
-          <a href="mailto:hello@stormcloudai.com?subject=Email Marketing enquiry" class="btn btn-primary">Get a quote →</a>
-          <a href="contact.html" class="btn btn-outline">Book a strategy call</a>
-        </div>
-      </div>
-      <div class="svc-right">
-        <h4>What's included</h4>
-        <div class="svc-feature-list">
-          <div class="svc-feature-item"><div class="svc-feature-icon">✉️</div><div class="svc-feature-text"><strong>Welcome &amp; nurture sequences</strong><span>Automated email journeys that turn new subscribers into customers on autopilot</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">📣</div><div class="svc-feature-text"><strong>Broadcast campaigns</strong><span>Monthly (or more frequent) emails to your full list — promotions, updates, seasonal campaigns</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">✍️</div><div class="svc-feature-text"><strong>Copywriting &amp; design</strong><span>Emails written to get opened, read, and clicked — not just sent</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">🧪</div><div class="svc-feature-text"><strong>A/B subject line testing</strong><span>We test subject lines on every broadcast to continuously improve open rates</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">📋</div><div class="svc-feature-text"><strong>List segmentation</strong><span>We segment your audience so each person gets content relevant to where they are in the buying journey</span></div></div>
-          <div class="svc-feature-item"><div class="svc-feature-icon">📊</div><div class="svc-feature-text"><strong>Monthly performance report</strong><span>Open rates, click rates, revenue attributed, unsubscribes and list health — all in plain English</span></div></div>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<!-- ── Comparison Table ── -->
+<!-- ── AI Plan preview ── -->
 <section style="background: var(--navy-mid);">
   <div class="container">
     <div class="section-header">
-      <span class="section-label">Compare</span>
-      <h2>Which service is <span class="highlight">right for you?</span></h2>
-      <p>Not sure where to start? This table shows what's included in each SEO package at a glance.</p>
+      <span class="section-label">AI Action Plan</span>
+      <h2>Not generic advice. <span class="highlight">Your business. Your plan.</span></h2>
+      <p>Five minutes of questions about your business, keywords and competitors. The AI reads your scan results and builds a specific 30/60/90-day roadmap — included free.</p>
     </div>
-    <table class="compare-table">
-      <thead>
-        <tr>
-          <th>Feature</th>
-          <th><span class="col-head">Audit Report</span><span class="col-price">From £149</span></th>
-          <th><span class="col-head">Fix Pack</span><span class="col-price">From £999</span></th>
-          <th><span class="col-head">SEO Monthly</span><span class="col-price">From £299/mo</span></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Full technical SEO audit</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
-        <tr><td>Core Web Vitals analysis</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
-        <tr><td>Keyword targeting review</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
-        <tr><td>PDF report emailed to you</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
-        <tr><td>Dashboard access</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
-        <tr><td>Issue remediations by our team</td><td><span class="no">—</span></td><td><span class="val">Up to 10</span></td><td><span class="val">4× per year</span></td></tr>
-        <tr><td>Post-fix verification scan</td><td><span class="no">—</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
-        <tr><td>Scans per month</td><td><span class="val">1</span></td><td><span class="val">1</span></td><td><span class="val">Up to 5</span></td></tr>
-        <tr><td>Monthly automated reports</td><td><span class="no">—</span></td><td><span class="no">—</span></td><td><span class="yes">✓</span></td></tr>
-        <tr><td>Priority support</td><td><span class="no">—</span></td><td><span class="no">—</span></td><td><span class="yes">✓</span></td></tr>
-        <tr><td>Commitment</td><td><span class="val">None</span></td><td><span class="val">None</span></td><td><span class="val">3-mo rolling or 12-mo</span></td></tr>
-      </tbody>
+
+    <!-- 3 features spread centrally -->
+    <table class="ai-feat-table">
+      <tr>
+        <td class="ai-feat-cell">
+          <span class="ai-feat-emoji">🎯</span>
+          <span class="ai-feat-label">Personalised</span>
+          <span class="ai-feat-title">Specific to your business</span>
+          <span class="ai-feat-sub">Your keywords, industry, competitors &amp; location — not a generic template.</span>
+        </td>
+        <td class="ai-feat-cell ai-feat-cell--cyan">
+          <span class="ai-feat-emoji">📅</span>
+          <span class="ai-feat-label ai-feat-label--cyan">Structured</span>
+          <span class="ai-feat-title">30 / 60 / 90-day roadmap</span>
+          <span class="ai-feat-sub">Critical fixes first, then visibility growth, then long-term competitive wins.</span>
+        </td>
+        <td class="ai-feat-cell ai-feat-cell--green">
+          <span class="ai-feat-emoji">🔄</span>
+          <span class="ai-feat-label ai-feat-label--green">Adaptive</span>
+          <span class="ai-feat-title">Regenerate any time</span>
+          <span class="ai-feat-sub">Updated as your score improves and your business evolves.</span>
+        </td>
+      </tr>
     </table>
+
+    <!-- Plan mockup -->
+    <div class="ai-plan-mock">
+      <div class="ai-plan-mock-head">
+        <div class="ai-plan-mock-title">🤖 AI SEO Plan — Clearview Glazing</div>
+        <div class="ai-plan-mock-sub">Generated from your scan · Based on your business questionnaire</div>
+      </div>
+      <div class="ai-plan-mock-body">
+        <div class="ai-plan-phase ai-plan-phase--30">
+          <span class="ai-plan-phase-lbl">Days 1–30 — Fix Critical Issues</span>
+          <span class="ai-plan-action">Fix LCP — compress hero image &amp; defer JS <span class="ai-plan-badge ai-plan-badge--high">High impact</span></span>
+          <span class="ai-plan-action">Add XML sitemap &amp; submit to Google Search Console</span>
+          <span class="ai-plan-action">Add alt text to 3 flagged product images</span>
+        </div>
+        <div class="ai-plan-phase ai-plan-phase--60">
+          <span class="ai-plan-phase-lbl">Days 31–60 — Build Visibility</span>
+          <span class="ai-plan-action">Target "double glazing Manchester" — add to title &amp; H1 <span class="ai-plan-badge ai-plan-badge--med">Medium</span></span>
+          <span class="ai-plan-action">Add LocalBusiness schema markup</span>
+          <span class="ai-plan-action">Create FAQ page targeting 5 identified search questions</span>
+        </div>
+        <div class="ai-plan-phase ai-plan-phase--90">
+          <span class="ai-plan-phase-lbl">Days 61–90 — Outpace Competitors</span>
+          <span class="ai-plan-action">Target 12 competitor keyword gaps identified <span class="ai-plan-badge ai-plan-badge--low">Growth</span></span>
+          <span class="ai-plan-action">Google Business Profile optimisation &amp; review strategy</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ── CTA ── -->
-<section class="cta-section">
+<!-- ── Score system ── -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">How scoring works</span>
+      <h2>One number. <span class="highlight">Total clarity.</span></h2>
+      <p>Critical issues hit hardest — so the score always reflects what matters most to Google.</p>
+    </div>
+
+    <div class="score-visual">
+      <div class="score-deductions">
+        <div class="deduct-row" style="background:rgba(239,68,68,0.06); border:1px solid rgba(239,68,68,0.18);">
+          <div class="dr-num" style="color:#f87171;">−8</div>
+          <div class="dr-label" style="color:#f87171;">🔴 Critical issue</div>
+          <div class="dr-chips">
+            <span class="dr-chip" style="color:#f87171;border:1px solid rgba(239,68,68,0.3);background:rgba(239,68,68,0.08);">Missing title tags</span>
+            <span class="dr-chip" style="color:#f87171;border:1px solid rgba(239,68,68,0.3);background:rgba(239,68,68,0.08);">Broken links</span>
+            <span class="dr-chip" style="color:#f87171;border:1px solid rgba(239,68,68,0.3);background:rgba(239,68,68,0.08);">Noindex on key pages</span>
+          </div>
+        </div>
+        <div class="deduct-row" style="background:rgba(245,158,11,0.06); border:1px solid rgba(245,158,11,0.18);">
+          <div class="dr-num" style="color:#fbbf24;">−3</div>
+          <div class="dr-label" style="color:#fbbf24;">🟡 Warning</div>
+          <div class="dr-chips">
+            <span class="dr-chip" style="color:#fbbf24;border:1px solid rgba(245,158,11,0.3);background:rgba(245,158,11,0.08);">Missing meta descriptions</span>
+            <span class="dr-chip" style="color:#fbbf24;border:1px solid rgba(245,158,11,0.3);background:rgba(245,158,11,0.08);">Thin content</span>
+            <span class="dr-chip" style="color:#fbbf24;border:1px solid rgba(245,158,11,0.3);background:rgba(245,158,11,0.08);">Slow LCP</span>
+          </div>
+        </div>
+        <div class="deduct-row" style="background:rgba(34,212,160,0.06); border:1px solid rgba(34,212,160,0.18);">
+          <div class="dr-num" style="color:#34d399;">−1</div>
+          <div class="dr-label" style="color:#34d399;">🟢 Opportunity</div>
+          <div class="dr-chips">
+            <span class="dr-chip" style="color:#34d399;border:1px solid rgba(34,212,160,0.3);background:rgba(34,212,160,0.08);">Missing schema</span>
+            <span class="dr-chip" style="color:#34d399;border:1px solid rgba(34,212,160,0.3);background:rgba(34,212,160,0.08);">Open Graph tags</span>
+            <span class="dr-chip" style="color:#34d399;border:1px solid rgba(34,212,160,0.3);background:rgba(34,212,160,0.08);">Image optimisation</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="score-bands-wrap">
+        <div class="score-bands-title">Score bands</div>
+        <div class="score-bands">
+          <div class="band-row" style="background:rgba(34,212,160,0.08); border:1px solid rgba(34,212,160,0.20);">
+            <div class="band-range" style="color:#34d399;">90–100</div>
+            <div class="band-name" style="color:#34d399;">Excellent</div>
+            <div class="band-bar" style="background:#34d399; width:100%;"></div>
+          </div>
+          <div class="band-row" style="background:rgba(34,212,160,0.04); border:1px solid rgba(34,212,160,0.12);">
+            <div class="band-range" style="color:#6ee7b7;">70–89</div>
+            <div class="band-name" style="color:#6ee7b7;">Good</div>
+            <div class="band-bar" style="background:#6ee7b7; width:79%;"></div>
+          </div>
+          <div class="band-row" style="background:rgba(245,158,11,0.04); border:1px solid rgba(245,158,11,0.14);">
+            <div class="band-range" style="color:#fbbf24;">50–69</div>
+            <div class="band-name" style="color:#fbbf24;">Needs Work</div>
+            <div class="band-bar" style="background:#fbbf24; width:59%;"></div>
+          </div>
+          <div class="band-row" style="background:rgba(239,68,68,0.04); border:1px solid rgba(239,68,68,0.14);">
+            <div class="band-range" style="color:#f87171;">0–49</div>
+            <div class="band-name" style="color:#f87171;">Critical</div>
+            <div class="band-bar" style="background:#f87171; width:39%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Pricing ── -->
+<section id="pricing" style="background: var(--navy-mid);">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Pricing</span>
+      <h2>Free to start. <span class="highlight">No surprises.</span></h2>
+      <p>No contracts. Cancel any time. Every plan includes your full scan and AI action plan.</p>
+    </div>
+
+    <div class="plans-grid">
+
+      <div class="plan-card">
+        <div>
+          <div class="plan-name">Free</div>
+          <div class="plan-price" style="margin-top:10px;">£0</div>
+          <div class="plan-note">No credit card required</div>
+        </div>
+        <p class="plan-desc">One full scan, your health score, and a personalised AI SEO plan. Free forever.</p>
+        <div class="plan-chips">
+          <span class="plan-chip">1 scan</span>
+          <span class="plan-chip">0–100 score</span>
+          <span class="plan-chip">AI plan</span>
+          <span class="plan-chip">Dashboard</span>
+        </div>
+        <a href="http://localhost:3000/register" class="plan-cta plan-cta-ghost">Start for free →</a>
+      </div>
+
+      <div class="plan-card plan-featured">
+        <div class="plan-badge">Most Popular</div>
+        <div>
+          <div class="plan-name">Starter</div>
+          <div class="plan-price" style="margin-top:10px;">£49 <span>/ month</span></div>
+          <div class="plan-note">Cancel any time</div>
+        </div>
+        <p class="plan-desc">Rescan monthly, track your score over time, and regenerate your AI plan as your business grows.</p>
+        <div class="plan-chips">
+          <span class="plan-chip">5 scans/month</span>
+          <span class="plan-chip">Unlimited AI plans</span>
+          <span class="plan-chip">Email reports</span>
+          <span class="plan-chip">Score history</span>
+          <span class="plan-chip">1 client site</span>
+          <span class="plan-chip">Priority support</span>
+        </div>
+        <a href="http://localhost:3000/register" class="plan-cta plan-cta-solid">Get started →</a>
+      </div>
+
+      <div class="plan-card">
+        <div>
+          <div class="plan-name">Agency</div>
+          <div class="plan-price" style="margin-top:10px;">£149 <span>/ month</span></div>
+          <div class="plan-note">Cancel any time</div>
+        </div>
+        <p class="plan-desc">Unlimited own-site scans plus up to 5 client sites — all from one multi-site dashboard.</p>
+        <div class="plan-chips">
+          <span class="plan-chip">Unlimited own scans</span>
+          <span class="plan-chip">5 client sites</span>
+          <span class="plan-chip">PDF reports</span>
+          <span class="plan-chip">Multi-site dashboard</span>
+          <span class="plan-chip">Priority support</span>
+        </div>
+        <a href="contact.html" class="plan-cta plan-cta-ghost">Get in touch →</a>
+      </div>
+
+    </div>
+
+    <div class="plan-faq">
+      <div class="plan-faq-item">
+        <div class="plan-faq-q">Is there a contract?</div>
+        <div class="plan-faq-a">No. Cancel any time from your account settings. No lock-in, no notice period.</div>
+      </div>
+      <div class="plan-faq-item">
+        <div class="plan-faq-q">Can I upgrade later?</div>
+        <div class="plan-faq-a">Yes. Start free and upgrade when ready. Your scan history carries over.</div>
+      </div>
+      <div class="plan-faq-item">
+        <div class="plan-faq-q">What counts as a scan?</div>
+        <div class="plan-faq-a">One full crawl of your domain. Monthly limits reset on the 1st of each month.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" style="padding-top:100px;">
   <div class="container">
     <div class="cta-box">
       <span class="section-label">Get Started</span>
-      <h2>Not sure which service <span class="highlight">you need?</span></h2>
-      <p>Run a free SEO scan to see your health score in minutes, or book a free 30-minute strategy call and we'll recommend exactly where to start.</p>
+      <h2>Your score is waiting. <span class="highlight">Takes 3 minutes.</span></h2>
+      <p>Enter your domain, get your score, then follow a personalised AI plan. Free — no credit card needed.</p>
       <div class="cta-actions">
-        <a href="http://localhost:3000/register" class="btn btn-primary">Run a Free SEO Scan &rarr;</a>
-        <a href="contact.html" class="btn btn-outline">Book a Strategy Call</a>
+        <a href="http://localhost:3000/register" class="btn btn-primary">Scan My Site Free &rarr;</a>
+        <a href="contact.html" class="btn btn-outline">Talk to the Team</a>
       </div>
-      <p class="cta-note">No commitment. No sales pressure. Just honest advice.</p>
     </div>
   </div>
 </section>
 
-<!-- ── Footer ── -->
+<!-- Footer -->
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <div class="logo-icon">⚡</div>
-          Storm<span>Cloud</span> AI
-        </a>
-        <p>UK SEO &amp; digital marketing agency helping SMEs rank higher, spend smarter and grow faster — powered by AI.</p>
+        <a href="index.html" class="logo"><div class="logo-icon">⚡</div>Storm<span>Cloud</span> AI</a>
+        <p>AI-powered SEO platform for UK small businesses. Free scan, personalised AI plans, and score tracking.</p>
       </div>
       <div class="footer-col">
-        <h4>Services</h4>
-        <a href="#seo-audit">SEO Audit Report</a>
-        <a href="#seo-fix">SEO Fix Pack</a>
-        <a href="#seo-monthly">SEO Monthly</a>
-        <a href="#redesign">Website Redesign</a>
-        <a href="#paid-ads">Paid Digital Marketing</a>
+        <h4>Platform</h4>
+        <a href="http://localhost:3000/register">Free SEO Scan</a>
+        <a href="#pricing">Pricing</a>
+        <a href="http://localhost:3000/login">Sign In</a>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
         <a href="about.html">About Us</a>
+        <a href="services.html">Features &amp; Pricing</a>
         <a href="contact.html">Contact</a>
-        <a href="http://localhost:3000/login">Client Login</a>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
         <a href="mailto:hello@stormcloudai.com">hello@stormcloudai.com</a>
-        <a href="tel:+441234567890">+44 (0) 1234 567 890</a>
         <a href="#">London, UK</a>
       </div>
     </div>
@@ -413,5 +626,24 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script>
+(function(){
+  var els = document.querySelectorAll('.counter');
+  if (!els.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (!e.isIntersecting) return;
+      var el = e.target, target = parseInt(el.dataset.target), n = 0;
+      var tick = setInterval(function(){
+        n = Math.min(n + 1, target);
+        el.textContent = n;
+        if (n >= target) clearInterval(tick);
+      }, 80);
+      obs.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  els.forEach(function(el){ obs.observe(el); });
+})();
+</script>
 </body>
 </html>
